@@ -3,7 +3,7 @@ const { conversations, createConversation } = require("@grammyjs/conversations")
 const { golpeFulminante, erroCritico, rollDice, playersID, selectName } = require("./handlers");
 // const { rulesMenu, rulesau } = require("./menus");
 const { getFormattedCharacters } = require("./utils");
-const { links } = require("./config/characters");
+const { links } = require("./constants/characters");
 const { InlineKeyboard } = require("grammy");
 // const { bold, fmt, hydrateReply, italic, link } = require(
 //   "@grammyjs/parse-mode",
