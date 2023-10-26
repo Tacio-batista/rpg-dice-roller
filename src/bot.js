@@ -24,11 +24,15 @@ bot.use(session({ initial: () => ({}) }));
 
 const weblink = "http://t.me/oEscudeiro_bot/DGrules";
 
-bot.command("r" || "roll", async (ctx) => {
+bot.command("r", async (ctx) => {
   // Exemplo de uso:
   const result = await rollDice(ctx.match);
-  await ctx.reply(`@${ctx.from.username} rolou${result}`);
+  await ctx.reply(`@${ctx.from.username? ctx.from.username : ctx.from.first_name} rolou${result}`,{reply_to_message: ctx.from.message.message_id});
 });
+bot.command("roll", async (ctx) => {
+  const result = await rollDice(ctx.match);
+  await ctx.reply();
+})
 
 
 function rollDice(input) {
@@ -38,7 +42,7 @@ function rollDice(input) {
   if (match) {
     const numberOfDice = parseInt(match[1]);
     const numberOfSides = parseInt(match[2]);
-    const text = " " + match[3] || ""; // Defina o texto como uma string vazia se não for fornecido
+    const text = match[3] || ""; // Defina o texto como uma string vazia se não for fornecido
 
     if (numberOfDice > 0 && numberOfSides > 0) {
       let total = 0;
@@ -58,7 +62,7 @@ function rollDice(input) {
 }
 
 bot.api.setMyCommands([
-  { command: "start", description: "Inicia o bot" },
+  { command: "roll", description: "Use o formato XdY [texto]." },
 ]);
 // bot.use(conversations());
 // bot.use(createConversation(modifyItem, "modify-item"));
