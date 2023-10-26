@@ -27,11 +27,11 @@ const weblink = "http://t.me/oEscudeiro_bot/DGrules";
 bot.command("r", async (ctx) => {
   // Exemplo de uso:
   const result = await rollDice(ctx.match);
-  await ctx.reply(`@${ctx.from.username? ctx.from.username : ctx.from.first_name} rolou${result}`,{reply_to_message: ctx.message.message_id});
+  await ctx.reply(`@${ctx.from.username? ctx.from.username : ctx.from.first_name} rolou${result}`,{reply_to_message_id: ctx.message.message_id});
 });
 bot.command("roll", async (ctx) => {
   const result = await rollDice(ctx.match);
-  await ctx.reply(`@${ctx.from.username? ctx.from.username : ctx.from.first_name} rolou${result}`,{reply_to_message: ctx.message.message_id});
+  await ctx.reply(`@${ctx.from.username? ctx.from.firs_name : ctx.from.username} rolou${result}`,{reply_to_message_id: ctx.message.message_id});
 })
 
 
@@ -42,7 +42,7 @@ function rollDice(input) {
   if (match) {
     const numberOfDice = parseInt(match[1]);
     const numberOfSides = parseInt(match[2]);
-    const text = match[3] || ""; // Defina o texto como uma string vazia se não for fornecido
+    const text = match[3]=== undefined ? "" : (" " + match[3]); // Defina o texto como uma string vazia se não for fornecido
 
     if (numberOfDice > 0 && numberOfSides > 0) {
       let total = 0;
