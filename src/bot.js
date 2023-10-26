@@ -42,11 +42,11 @@ bot.command("erro", async (ctx) => {
 });
 
 bot.command("regras", async (ctx) =>{
-  await ctx.reply("Regras!", { reply_markup: { inline_keyboard: [[{text: "Gerais!", url: links.rules.general }],[{text: "Combate!", url: links.rules.combat }],[{text: "Magias!", url: links.rules.spells }],[{text: "❎"}]] } });
+  await ctx.reply("Regras!", { reply_markup: { inline_keyboard: [[{text: "Gerais!", url: links.rules.general }],[{text: "Combate!", url: links.rules.combat }],[{text: "Magias!", url: links.rules.spells }],[{text: "Fechar"}]] } });
 });
 
 
-bot.callbackQuery("❎", (ctx )=> {
+bot.callbackQuery("Fechar", (ctx )=> {
   bot.api.deleteMessage(ctx.chat.id, ctx.message.message_id);
 });
 
