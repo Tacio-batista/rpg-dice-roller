@@ -2,131 +2,108 @@ const { CHARACTERS, playersID } = require("../constants/characters");
 const { statusValue, idStatus, P} = require("../menus");
 const { InlineKeyboard } = require("grammy");
 
-function handleChatTypeResponse(chatID, ctx) {
-  var pass = false;
-  const IDs = Object.values(playersID);
-  if (IDs.find((id) => id === chatID)) {
-    pass = true;
-  } else {
-    ctx.reply("Você ainda não está cadastrado.");
-  }
-  return pass;
-}
 
-function extractInventoryItemsFromMessage(text, addRemove) {
-  if (!text) {
-    return [];
-  }
-  if (!text.includes("\n") && !addRemove) {
-    return text.split(",").map((item) => item.trim());
-  }
-  if (!text.includes(";")) {
-    return text.split("\n").map((item) => item.trim());
-  }
-  return text.split(";").map((item) => item.trim());
-}
-
-function isValidItem(item, ITEM_REGEX) {
-  return ITEM_REGEX.test(item);
-}
-
-function limitarCasasDecimais(numero, casasDecimais) {
-  // Arredonda o número para as casas decimais desejadas
-  const numeroArredondado = numero.toFixed(casasDecimais);
-
-  // Remove os zeros à direita, exceto se for 0
-  const numeroFormatado = numeroArredondado.replace(/(\.[0-9]*[1-9])0*|\.0*/, "$1");
-
-  // Converte a string formatada de volta para um número
-  const numeroFinal = parseFloat(numeroFormatado);
-
-  return numeroFinal;
-}
-
-
-function parseItemFromInventoryString(itemString, pockets) {
-  const itemSplit = itemString.split(",").map((item) => item.trim());
-  const itemParts = [...itemSplit.slice(0, 3), itemSplit.slice(3).join(', ')];
-  
-  if(pockets !== true){
-  return {
-    name: itemParts[0].trim(),
-    weight: limitarCasasDecimais(parseFloat(itemParts[1], 10), 3),
-    quantity: parseFloat(itemParts[2], 10),
-    desc: itemParts[3].trim(),
-  };}else{
-  let equippedPocket;
-  if(itemParts[1].toLowerCase() === "equipado" || itemParts[1].toLowerCase() === "equipada"){
-    equippedPocket = true;
-  }else{
-    equippedPocket = false;
-  }
-  return{
-    name: itemParts[0].trim(),
-    equipped: equippedPocket,
-  };}
-}
-
-
-function splitPocketQuant(item) {
-  var itemQuant = [];
-  var itemString = [];
-  for (let pocket of item) {
-    if (pocket !==""){
-    itemQuant.push([pocket, pocket]);
-    itemString.push(pocket);
-  }}
-
-  var buttonRow = itemQuant.map(([label, data]) => InlineKeyboard.text(label, data));
-
-  const tamanhoDoGrupo = calcularValorDeX(itemString.length);
-  const arrayDividida = [];
-
-  for (let i = 0; i < buttonRow.length; i += tamanhoDoGrupo) {
-    const grupo = buttonRow.slice(i, i + tamanhoDoGrupo);
-    arrayDividida.push(grupo);
-  }
-  const InlineNumbers = InlineKeyboard.from(arrayDividida);
-
-  return { InlineNumbers, itemString };
-}
-
-function calcularValorDeX(tamanhoArray) {
-  switch (true) {
-    case tamanhoArray >= 4 && tamanhoArray <= 7:
-      return tamanhoArray % 2 === 0 ? 4 : 3;
-    case tamanhoArray >= 8 && tamanhoArray <= 14:
-      return tamanhoArray % 2 === 0 ? 3 : 4;
+function selectName(ctx){
+  switch(String(ctx.from.id)){
+    
+    case playersID.Tibius:
+      return "Tibius";
+      
+    case playersID.Abbadon:
+      return "Abbadon";
+      
+    case playersID.Mestre:
+      return "Mestre";
+      
+    case playersID.Fergus:
+      return "Fergus";
+      
     default:
-      return 4;
+      return `@${ctx.from.username? ctx.from.username : ctx.from.first_name}`;
   }
+  return;
 }
 
-function extractItemsFromPockets(objectItems){
-  
-  const pinto =objectItems.reduce((pocketMap, item) => {
-    let pocket = item.pocket;
+function golpeFulminante(value) {
+  const table = {
+    3: "O golpe causa o triplo do dano.",
+    4: "A RD do alvo protege apenas com metade do valor (arredondado para baixo) depois de aplicados quaisquer divisores de armadura.",
+    5: "O golpe causa o dobro do dano.",
+    6: "O golpe causa o máximo do dano normal.",
+    7: "Se qualquer dano penetrar a RD, trate como se fosse um ferimento grave, independente do dano causado.",
+    8: "Se qualquer dano penetrar a RD, ele causa o dobro do choque normal (até uma penalidade máxima de -8). Se o ataque foi contra um membro ou extremidade, a parte do corpo em questão fica incapacitada.",
+    9: "Apenas o dano normal.",
+    10: "Apenas o dano normal.",
+    11: "Apenas o dano normal.",
+    12: "Dano normal e a vítima deixa cair o que estiver segurando, independente do dano que penetrar a RD.",
+    13: "Se qualquer dano penetrar a RD, trate como se fosse um ferimento grave, independente do dano causado.",
+    14: "Se qualquer dano penetrar a RD, trate como se fosse um ferimento grave, independente do dano causado.",
+    15: "O golpe causa o máximo do dano normal.",
+    16: "O golpe causa o dobro do dano.",
+    17: "A RD do alvo protege apenas com metade do valor (arredondado para baixo) depois de aplicados quaisquer divisores de armadura.",
+    18: "O golpe causa o triplo do dano."
+  };
 
-      if (!pocketMap[pocket]) {
-        pocketMap[pocket] = [];
+  return table[value];
+}
+
+function erroCritico(value) {
+  const table = {
+    3: " -> A arma se quebra e fica inutilizável. \n\nExceção: algumas armas são mais difíceis de quebrar. Estas incluem armas sólidas que causam dano por contusão (maças, manguais, malhos, barras de metal, etc.); armas mágicas; armas de fogo (exceto armas com mecanismos wheel-lock, mísseis teleguiados e armas de feixe); e armas de qualidade superior ou altíssima de todos os tipos. Se o combatente possuir uma arma dessas, ele deve jogar novamente. Somente se obtiver um resultado de “arma quebrada” pela segunda vez é que essas armas se quebram. No caso de qualquer outro resultado, ignore o texto e o combatente deixa a arma cair.",
+    4: " -> A arma se quebra e fica inutilizável. \n\nExceção: algumas armas são mais difíceis de quebrar. Estas incluem armas sólidas que causam dano por contusão (maças, manguais, malhos, barras de metal, etc.); armas mágicas; armas de fogo (exceto armas com mecanismos wheel-lock, mísseis teleguiados e armas de feixe); e armas de qualidade superior ou altíssima de todos os tipos. Se o combatente possuir uma arma dessas, ele deve jogar novamente. Somente se obtiver um resultado de “arma quebrada” pela segunda vez é que essas armas se quebram. No caso de qualquer outro resultado, ignore o texto e o combatente deixa a arma cair.",
+    5: " -> O combatente atinge a si mesmo (com todo o dano) no braço ou perna (50% de chance para cada). \n\nExceção: se estiver realizando um ataque por perfuração ou perfurante com uma arma de combate corpo a corpo ou qualquer tipo de arma de combate à distância, jogue novamente. Se obtiver um resultado “atinge a si mesmo” pela segunda vez, ai então assuma este resultado — metade ou todo o dano, conforme o caso. No caso de um resultado diferente de “atinge a si mesmo”, use o outro resultado.",
+    6: " -> O combatente atinge a si mesmo (com metade do dano) no braço ou perna (50% de chance para cada). \n\nExceção: se estiver realizando um ataque por perfuração ou perfurante com uma arma de combate corpo a corpo ou qualquer tipo de arma de combate à distância, jogue novamente. Se obtiver um resultado “atinge a si mesmo” pela segunda vez, ai então assuma este resultado — metade ou todo o dano, conforme o caso. No caso de um resultado diferente de “atinge a si mesmo”, use o outro resultado.",
+    7: " -> O combatente perde o equilíbrio. \n\nEle não pode fazer nada até seu próximo turno e todas as suas defesas ativas sofrem uma penalidade de -2 até lá.",
+    8: " -> A arma gira na mão do combatente. \n\nEle precisa executar uma manobra Preparar adicional antes de poder usá-la novamente.",
+    9: " -> O combatente deixa a arma cair. \n\nExceção: no caso de uma arma barata, ela se quebra. Algumas armas são mais difíceis de quebrar. Estas incluem armas sólidas que causam dano por contusão (maças, manguais, malhos, barras de metal, etc.); armas mágicas; armas de fogo (exceto armas com mecanismos wheel-lock, mísseis teleguiados e armas de feixe); e armas de qualidade superior ou altíssima de todos os tipos. Se o combatente possuir uma arma dessas, ele deve jogar novamente. Somente se obtiver um resultado de “arma quebrada” pela segunda vez é que essas armas se quebram. No caso de qualquer outro resultado, ignore o texto e o combatente deixa a arma cair.",
+    10: " -> O combatente deixa a arma cair. \n\nExceção: no caso de uma arma barata, ela se quebra. Algumas armas são mais difíceis de quebrar. Estas incluem armas sólidas que causam dano por contusão (maças, manguais, malhos, barras de metal, etc.); armas mágicas; armas de fogo (exceto armas com mecanismos wheel-lock, mísseis teleguiados e armas de feixe); e armas de qualidade superior ou altíssima de todos os tipos. Se o combatente possuir uma arma dessas, ele deve jogar novamente. Somente se obtiver um resultado de “arma quebrada” pela segunda vez é que essas armas se quebram. No caso de qualquer outro resultado, ignore o texto e o combatente deixa a arma cair.",
+    11: " -> O combatente deixa a arma cair. \n\nExceção: no caso de uma arma barata, ela se quebra. Algumas armas são mais difíceis de quebrar. Estas incluem armas sólidas que causam dano por contusão (maças, manguais, malhos, barras de metal, etc.); armas mágicas; armas de fogo (exceto armas com mecanismos wheel-lock, mísseis teleguiados e armas de feixe); e armas de qualidade superior ou altíssima de todos os tipos. Se o combatente possuir uma arma dessas, ele deve jogar novamente. Somente se obtiver um resultado de “arma quebrada” pela segunda vez é que essas armas se quebram. No caso de qualquer outro resultado, ignore o texto e o combatente deixa a arma cair.",
+    12: " -> A arma gira na mão do combatente. \n\nEle precisa executar uma manobra Preparar adicional antes de poder usá-la novamente.",
+    13: " -> O combatente perde o equilíbrio. \n\nEle não pode fazer nada até seu próximo turno e todas as suas defesas ativas sofrem uma penalidade de -2 até lá.",
+    14: " -> Se o combatente estava desferindo um golpe em balanço com uma arma de combate corpo a corpo, a arma voa da mão dele 1d metros de distância — 50% de chance para frente ou para trás. \nQualquer pessoa no local atingido pela arma deve fazer um teste de DX ou sofre metade do dano do ataque! Se o combatente estava desferindo um golpe de ponta ou qualquer tipo de ataque à distância, ou se estiver aparando, ele simplesmente deixa a arma cair\n\nExceção (se a arma cair): no caso de uma arma barata, ela se quebra. Algumas armas são mais difíceis de quebrar. Estas incluem armas sólidas que causam dano por contusão (maças, manguais, malhos, barras de metal, etc.); armas mágicas; armas de fogo (exceto armas com mecanismos wheel-lock, mísseis teleguiados e armas de feixe); e armas de qualidade superior ou altíssima de todos os tipos. Se o combatente possuir uma arma dessas, ele deve jogar novamente. Somente se obtiver um resultado de “arma quebrada” pela segunda vez é que essas armas se quebram. No caso de qualquer outro resultado, ignore o texto e o combatente deixa a arma cair.",
+    15: " -> O combatente estira o ombro! \n\nSeu braço da arma fica “incapacitado”. Ele não precisa deixar a arma cair, mas não pode usá-la para atacar ou defender durante 30 minutos.",
+    16: " -> O combatente cai! \n\nSe ele estava fazendo um ataque à distância o combatente perde o equilíbrio. Ele não pode fazer nada (nem mesmo uma ação livre) até seu próximo turno e todas as suas defesas ativas sofrem uma penalidade de -2 até lá.",
+    17: " -> A arma se quebra e fica inutilizável. \n\nExceção: algumas armas são mais difíceis de quebrar. Estas incluem armas sólidas que causam dano por contusão (maças, manguais, malhos, barras de metal, etc.); armas mágicas; armas de fogo (exceto armas com mecanismos wheel-lock, mísseis teleguiados e armas de feixe); e armas de qualidade superior ou altíssima de todos os tipos. Se o combatente possuir uma arma dessas, ele deve jogar novamente. Somente se obtiver um resultado de “arma quebrada” pela segunda vez é que essas armas se quebram. No caso de qualquer outro resultado, ignore o texto e o combatente deixa a arma cair.",
+    18: " -> A arma se quebra e fica inutilizável. \n\nExceção: algumas armas são mais difíceis de quebrar. Estas incluem armas sólidas que causam dano por contusão (maças, manguais, malhos, barras de metal, etc.); armas mágicas; armas de fogo (exceto armas com mecanismos wheel-lock, mísseis teleguiados e armas de feixe); e armas de qualidade superior ou altíssima de todos os tipos. Se o combatente possuir uma arma dessas, ele deve jogar novamente. Somente se obtiver um resultado de “arma quebrada” pela segunda vez é que essas armas se quebram. No caso de qualquer outro resultado, ignore o texto e o combatente deixa a arma cair."
+  };
+
+  return table[value] || "Resultado desconhecido.";
+}
+
+
+function rollDice(input) {
+  const regex = /(\d+)d(\d+)(?:\s+(.+))?/; // O último grupo (text) é tornando opcional
+  const match = input.match(regex);
+  let text;
+  if (match) {
+    const numberOfDice = parseInt(match[1]);
+    const numberOfSides = parseInt(match[2]);
+    const stringText = match[3]=== undefined ? "" : (" " + match[3]); // Defina o texto como uma string vazia se não for fornecido
+
+    if (numberOfDice > 0 && numberOfSides > 0) {
+      let total = 0;
+      let rolls = [];
+
+      for (let i = 0; i < numberOfDice; i++) {
+        const roll = Math.floor(Math.random() * numberOfSides) + 1;
+        total += roll;
+        rolls.push(roll);
       }
-      pocketMap[pocket].push(item);
-    return pocketMap;
-  }, {});
-   return pinto;
+      text = `${stringText}:\n(${rolls.join(' + ')}) = \n${total}`
+
+      return {text, total};
+    }
+  }
+
+  return "Formato inválido. Use o formato XdY [texto].";9
 }
 
 
 module.exports = {
-  handleChatTypeResponse,
-  extractInventoryItemsFromMessage,
-  isValidItem,
-  limitarCasasDecimais,
-  parseItemFromInventoryString,
-  statusValue,
-  idStatus,
   playersID,
-  P,
-  splitPocketQuant,
-  extractItemsFromPockets
+  erroCritico,
+  rollDice,
+  golpeFulminante,
+  selectName
+  
 };
