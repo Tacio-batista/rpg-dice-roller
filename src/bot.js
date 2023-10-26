@@ -31,7 +31,7 @@ bot.command("r", async (ctx) => {
 });
 bot.command("roll", async (ctx) => {
   const result = await rollDice(ctx.match);
-  await ctx.reply();
+  await ctx.reply(`@${ctx.from.username? ctx.from.username : ctx.from.first_name} rolou${result}`,{reply_to_message: ctx.from.message.message_id});
 })
 
 
