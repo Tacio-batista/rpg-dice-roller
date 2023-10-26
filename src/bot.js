@@ -21,7 +21,6 @@ const bot = new Bot(token);
 
 bot.use(session({ initial: () => ({}) }));
 // bot.use(hydrateReply);
-bot.use(rulesMenu);
 
 bot.command(["r", "roll", "rolar"], async (ctx) => {
   const result = await rollDice(ctx.match);
