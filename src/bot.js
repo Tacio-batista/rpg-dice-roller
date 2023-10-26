@@ -66,7 +66,7 @@ bot.command("start", async (ctx) => {
   deleteP(9);
   
   const CHARStoNotificate = await catchItem("characters");
-  await ctx.reply(CHARStoNotificate);
+  await ctx.reply(String(CHARStoNotificate)+"u");
   if (ctx.update.message.from.id === 744974273) {
     await statusReset();
     await ctx.reply("Seja bem vindo Dungeon Master!", { reply_markup: DgMMenu });
