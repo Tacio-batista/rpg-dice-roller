@@ -21,8 +21,39 @@ bot.use(session({ initial: () => ({}) }));
 const weblink = "http://t.me/oEscudeiro_bot/DGrules";
 
 bot.command("start", async (ctx) => {
-  await ctx.reply(`E ai meu mestre, vc falou isso aqui? ${ctx.match}`);
+  // Exemplo de uso:
+  const input = "2d6 Teste de Dados";
+  const result = await rollDice(ctx.match);
+
+  await ctx.reply(result);
 });
+function rollDice(input) {
+  const regex = /(\d+)d(\d+)\s+(.+)/;
+  const match = input.match(regex);
+
+  if (match) {
+    const numberOfDice = parseInt(match[1]);
+    const numberOfSides = parseInt(match[2]);
+    const text = match[3];
+
+    if (numberOfDice > 0 && numberOfSides > 0) {
+      let total = 0;
+      let rolls = [];
+
+      for (let i = 0; i < numberOfDice; i++) {
+        const roll = Math.floor(Math.random() * numberOfSides) + 1;
+        total += roll;
+        rolls.push(roll);
+      }
+
+      return `${text}:\n(${rolls.join(' + ')}) = ${total}`;
+    }
+  }
+
+  return "Formato inválido. Use o formato XdY <text>.";
+}
+
+
 
 bot.api.setMyCommands([
   { command: "start", description: "Inicia o bot" },
