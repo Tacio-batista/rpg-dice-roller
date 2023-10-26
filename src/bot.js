@@ -26,19 +26,21 @@ const weblink = "http://t.me/oEscudeiro_bot/DGrules";
 
 bot.command(["r", "roll", "rolar"], async (ctx) => {
   const result = await rollDice(ctx.match);
-  const playerName = selectName(ctx.from.id);
+  const playerName = await selectName(ctx);
   await ctx.reply(`${playerName} rolou${result.text}`,{reply_to_message_id: ctx.message.message_id});
 });
 
 bot.command("fulminante", async (ctx) => {
   const result = await rollDice("3d6");
   const output = await golpeFulminante(result.total);
+  const playerName = await selectName(ctx);
   await ctx.reply(`${playerName} rolou${result.text}\n\nE o resultado do GOLPE FULMINANTE foi:\n\n${output}`,{reply_to_message_id: ctx.message.message_id});
 });
 bot.command("erro", async (ctx) => {
   const result = await rollDice("3d6");
   const output = await erroCritico(result.total);
-  await ctx.reply(`@${ctx.from.username? ctx.from.username : ctx.from.first_name} rolou${result.text}\n\nE o resultado do ERRO CRÍTICO foi:\n\n${output}`,{reply_to_message_id: ctx.message.message_id});
+  const playerName = await selectName(ctx);
+  await ctx.reply(`${playerName} rolou${result.text}\n\nE o resultado do ERRO CRÍTICO foi:\n\n${output}`,{reply_to_message_id: ctx.message.message_id});
 });
 
 
