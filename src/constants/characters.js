@@ -10,14 +10,14 @@ const playersID = {
 
 const links = { 
   rules: {
-    general: "https://t.me/SquareDice_bot/regrasGerais",
-    combat: "https://t.me/SquareDice_bot/regrasCombate",
-    spells: "https://t.me/SquareDice_bot/regrasMagias",
+    general: "http://t.me/SquareDice_bot/regrasGerais",
+    combat: "http://t.me/SquareDice_bot/regrasCombate",
+    spells: "http://t.me/SquareDice_bot/regrasMagias",
   },
   sheets:{
-    Tibius: "https://t.me/SquareDice_bot/fichaTibius",
-    Fergus: "https://t.me/SquareDice_bot/fichaFergus",
-    Abbadon: "https://t.me/SquareDice_bot/fichaAbbadon",
+    Tibius: "http://t.me/SquareDice_bot/fichaTibius",
+    Fergus: "http://t.me/SquareDice_bot/fichaFergus",
+    Abbadon: "http://t.me/SquareDice_bot/fichaAbbadon",
   }
 }
 
