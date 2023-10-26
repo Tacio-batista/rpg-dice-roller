@@ -4,11 +4,9 @@ const { playersID, links } = require("../constants/characters");
 
 
 const rulesMenu = new Menu("rules-menu")
-  .webApp("Gerais!", links.rules.general)
-  .row()
-  .webApp("Combate!",links.rules.combat)
-  .row()
-  .webApp("Magias!", links.rules.spells);
+  .webApp("Gerais!", {url: links.rules.general})
+  .webApp("Combate!", {url: links.rules.combat})
+  .webApp("Magias!", {url: links.rules.spells});
 
 module.exports = {
   rulesMenu
