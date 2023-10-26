@@ -5,6 +5,7 @@ const { itemRemoveMenu, itemAddMenu, mainMenu, DgMMenu, listPlayersMenu, itemMod
 const { getFormattedCharacters } = require("./utils");
 const { catchItem, deleteItem } = require("./config/storage");
 const { InlineKeyboard } = require("grammy");
+const { bold,fmt, hydrateReply, italic, link} = require("@grammyjs/parse-mode");
 
 
 const {
@@ -17,24 +18,25 @@ const bot = new Bot(token);
 // Anexe todos os middlewares
 
 bot.use(session({ initial: () => ({}) }));
+bot.use(hydrateReply);
 
 const weblink = "http://t.me/oEscudeiro_bot/DGrules";
 
 bot.command("start", async (ctx) => {
   // Exemplo de uso:
-  const input = "2d6 Teste de Dados";
   const result = await rollDice(ctx.match);
 
-  await ctx.reply(result);
+  await ctx.replyFmt(fmt`${result}`);
 });
+
 function rollDice(input) {
-  const regex = /(\d+)d(\d+)\s+(.+)/;
+  const regex = /(\d+)d(\d+)(?:\s+(.+))?/; // O último grupo (text) é tornando opcional
   const match = input.match(regex);
 
   if (match) {
     const numberOfDice = parseInt(match[1]);
     const numberOfSides = parseInt(match[2]);
-    const text = match[3];
+    const text = match[3] || ""; // Defina o texto como uma string vazia se não for fornecido
 
     if (numberOfDice > 0 && numberOfSides > 0) {
       let total = 0;
@@ -46,14 +48,12 @@ function rollDice(input) {
         rolls.push(roll);
       }
 
-      return `${text}:\n(${rolls.join(' + ')}) = ${total}`;
+      return `${bold(`${text}`)}:\n(${rolls.join(' + ')}) = \n${bold(`${total}`)}`;
     }
   }
 
-  return "Formato inválido. Use o formato XdY <text>.";
+  return "Formato inválido. Use o formato XdY [texto].";
 }
-
-
 
 bot.api.setMyCommands([
   { command: "start", description: "Inicia o bot" },
