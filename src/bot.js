@@ -26,7 +26,7 @@ bot.command("start", async (ctx) => {
   // Exemplo de uso:
   const result = await rollDice(ctx.match);
 
-  await ctx.replyFmt(fmt`${result}`);
+  await ctx.replyFmt(fmt`${bold(`${result}`}`);
 });
 
 function rollDice(input) {
@@ -48,7 +48,7 @@ function rollDice(input) {
         rolls.push(roll);
       }
 
-      return `${bold(`${text}`)}:\n(${rolls.join(' + ')}) = \n${bold(`${total}`)}`;
+      return `${text}:\n(${rolls.join(' + ')}) = \n${total}`;
     }
   }
 
