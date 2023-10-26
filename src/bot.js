@@ -48,8 +48,9 @@ bot.command("regras", async (ctx) =>{
 
 
 bot.api.setMyCommands([
-  { command: "roll", description: "Use o formato XdY [texto]." },
-  { command: "fulminante", description: "Golpe fulminante." },
-  { command: "erro", description: "Erro crítico." },
+  { command: "roll", description: "Use o formato XdY [texto]" },
+  { command: "fulminante", description: "Golpe fulminante" },
+  { command: "erro", description: "Erro crítico" },
+  { command: "regras", description: "Dispõe a lista de regras" },
 ]);
 module.exports = { bot };
