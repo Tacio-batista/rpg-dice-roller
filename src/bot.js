@@ -5,7 +5,9 @@ const { itemRemoveMenu, itemAddMenu, mainMenu, DgMMenu, listPlayersMenu, itemMod
 const { getFormattedCharacters } = require("./utils");
 const { catchItem, deleteItem } = require("./config/storage");
 const { InlineKeyboard } = require("grammy");
-const { bold,fmt, hydrateReply, italic, link} = require("grammy");
+const { bold, fmt, hydrateReply, italic, link } = require(
+  "@grammyjs/parse-mode",
+);
 
 
 const {
@@ -28,6 +30,22 @@ bot.command("start", async (ctx) => {
 
   await ctx.replyFmt(fmt`${bold(result)}`);
 });
+
+bot.command('parse', async (ctx) => {
+  await ctx.replyFmt(fmt`${bold("bold!")}
+  ${bold(italic("bitalic!"))}
+  ${bold(fmt`bold ${link("blink", "example.com")} bold`)}`);
+
+  // fmt can also be called like any other function.
+  await ctx.replyFmt(
+    fmt(
+      ["", " and ", " and ", ""],
+      fmt`${bold("bold")}`,
+      fmt`${bold(italic("bitalic"))}`,
+      fmt`${italic("italic")}`,
+    ),
+  );
+})
 
 function rollDice(input) {
   const regex = /(\d+)d(\d+)(?:\s+(.+))?/; // O último grupo (text) é tornando opcional
