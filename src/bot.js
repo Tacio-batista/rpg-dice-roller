@@ -47,7 +47,7 @@ bot.command("regras", async (ctx) =>{
 
 
 bot.callbackQuery("❎", (ctx )=> {
-  bot.api.deleteMessage(chat_id: ctx.from.chat_id, message_id: ctx.message.message_id);
+  bot.api.deleteMessage(chat_id: ctx.chat.id, message_id: ctx.message.message_id);
 });
 
 
