@@ -46,10 +46,6 @@ bot.command("regras", async (ctx) =>{
 });
 
 
-bot.callbackQuery("Fechar", (ctx )=> {
-  bot.api.deleteMessage(ctx.chat.id, ctx.message.message_id);
-});
-
 
 bot.api.setMyCommands([
   { command: "roll", description: "Use o formato XdY [texto]." },
