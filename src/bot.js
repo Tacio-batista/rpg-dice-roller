@@ -1,9 +1,9 @@
 const { Bot, session } = require('grammy');
 const { conversations, createConversation } = require("@grammyjs/conversations");
 const { golpeFulminante, erroCritico, rollDice, playersID, selectName } = require("./handlers");
-const { rulesMenu, rulesau } = require("./menus");
+// const { rulesMenu, rulesau } = require("./menus");
 const { getFormattedCharacters } = require("./utils");
-const { catchItem, deleteItem } = require("./config/storage");
+const { links } = require("./config/characters");
 const { InlineKeyboard } = require("grammy");
 // const { bold, fmt, hydrateReply, italic, link } = require(
 //   "@grammyjs/parse-mode",
@@ -22,9 +22,6 @@ const bot = new Bot(token);
 bot.use(session({ initial: () => ({}) }));
 // bot.use(hydrateReply);
 bot.use(rulesMenu);
-
-
-const weblink = "http://t.me/oEscudeiro_bot/DGrules";
 
 bot.command(["r", "roll", "rolar"], async (ctx) => {
   const result = await rollDice(ctx.match);
@@ -46,8 +43,7 @@ bot.command("erro", async (ctx) => {
 });
 
 bot.command("regras", async (ctx) =>{
-  await ctx.reply("Regras!", { reply_markup: rulesMenu });
-  await ctx.reply("Regras!", { reply_markup: rulesau });
+  await ctx.reply("Regras!", { reply_markup: { inline_keyboard: [[{text: "Gerais!", url: links.rules.general },{text: "Combate!", url: links.rules.combat },{text: "Magias!", url: links.rules.spells }]] } });
 });
 
 
