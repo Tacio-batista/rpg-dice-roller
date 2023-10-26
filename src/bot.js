@@ -1,7 +1,7 @@
 const { Bot, session } = require('grammy');
 const { conversations, createConversation } = require("@grammyjs/conversations");
 const { golpeFulminante, erroCritico, rollDice, playersID, selectName } = require("./handlers");
-const { rulesMenu } = require("./menus");
+const { rulesMenu, rulesau } = require("./menus");
 const { getFormattedCharacters } = require("./utils");
 const { catchItem, deleteItem } = require("./config/storage");
 const { InlineKeyboard } = require("grammy");
@@ -47,6 +47,7 @@ bot.command("erro", async (ctx) => {
 
 bot.command("regras", async (ctx) =>{
   await ctx.reply("Regras!", { reply_markup: rulesMenu });
+  await ctx.reply("Regras!", { reply_markup: rulesau });
 });
 
 
