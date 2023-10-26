@@ -24,9 +24,9 @@ bot.use(session({ initial: () => ({}) }));
 
 const weblink = "http://t.me/oEscudeiro_bot/DGrules";
 
-bot.command(["r", "roll"], async (ctx) => {
+bot.command(["r", "roll", "rolar"], async (ctx) => {
   const result = await rollDice(ctx.match);
-  await ctx.reply(`@${ctx.from.username? ctx.from.first_name : ctx.from.username} rolou${result}`,{reply_to_message_id: ctx.message.message_id});
+  await ctx.reply(`@${ctx.from.username? ctx.from.username : ctx.from.first_name} rolou${result}`,{reply_to_message_id: ctx.message.message_id});
 })
 
 
