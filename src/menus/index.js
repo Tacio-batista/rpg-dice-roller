@@ -8,7 +8,7 @@ const rulesMenu = new Menu("rules-menu")
   .webApp("Gerais!", links.rules.general)
   .webApp("Combate!", links.rules.combat)
   .webApp("Magias!", links.rules.spells);
-const rulesau = new InlineKeyboard
+const rulesau = new InlineKeyboard()
   .webApp("Gerais!", links.rules.general)
   .webApp("Combate!", links.rules.combat)
   .webApp("Magias!", links.rules.spells);
