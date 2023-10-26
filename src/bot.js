@@ -21,7 +21,7 @@ bot.use(session({ initial: () => ({}) }));
 const weblink = "http://t.me/oEscudeiro_bot/DGrules";
 
 bot.command("start", async (ctx) => {
-  await ctx.reply(`E a meu mestre, vc falou isso aqui? ${ctx.update.message}`, { reply_markup: itemAddMenu });
+  await ctx.reply(`E a meu mestre, vc falou isso aqui? ${ctx.update.message}`);
 });
 
 bot.api.setMyCommands([
