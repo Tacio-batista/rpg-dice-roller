@@ -23,6 +23,5 @@ const links = {
 
 module.exports = {
   playersID,
-  CHARACTERS,
   links
 };
