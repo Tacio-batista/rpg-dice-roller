@@ -19,7 +19,7 @@ const statusMenuRange = new MenuRange()
     })
   .text( 
       async (ctx) =>{
-        const CHARStoNotificate = await catchItem("characters")
+        const CHARStoNotificate = await catchItem("characters");
         console.log(CHARStoNotificate);
         const charToNotificate = CHARStoNotificate.find(value => String(ctx.from.id) === value.id);
         return (charToNotificate.status.notifications ? "🔔" : "🔕")
