@@ -23,6 +23,7 @@ bot.use(session({ initial: () => ({}) }));
 // bot.use(hydrateReply);
 bot.use(rulesMenu);
 
+
 const weblink = "http://t.me/oEscudeiro_bot/DGrules";
 
 bot.command(["r", "roll", "rolar"], async (ctx) => {

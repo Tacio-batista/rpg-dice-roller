@@ -1,6 +1,7 @@
-const { CHARACTERS, playersID } = require("../constants/characters");
+const { playersID } = require("../constants/characters");
 const { statusValue, idStatus, P} = require("../menus");
 const { InlineKeyboard } = require("grammy");
+
 
 
 function selectName(ctx){
