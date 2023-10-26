@@ -5,8 +5,8 @@ const { itemRemoveMenu, itemAddMenu, mainMenu, DgMMenu, listPlayersMenu, itemMod
 const { getFormattedCharacters } = require("./utils");
 const { catchItem, deleteItem } = require("./config/storage");
 const { InlineKeyboard } = require("grammy");
-const { bold, fmt, hydrateReply, italic, link } = require(
-  "@grammyjs/parse-mode",
+// const { bold, fmt, hydrateReply, italic, link } = require(
+//   "@grammyjs/parse-mode",
 );
 
 
@@ -20,32 +20,16 @@ const bot = new Bot(token);
 // Anexe todos os middlewares
 
 bot.use(session({ initial: () => ({}) }));
-bot.use(hydrateReply);
+// bot.use(hydrateReply);
 
 const weblink = "http://t.me/oEscudeiro_bot/DGrules";
 
-bot.command("start", async (ctx) => {
+bot.command("r" || "roll", async (ctx) => {
   // Exemplo de uso:
   const result = await rollDice(ctx.match);
-
-  await ctx.replyFmt(fmt`${bold(result)}`);
+  await ctx.reply(`@${ctx.from.username} rolou${result}`);
 });
 
-bot.command('parse', async (ctx) => {
-  await ctx.replyFmt(fmt`${bold("bold!")}
-  ${bold(italic("bitalic!"))}
-  ${bold(fmt`bold ${link("blink", "example.com")} bold`)}`);
-
-  // fmt can also be called like any other function.
-  await ctx.replyFmt(
-    fmt(
-      ["", " and ", " and ", ""],
-      fmt`${bold("bold")}`,
-      fmt`${bold(italic("bitalic"))}`,
-      fmt`${italic("italic")}`,
-    ),
-  );
-})
 
 function rollDice(input) {
   const regex = /(\d+)d(\d+)(?:\s+(.+))?/; // O último grupo (text) é tornando opcional
@@ -54,7 +38,7 @@ function rollDice(input) {
   if (match) {
     const numberOfDice = parseInt(match[1]);
     const numberOfSides = parseInt(match[2]);
-    const text = match[3] || ""; // Defina o texto como uma string vazia se não for fornecido
+    const text = " " + match[3] || ""; // Defina o texto como uma string vazia se não for fornecido
 
     if (numberOfDice > 0 && numberOfSides > 0) {
       let total = 0;
