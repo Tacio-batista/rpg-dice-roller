@@ -26,7 +26,7 @@ bot.command("start", async (ctx) => {
   // Exemplo de uso:
   const result = await rollDice(ctx.match);
 
-  await ctx.replyFmt(fmt`${bold(`${result}`}`);
+  await ctx.replyFmt(fmt`${bold(result)}`);
 });
 
 function rollDice(input) {
