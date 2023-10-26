@@ -1,6 +1,6 @@
 const storage = require("node-persist");
 
-const storagePath = "../handlers";
+const storagePath = "./src/handlers";
 
 const saveItem = async (key, value) => {
   await storage.init({ dir: storagePath });
