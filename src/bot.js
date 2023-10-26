@@ -26,18 +26,47 @@ const weblink = "http://t.me/oEscudeiro_bot/DGrules";
 
 bot.command(["r", "roll", "rolar"], async (ctx) => {
   const result = await rollDice(ctx.match);
-  await ctx.reply(`@${ctx.from.username? ctx.from.username : ctx.from.first_name} rolou${result}`,{reply_to_message_id: ctx.message.message_id});
+  await ctx.reply(`@${ctx.from.username? ctx.from.username : ctx.from.first_name} rolou${result.text}`,{reply_to_message_id: ctx.message.message_id});
+});
+
+bot.command("fulminante", async (ctx) => {
+  const result = await rollDice("3d6");
+  const output = await golpeFulminante(result.total);
+  await ctx.reply(`@${ctx.from.username? ctx.from.username : ctx.from.first_name} rolou${result.text}\n\nE o resultado do golpe fulminante foi:\n\n${output}!`,{reply_to_message_id: ctx.message.message_id});
 })
 
+function golpeFulminante(value) {
+  const table = {
+    3: "O golpe causa o triplo do dano.",
+    4: "A RD do alvo protege apenas com metade do valor (arredondado para baixo) depois de aplicados quaisquer divisores de armadura.",
+    5: "O golpe causa o dobro do dano.",
+    6: "O golpe causa o máximo do dano normal.",
+    7: "Se qualquer dano penetrar a RD, trate como se fosse um ferimento grave, independente do dano causado.",
+    8: "Se qualquer dano penetrar a RD, ele causa o dobro do choque normal (até uma penalidade máxima de -8). Se o ataque foi contra um membro ou extremidade, a parte do corpo em questão fica incapacitada.",
+    9: "Apenas o dano normal.",
+    10: "Apenas o dano normal.",
+    11: "Apenas o dano normal.",
+    12: "Dano normal e a vítima deixa cair o que estiver segurando, independente do dano que penetrar a RD.",
+    13: "Se qualquer dano penetrar a RD, trate como se fosse um ferimento grave, independente do dano causado.",
+    14: "Se qualquer dano penetrar a RD, trate como se fosse um ferimento grave, independente do dano causado.",
+    15: "O golpe causa o máximo do dano normal.",
+    16: "O golpe causa o dobro do dano.",
+    17: "A RD do alvo protege apenas com metade do valor (arredondado para baixo) depois de aplicados quaisquer divisores de armadura.",
+    18: "O golpe causa o triplo do dano."
+  };
 
-function rollDice(input) {
+  return table[value];
+}
+
+
+function rollDice(input, fun) {
   const regex = /(\d+)d(\d+)(?:\s+(.+))?/; // O último grupo (text) é tornando opcional
   const match = input.match(regex);
-
+  let text;
   if (match) {
     const numberOfDice = parseInt(match[1]);
     const numberOfSides = parseInt(match[2]);
-    const text = match[3]=== undefined ? "" : (" " + match[3]); // Defina o texto como uma string vazia se não for fornecido
+    const stringText = match[3]=== undefined ? "" : (" " + match[3]); // Defina o texto como uma string vazia se não for fornecido
 
     if (numberOfDice > 0 && numberOfSides > 0) {
       let total = 0;
@@ -48,8 +77,9 @@ function rollDice(input) {
         total += roll;
         rolls.push(roll);
       }
+      text = `${stringText}:\n(${rolls.join(' + ')}) = \n${total}`
 
-      return `${text}:\n(${rolls.join(' + ')}) = \n${total}`;
+      return {text, total};
     }
   }
 
@@ -58,6 +88,7 @@ function rollDice(input) {
 
 bot.api.setMyCommands([
   { command: "roll", description: "Use o formato XdY [texto]." },
+  { command: "fulminante", description: "Golpe fulminante." },
 ]);
 // bot.use(conversations());
 // bot.use(createConversation(modifyItem, "modify-item"));
