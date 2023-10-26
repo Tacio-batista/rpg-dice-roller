@@ -1,4 +1,4 @@
-const { Bot } = require('grammy');
+const { Bot, session } = require('grammy');
 const { conversations, createConversation } = require("@grammyjs/conversations");
 const { addItem, removeItem, modifyItem, addCube, removeCube, modifyCube, equipItem, unequipItem, status, addPockets, removePockets, equipPockets, unequipPockets, modifyPockets, transferItem, progress } = require("./handlers/imports");
 const { itemRemoveMenu, itemAddMenu, mainMenu, DgMMenu, listPlayersMenu, itemModifyMenu, deleteP, P, listItemsMenu, equipPocketMenu, cubeMenu, inventoryMenu, changeStatus, playerss, statusValue, statusReset, fullRecoverAll, pocketsMenu, menuHelp, idStatus, progressMenu, xpMenu, statusMenu } = require("./menus");
@@ -16,6 +16,7 @@ const bot = new Bot(token);
 
 // Anexe todos os middlewares
 
+bot.use(session({ initial: () => ({}) }));
 
 const weblink = "http://t.me/oEscudeiro_bot/DGrules";
 
