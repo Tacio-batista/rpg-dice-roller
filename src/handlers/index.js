@@ -77,7 +77,7 @@ function rollDice(input) {
   const match = input.match(regex);
   let text;
   if (match) {
-    const numberOfDice = parseInt(match[1]);
+    const numberOfDice = parseInt(match[1]) || 1;
     const numberOfSides = parseInt(match[2]);
     const stringText = match[3]=== undefined ? "" : (" " + match[3]); // Defina o texto como uma string vazia se não for fornecido
 
