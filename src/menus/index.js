@@ -13,19 +13,24 @@ const rulesMenu = new Menu("rules-menu")
 
 const sheetsMenu = new Menu("sheets-menu")
   .url("Abrir!", (ctx) => {
-    switch(String(ctx.from.id)){
-      case playersID.Tibius:
-        return links.sheets.Tibius;
-      case playersID.Abbadon:
-        return links.sheets.Abbadon;
-      case playersID.Fergus:
-        return links.sheets.Fergus;
-      default:
-        return "http://t.me.SquareDice_bot"
+    if(String(ctx.from.id) === playersID.Tibius){
+      return links.sheets.Tibius;
+    }else if(String(ctx.from.id) === playersID.Abbadon){
+      return links.sheets.Abbadon;
+    }else if(String(ctx.from.id) === playersID.Fergus){
+      return links.sheets.Fergus;
+    }else{
+        return "http://t.me.SquareDice_bot/";
     }
+    return "http://t.me.SquareDice_bot/";
+    
   })
   .row()
-  .text("❎", (ctx) => ctx.deleteMessage());
+  .text("Fechar", (ctx) => ctx.deleteMessage());
+  
+  
+const tibiusMenu = new Menu("tibius-menu")
+  .url("Abrir!", links.sheets.Tibius)
 
 const dgSheetsMenu = new Menu("dg-sheets-menu")  
   .url("Abbadon", links.sheets.Abbadon)
@@ -39,5 +44,6 @@ const dgSheetsMenu = new Menu("dg-sheets-menu")
 module.exports = {
   rulesMenu,
   sheetsMenu,
-  dgSheetsMenu
+  dgSheetsMenu,
+  tibiusMenu
 };
