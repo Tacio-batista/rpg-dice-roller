@@ -6,7 +6,8 @@ function handleChatTypeResponse(chatID, ctx) {
   let pass = false;
   const IDs = Object.values(playersID);
   if (IDs.find((id) => id === chatID)) {
-    pass = true;
+    pass = false;
+    ctx.reply("Você ainda não está cadastrado.");
   } else {
     ctx.reply("Você ainda não está cadastrado.");
   }

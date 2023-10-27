@@ -53,6 +53,26 @@ bot.command("regras", async (ctx) =>{
 
 bot.command("ficha", async (ctx) =>{
   const ID = String(ctx.from.id);
+  // if(await handleChatTypeResponse(ID, ctx)){
+    switch (ID) {
+      case playersID.Abbadon:
+        await ctx.reply("Ficha!", { reply_markup: abbadonMenu});
+        break;
+      case playersID.Fergus:
+        await ctx.reply("Ficha!", { reply_markup: fergusMenu});
+        break;
+      case "au":
+        await ctx.reply("Ficha!", { reply_markup: tibiusMenu});
+        break;
+      default:
+        await ctx.reply("Fichas!", { reply_markup: dgSheetsMenu});
+    // }
+  }
+});
+
+
+bot.command("teste", async (ctx) =>{
+  const ID = String(ctx.from.id);
   if(await handleChatTypeResponse(ID, ctx)){
     switch (ID) {
       case playersID.Abbadon:
@@ -61,7 +81,7 @@ bot.command("ficha", async (ctx) =>{
       case playersID.Fergus:
         await ctx.reply("Ficha!", { reply_markup: fergusMenu});
         break;
-      case playersID.Tibius:
+      case "au":
         await ctx.reply("Ficha!", { reply_markup: tibiusMenu});
         break;
       default:
