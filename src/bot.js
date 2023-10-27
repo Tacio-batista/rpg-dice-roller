@@ -1,6 +1,6 @@
 const { Bot, session } = require('grammy');
 const { conversations, createConversation } = require("@grammyjs/conversations");
-const { golpeFulminante, erroCritico, rollDice, playersID, selectName } = require("./handlers");
+const { golpeFulminante, erroCritico, rollDice, playersID, selectName, handleChatTypeResponse } = require("./handlers");
 const { rulesMenu, sheetsMenu} = require("./menus");
 const { getFormattedCharacters } = require("./utils");
 const { links } = require("./constants/characters");
@@ -49,15 +49,18 @@ bot.command("regras", async (ctx) =>{
 });
 
 bot.command("ficha", async (ctx) =>{
-  await ctx.reply("Ficha!", { reply_markup: sheetsMenu});
+  if(await handleChatTypeResponse(String(ctx.from.id), ctx)){
+    await ctx.reply("Ficha!", { reply_markup: sheetsMenu});
+  }
 });
 
 
 bot.api.setMyCommands([
   { command: "roll", description: "Use o formato XdY [texto]" },
-  { command: "fulminante", description: "Golpe fulminante" },
-  { command: "erro", description: "Erro crítico" },
+  { command: "fulminante", description: "Rolagem para golpe fulminante" },
+  { command: "erro", description: "Rolagem para erro crítico" },
   { command: "regras", description: "Dispõe a lista de regras" },
-  { command: "help", description: "Dispõe a lista de regras" },
-]);
+  // { command: "help", description: "Dispõe a lista de regras" },
+],
+  {type: "chat", chat_id: playersID.Abbadon});
 module.exports = { bot };

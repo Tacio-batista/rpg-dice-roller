@@ -1,7 +1,7 @@
 const { Menu, MenuRange } = require("@grammyjs/menu");
 const { playersID, links } = require("../constants/characters");
 const { InlineKeyboard } = require("grammy");
-const { selectName } = require("./handlers");
+const { selectName } = require("../handlers");
 
 
 const rulesMenu = new Menu("rules-menu")

@@ -2,6 +2,16 @@ const { playersID } = require("../constants/characters");
 const { statusValue, idStatus, P} = require("../menus");
 const { InlineKeyboard } = require("grammy");
 
+function handleChatTypeResponse(chatID, ctx) {
+  let pass = false;
+  const IDs = Object.values(playersID);
+  if (IDs.find((id) => id === chatID)) {
+    pass = true;
+  } else {
+    ctx.reply("Você ainda não está cadastrado.");
+  }
+  return pass;
+}
 
 
 function selectName(ctx){
@@ -120,6 +130,6 @@ module.exports = {
   erroCritico,
   rollDice,
   golpeFulminante,
-  selectName
-  
+  selectName,
+  handleChatTypeResponse
 };
