@@ -73,7 +73,7 @@ function erroCritico(value) {
 
 
 function rollDice(input) {
-  const regex = /(\d+)d(\d+)(?:\s+(.+))?/; // O último grupo (text) é tornando opcional
+  const regex = /(\d*)d(\d+)(?:\s+(.+))?/; // O último grupo (text) é tornando opcional
   const match = input.match(regex);
   let text;
   if (match) {
