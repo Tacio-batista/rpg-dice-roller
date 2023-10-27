@@ -82,7 +82,8 @@ function rollDice(input) {
     const numberOfDice = match[1] !== "" ? parseInt(match[1]) : 1 ;
     const numberOfSides = parseInt(match[2]);
     const modifier = match[3] ? parseInt(match[3]) : 0;
-    const divisor = match[4] ? parseInt(match[4].substring(1)) : 1;
+    const divisorMatch = match[4] ? match[4].match(/\/(\d+)/) : null;
+    const divisor = divisorMatch ? parseInt(divisorMatch[1]) : 1;
     const stringText = match[5]=== undefined ? "" : (" " + match[5]); // Defina o texto como uma string vazia se não for fornecido
 
     if (numberOfDice > 0 && numberOfSides > 0) {
@@ -95,11 +96,12 @@ function rollDice(input) {
         rolls.push(roll);
       }
       total += modifier;
+      
         if (j === 0) {
-          text += `${text}:\n`;
+          text += `${stringText}:\n`;
         }
-
-        text += `(${rolls.join(' + ')}) ${modifier === 0 ? "" : `${modifier > 0 ? `+ ${Math.abs(modifier)}` : `- ${Math.abs(modifier)}`}`}  = \n${total}\n`;
+        
+      text +=`(${rolls.join(' + ')}) ${modifier === 0 ? "" : `${modifier > 0 ? `+ ${Math.abs(modifier)} ` : `- ${Math.abs(modifier)} `}`}= \n${total}\n`;
     }
       
       // text = `${stringText}:\n${output}`;
@@ -109,7 +111,7 @@ function rollDice(input) {
   total = false;
   }
 
-  return {text.replace(undefined, ""), total};
+  return {text, total};
 }
 
 
