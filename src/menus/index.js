@@ -31,6 +31,8 @@ const sheetsMenu = new Menu("sheets-menu")
   
 const tibiusMenu = new Menu("tibius-menu")
   .url("Abrir!", links.sheets.Tibius)
+  .row()
+  .text("Fechar", (ctx) => ctx.deleteMessage());
 
 const dgSheetsMenu = new Menu("dg-sheets-menu")  
   .url("Abbadon", links.sheets.Abbadon)
