@@ -12,7 +12,7 @@ const rulesMenu = new Menu("rules-menu")
   .text("❎", (ctx) => ctx.deleteMessage());
 
 const sheetsMenu = new Menu("sheets-menu")
-  .url("Abrir!", (ctx) => {
+  .url("Abrir!", async (ctx) => {
     if(String(ctx.from.id) === playersID.Tibius){
       return links.sheets.Tibius;
     }else if(String(ctx.from.id) === playersID.Abbadon){
