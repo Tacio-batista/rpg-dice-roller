@@ -82,7 +82,7 @@ function rollDice(input) {
     const numberOfDice = match[1] !== "" ? parseInt(match[1]) : 1 ;
     const numberOfSides = parseInt(match[2]);
     const modifier = match[3] ? parseInt(match[3]) : 0;
-    const divisorMatch = match[4] ? match[4].match(/\/(\d+)/) : null;
+    const divisorMatch = match[4] ? match[4].match(/\*(\d+)/) : null;
     const divisor = divisorMatch ? parseInt(divisorMatch[1]) : 1;
     const stringText = match[5]=== undefined ? "" : (" " + match[5]); // Defina o texto como uma string vazia se não for fornecido
 
