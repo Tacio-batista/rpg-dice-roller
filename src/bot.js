@@ -23,6 +23,7 @@ bot.use(session({ initial: () => ({}) }));
 // bot.use(hydrateReply);
 bot.use(rulesMenu);
 bot.use(sheetsMenu);
+bot.use(tibiusMenu);
 
 bot.command(["r", "roll", "rolar"], async (ctx) => {
   if(ctx.match !== ""){
