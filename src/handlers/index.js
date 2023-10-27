@@ -75,6 +75,7 @@ function rollDice(input) {
   const regex = /(\d*)d(\d+)([+\-]\d+)?(?:\s+(.+))?/; // O último grupo (text) é tornando opcional
   const match = input.match(regex);
   let text;
+  let total;
   if (match) {
     const numberOfDice = match[1] !== "" ? parseInt(match[1]) : 1 ;
     const numberOfSides = parseInt(match[2]);
@@ -82,7 +83,7 @@ function rollDice(input) {
     const stringText = match[4]=== undefined ? "" : (" " + match[4]); // Defina o texto como uma string vazia se não for fornecido
 
     if (numberOfDice > 0 && numberOfSides > 0) {
-      let total = 0;
+      total = 0;
       let rolls = [];
 
       for (let i = 0; i < numberOfDice; i++) {
@@ -93,15 +94,17 @@ function rollDice(input) {
       total += modifier;
 
       text = `${stringText}:\n(${rolls.join(' + ')}) ${modifier >= 0 ? '+' : '-'} ${Math.abs(modifier)} = \n${total}`;
-      if(text === undefined){
-        text = "Formato inválido. Use o formato XdY+Z [texto].";
-        total = false;
-      }
-        return {text, total};
+      // if(text === undefined){
+      //   text = "Formato inválido. Use o formato XdY+Z [texto].";
+      //   total = false;
+      // }
     }
+  }else{
+  text = "Formato inválido. Use o formato XdY+Z [texto].";
+  total = false;
   }
 
-  return "Formato inválido. Use o formato XdY+Z [texto].";
+  return {text, total};
 }
 
 
