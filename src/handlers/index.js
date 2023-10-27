@@ -72,7 +72,7 @@ function erroCritico(value) {
 }
 
 function rollDice(input) {
-  const regex = /(\d*)d(\d+)([+\-]\d+)?(\/\d+)?(?:\s+(.+))?/; // O último grupo (text) é tornando opcional
+  const regex = /(\d*)d(\d+)([+\-]\d+)?(\*\d+)?(?:\s+(.+))?/; // O último grupo (text) é tornando opcional
   const match = input.match(regex);
   let text;
   let total;
@@ -94,13 +94,13 @@ function rollDice(input) {
         rolls.push(roll);
       }
       total += modifier;
-      output += `(${rolls.join(' + ')}) ${modifier >= 0 ? '+' : '-'} ${Math.abs(modifier)} = ${total}\n`;
+      output += `(${rolls.join(' + ')}) ${modifier >= 0 ? '+' : '-'} ${Math.abs(modifier)} = \n${total}\n`;
     }
       
       text = `${stringText}:\n${output}`;
     }
   }else{
-  text = "Formato inválido. Use o formato XdY[+/-Z] [texto].";
+  text = "Formato inválido. Use o formato XdY[+/-Z][*W] [texto].";
   total = false;
   }
 
