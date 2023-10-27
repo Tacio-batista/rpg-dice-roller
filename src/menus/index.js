@@ -6,16 +6,14 @@ const rodape = new MenuRange()
   .row()
   .text("❎", (ctx) => ctx.deleteMessage());
 
-
 const rulesMenu = new Menu("rules-menu")
   .url("Gerais!", links.rules.general)
   .row()
   .url("Combate!", links.rules.combat)
   .row()
   .url("Magias!", links.rules.spells)
-  .row()
-  .text("❎", (ctx) => ctx.deleteMessage());
-
+  .dynamic( async () => rodape);
+  
 const abbadonMenu = new Menu("abbadon-menu")
   .url("Abrir!", links.sheets.Abbadon)
   .dynamic( async () => rodape);
@@ -23,6 +21,7 @@ const abbadonMenu = new Menu("abbadon-menu")
 const tibiusMenu = new Menu("tibius-menu")
   .url("Abrir!", links.sheets.Tibius)
   .dynamic( async () => rodape);
+  
 const fergusMenu = new Menu("fergus-menu")
   .url("Abrir!", links.sheets.Fergus)
   .dynamic( async () => rodape);
@@ -34,6 +33,10 @@ const dgSheetsMenu = new Menu("dg-sheets-menu")
   .row()
   .url("Tibius", links.sheets.Tibius)
   .dynamic( async () => rodape);
+  
+const helpMenu = new Menu("help-menu")
+  .text("❎", (ctx) => ctx.deleteMessage());
+  
   
 module.exports = {
   rulesMenu,

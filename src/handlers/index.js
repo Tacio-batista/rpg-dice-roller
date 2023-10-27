@@ -6,8 +6,7 @@ function handleChatTypeResponse(chatID, ctx) {
   let pass = false;
   const IDs = Object.values(playersID);
   if (IDs.find((id) => id === chatID)) {
-    pass = false;
-    ctx.reply("Você ainda não está cadastrado.");
+    pass = true;
   } else {
     ctx.reply("Você ainda não está cadastrado.");
   }
@@ -118,7 +117,7 @@ function rollDice(input) {
       // text = `${stringText}:\n${output}`;
     }
   }else{
-  text = "Formato inválido. Use o formato XdY[+/-Z][*W] [texto].";
+  text = "Formato inválido. Use o formato XdY[+/-Z][*W] [texto].\n/help para maior entendimento.";
   total = false;
   }
 
