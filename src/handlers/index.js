@@ -72,35 +72,71 @@ function erroCritico(value) {
 }
 
 function rollDice(input) {
-  const regex = /(\d*)d(\d+)([+\-]\d+)?(?:\s+(.+))?/; // O último grupo (text) é tornando opcional
+  const regex = /(\d*)d(\d+)([+\-]\d+)?(\/\d+)?\s+(.+)/;
+  const match = input.match(regex);
+
+  if (match) {
+    const numberOfDice = match[1] === "" ? 1 : parseInt(match[1]);
+    const numberOfSides = parseInt(match[2]);
+    const modifier = match[3] ? parseInt(match[3]) : 0;
+    const divisor = match[4] ? parseInt(match[4].substring(1)) : 1;
+    const text = match[5];
+
+    if (numberOfDice > 0 && numberOfSides > 0) {
+      let output = "";
+
+      for (let j = 0; j < divisor; j++) {
+        let total = 0;
+        let rolls = [];
+
+        for (let i = 0; i < numberOfDice; i++) {
+          const roll = Math.floor(Math.random() * numberOfSides) + 1;
+          total += roll;
+          rolls.push(roll);
+        }
+
+        total += modifier;
+
+        output += `(${rolls.join(' + ')}) ${modifier >= 0 ? '+' : '-'} ${Math.abs(modifier)} = ${total}\n`;
+      }
+
+      return `${text}:\n${output}`;
+    }
+  }
+
+  return "Formato inválido. Use o formato XdY[+/-Z][/D] <text>.";
+}
+
+function rollDice(input) {
+  const regex = /(\d*)d(\d+)([+\-]\d+)?(\/\d+)?(?:\s+(.+))?/; // O último grupo (text) é tornando opcional
   const match = input.match(regex);
   let text;
   let total;
+  let output;
   if (match) {
     const numberOfDice = match[1] !== "" ? parseInt(match[1]) : 1 ;
     const numberOfSides = parseInt(match[2]);
     const modifier = match[3] ? parseInt(match[3]) : 0;
-    const stringText = match[4]=== undefined ? "" : (" " + match[4]); // Defina o texto como uma string vazia se não for fornecido
+    const divisor = match[4] ? parseInt(match[4].substring(1)) : 1;
+    const stringText = match[5]=== undefined ? "" : (" " + match[5]); // Defina o texto como uma string vazia se não for fornecido
 
     if (numberOfDice > 0 && numberOfSides > 0) {
-      total = 0;
-      let rolls = [];
-
+      for (let j = 0; j < divisor; j++) {
+        total = 0;
+        let rolls = [];
       for (let i = 0; i < numberOfDice; i++) {
         const roll = Math.floor(Math.random() * numberOfSides) + 1;
         total += roll;
         rolls.push(roll);
       }
       total += modifier;
-
-      text = `${stringText}:\n(${rolls.join(' + ')}) ${modifier >= 0 ? '+' : '-'} ${Math.abs(modifier)} = \n${total}`;
-      // if(text === undefined){
-      //   text = "Formato inválido. Use o formato XdY+Z [texto].";
-      //   total = false;
-      // }
+      output += `(${rolls.join(' + ')}) ${modifier >= 0 ? '+' : '-'} ${Math.abs(modifier)} = ${total}\n`;
+    }
+      
+      text = `${stringText}:\n${output}`;
     }
   }else{
-  text = "Formato inválido. Use o formato XdY+Z [texto].";
+  text = "Formato inválido. Use o formato XdY[+/-Z] [texto].";
   total = false;
   }
 
