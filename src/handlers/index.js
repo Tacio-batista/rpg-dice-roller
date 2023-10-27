@@ -71,15 +71,15 @@ function erroCritico(value) {
   return table[value] || "Resultado desconhecido.";
 }
 
-
 function rollDice(input) {
-  const regex = /(\d*)d(\d+)(?:\s+(.+))?/; // O último grupo (text) é tornando opcional
+  const regex = /(\d*)d(\d+)([+\-]\d+)?(?:\s+(.+))?/; // O último grupo (text) é tornando opcional
   const match = input.match(regex);
   let text;
   if (match) {
     const numberOfDice = match[1] !== "" ? parseInt(match[1]) : 1 ;
     const numberOfSides = parseInt(match[2]);
-    const stringText = match[3]=== undefined ? "" : (" " + match[3]); // Defina o texto como uma string vazia se não for fornecido
+    const modifier = match[3] ? parseInt(match[3]) : 0;
+    const stringText = match[4]=== undefined ? "" : (" " + match[4]); // Defina o texto como uma string vazia se não for fornecido
 
     if (numberOfDice > 0 && numberOfSides > 0) {
       let total = 0;
@@ -90,13 +90,18 @@ function rollDice(input) {
         total += roll;
         rolls.push(roll);
       }
-      text = `${stringText}:\n(${rolls.join(' + ')}) = \n${total}`
+      total += modifier;
 
-      return {text, total};
+      text = `${stringText}:\n(${rolls.join(' + ')}) ${modifier >= 0 ? '+' : '-'} ${Math.abs(modifier)} = \n${total}`;
+      if(text === undefined){
+        text = "Formato inválido. Use o formato XdY+Z [texto].";
+        total = false;
+      }
+        return {text, total};
     }
   }
 
-  return "Formato inválido. Use o formato XdY [texto].";9
+  return "Formato inválido. Use o formato XdY+Z [texto].";
 }
 
 
