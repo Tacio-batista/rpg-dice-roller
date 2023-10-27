@@ -29,7 +29,7 @@ const sheetsMenu = new Menu("sheets-menu")
           }
         })
         .row()
-        .text("❎", (ctx) => ctx.deleteMessage());
+        .text("fechar", (ctx) => ctx.deleteMessage());
     }else{
       range
       .url("Abbadon", links.sheets.Abbadon)
