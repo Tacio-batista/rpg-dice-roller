@@ -109,7 +109,7 @@ function rollDice(input) {
   total = false;
   }
 
-  return {text, total};
+  return {text.replace(undefined, ""), total};
 }
 
 
