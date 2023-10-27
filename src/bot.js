@@ -1,7 +1,7 @@
 const { Bot, session } = require('grammy');
 const { conversations, createConversation } = require("@grammyjs/conversations");
 const { golpeFulminante, erroCritico, rollDice, playersID, selectName, handleChatTypeResponse } = require("./handlers");
-const { rulesMenu, sheetsMenu, dgSheetsMenu, tibiusMenu} = require("./menus");
+const { rulesMenu, sheetsMenu, dgSheetsMenu, tibiusMenu, fergusMenu, abbadonMenu} = require("./menus");
 const { getFormattedCharacters } = require("./utils");
 const { links } = require("./constants/characters");
 const { InlineKeyboard } = require("grammy");
@@ -24,6 +24,8 @@ bot.use(session({ initial: () => ({}) }));
 bot.use(rulesMenu);
 bot.use(sheetsMenu);
 bot.use(tibiusMenu);
+bot.use(fergusMenu);
+bot.use(abbadonMenu);
 
 bot.command(["r", "roll", "rolar"], async (ctx) => {
   if(ctx.match !== ""){
@@ -59,12 +61,21 @@ bot.command("ficha", async (ctx) =>{
   }
 });
 
-bot.command("tibius", async (ctx) =>{
-  if(await handleChatTypeResponse(String(ctx.from.id), ctx)){
-    if(String(ctx.from.id) !== playersID.Mestre){
-      await ctx.reply("Ficha!", { reply_markup: tibiusMenu});
-    }else{
-      await ctx.reply("Fichas!", { reply_markup: dgSheetsMenu});
+bot.command("ficha", async (ctx) =>{
+  const ID = String(ctx.from.id);
+  if(await handleChatTypeResponse(ID, ctx)){
+    switch (ID) {
+      case playersID.Abbadon:
+        await ctx.reply("Ficha!", { reply_markup: abbadonMenu});
+        break;
+      case playersID.Fergus:
+        await ctx.reply("Ficha!", { reply_markup: fergusMenu});
+        break;
+      case playersID.Tibius:
+        await ctx.reply("Ficha!", { reply_markup: tibiusMenu});
+        break;
+      default:
+        await ctx.reply("Fichas!", { reply_markup: dgSheetsMenu});
     }
   }
 });

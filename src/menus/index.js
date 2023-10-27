@@ -2,6 +2,11 @@ const { Menu, MenuRange } = require("@grammyjs/menu");
 const { playersID, links } = require("../constants/characters");
 const { InlineKeyboard } = require("grammy");
 
+const rodape = new MenuRange()
+  .row()
+  .text("❎", (ctx) => ctx.deleteMessage());
+
+
 const rulesMenu = new Menu("rules-menu")
   .url("Gerais!", links.rules.general)
   .row()
@@ -11,28 +16,16 @@ const rulesMenu = new Menu("rules-menu")
   .row()
   .text("❎", (ctx) => ctx.deleteMessage());
 
-const sheetsMenu = new Menu("sheets-menu")
-  .url("Abrir!", async (ctx) => {
-    if(String(ctx.from.id) === playersID.Tibius){
-      return links.sheets.Tibius;
-    }else if(String(ctx.from.id) === playersID.Abbadon){
-      return links.sheets.Abbadon;
-    }else if(String(ctx.from.id) === playersID.Fergus){
-      return links.sheets.Fergus;
-    }else{
-        return "http://t.me.SquareDice_bot/";
-    }
-    return "http://t.me.SquareDice_bot/";
-    
-  })
-  .row()
-  .text("Fechar", (ctx) => ctx.deleteMessage());
-  
+const abbadonMenu = new Menu("abbadon-menu")
+  .url("Abrir!", links.sheets.Abbadon)
+  .dynamic( async () => rodape);
   
 const tibiusMenu = new Menu("tibius-menu")
   .url("Abrir!", links.sheets.Tibius)
-  .row()
-  .text("Fechar", (ctx) => ctx.deleteMessage());
+  .dynamic( async () => rodape);
+const fergusMenu = new Menu("fergus-menu")
+  .url("Abrir!", links.sheets.Fergus)
+  .dynamic( async () => rodape);
 
 const dgSheetsMenu = new Menu("dg-sheets-menu")  
   .url("Abbadon", links.sheets.Abbadon)
@@ -40,12 +33,13 @@ const dgSheetsMenu = new Menu("dg-sheets-menu")
   .url("Fergus", links.sheets.Fergus)
   .row()
   .url("Tibius", links.sheets.Tibius)
-  .row()
-  .text("❎", (ctx) => ctx.deleteMessage());
+  .dynamic( async () => rodape);
   
 module.exports = {
   rulesMenu,
   sheetsMenu,
   dgSheetsMenu,
-  tibiusMenu
+  tibiusMenu,
+  abbadonMenu,
+  fergusMenu
 };
