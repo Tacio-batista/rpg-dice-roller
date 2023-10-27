@@ -12,38 +12,32 @@ const rulesMenu = new Menu("rules-menu")
   .text("❎", (ctx) => ctx.deleteMessage());
 
 const sheetsMenu = new Menu("sheets-menu")
-  .dynamic(async (ctx) => {
-    const range = new MenuRange();
-    if(String(ctx.from.id) !== playersID.Mestre) {
-      range
-        .url("Abrir!", (ctx) => {
-          switch(String(ctx.from.id)){
-            case playersID.Tibius:
-              return links.sheets.Tibius;
-            case playersID.Abbadon:
-              return links.sheets.Abbadon;
-            case playersID.Fergus:
-              return links.sheets.Fergus;
-            default:
-              return "http://t.me.SquareDice_bot"
-          }
-        })
-        .row()
-        .text("fechar", (ctx) => ctx.deleteMessage());
-    }else{
-      range
-      .url("Abbadon", links.sheets.Abbadon)
-      .row()
-      .url("Fergus", links.sheets.Fergus)
-      .row()
-      .url("Tibius", links.sheets.Tibius)
-      .row()
-      .text("❎", (ctx) => ctx.deleteMessage());
+  .url("Abrir!", (ctx) => {
+    switch(String(ctx.from.id)){
+      case playersID.Tibius:
+        return links.sheets.Tibius;
+      case playersID.Abbadon:
+        return links.sheets.Abbadon;
+      case playersID.Fergus:
+        return links.sheets.Fergus;
+      default:
+        return "http://t.me.SquareDice_bot"
     }
-    return range;
   })
+  .row()
+  .text("❎", (ctx) => ctx.deleteMessage());
 
+const dgSheetsMenu = new Menu("dg-sheets-menu")  
+  .url("Abbadon", links.sheets.Abbadon)
+  .row()
+  .url("Fergus", links.sheets.Fergus)
+  .row()
+  .url("Tibius", links.sheets.Tibius)
+  .row()
+  .text("❎", (ctx) => ctx.deleteMessage());
+  
 module.exports = {
   rulesMenu,
-  sheetsMenu
+  sheetsMenu,
+  dgSheetsMenu
 };

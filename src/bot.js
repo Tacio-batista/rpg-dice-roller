@@ -1,7 +1,7 @@
 const { Bot, session } = require('grammy');
 const { conversations, createConversation } = require("@grammyjs/conversations");
 const { golpeFulminante, erroCritico, rollDice, playersID, selectName, handleChatTypeResponse } = require("./handlers");
-const { rulesMenu, sheetsMenu} = require("./menus");
+const { rulesMenu, sheetsMenu, dgSheetsMenu} = require("./menus");
 const { getFormattedCharacters } = require("./utils");
 const { links } = require("./constants/characters");
 const { InlineKeyboard } = require("grammy");
@@ -50,7 +50,11 @@ bot.command("regras", async (ctx) =>{
 
 bot.command("ficha", async (ctx) =>{
   if(await handleChatTypeResponse(String(ctx.from.id), ctx)){
-    await ctx.reply("Ficha!", { reply_markup: sheetsMenu});
+    if(String(ctx.from.id) !== playersID.Mestre){
+      await ctx.reply("Ficha!", { reply_markup: sheetsMenu});
+    }else{
+      await ctx.reply("Fichas!", { reply_markup: dgSheetsMenu});
+    }
   }
 });
 
