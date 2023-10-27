@@ -33,13 +33,13 @@ bot.command("fulminante", async (ctx) => {
   const result = await rollDice("3d6");
   const output = await golpeFulminante(result.total);
   const playerName = await selectName(ctx);
-  await ctx.reply(`${playerName} rolou${result.text}\n\nE o resultado do GOLPE FULMINANTE foi:\n\n${output}`,{reply_to_message_id: ctx.message.message_id});
+  await ctx.reply(`${playerName} rolou${result.text}\nE o resultado do GOLPE FULMINANTE foi:\n\n${output}`,{reply_to_message_id: ctx.message.message_id});
 });
 bot.command("erro", async (ctx) => {
   const result = await rollDice("3d6");
   const output = await erroCritico(result.total);
   const playerName = await selectName(ctx);
-  await ctx.reply(`${playerName} rolou${result.text}\n\nE o resultado do ERRO CRÍTICO foi:\n\n${output}`,{reply_to_message_id: ctx.message.message_id});
+  await ctx.reply(`${playerName} rolou${result.text}\nE o resultado do ERRO CRÍTICO foi:\n\n${output}`,{reply_to_message_id: ctx.message.message_id});
 });
 
 bot.command("regras", async (ctx) =>{
