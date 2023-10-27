@@ -1,7 +1,7 @@
 const { Bot, session } = require('grammy');
 const { conversations, createConversation } = require("@grammyjs/conversations");
 const { golpeFulminante, erroCritico, rollDice, playersID, selectName } = require("./handlers");
-const { rulesMenu} = require("./menus");
+const { rulesMenu, sheetsMenu} = require("./menus");
 const { getFormattedCharacters } = require("./utils");
 const { links } = require("./constants/characters");
 const { InlineKeyboard } = require("grammy");
@@ -22,6 +22,7 @@ const bot = new Bot(token);
 bot.use(session({ initial: () => ({}) }));
 // bot.use(hydrateReply);
 bot.use(rulesMenu);
+bot.use(sheetsMenu);
 
 bot.command(["r", "roll", "rolar"], async (ctx) => {
   if(ctx.match !== ""){
@@ -44,11 +45,12 @@ bot.command("erro", async (ctx) => {
 });
 
 bot.command("regras", async (ctx) =>{
-  await ctx.reply("Regras!", { reply_markup: rulesMenu})
-  
-  // { inline_keyboard: [[{text: "Gerais!", url: links.rules.general }],[{text: "Combate!", url: links.rules.combat }],[{text: "Magias!", url: links.rules.spells }]] } });
+  await ctx.reply("Regras!", { reply_markup: rulesMenu});
 });
 
+bot.command("ficha", async (ctx) =>{
+  await ctx.reply("Ficha!", { reply_markup: sheetsMenu});
+});
 
 
 bot.api.setMyCommands([
