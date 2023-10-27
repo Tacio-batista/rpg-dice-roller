@@ -14,7 +14,7 @@ const rulesMenu = new Menu("rules-menu")
   .text("❎", (ctx) => ctx.deleteMessage());
 
 const sheetsMenu = new Menu("sheets-menu")
-  .dynamic(async (ctx) => {
+  .dynamic(async () => {
     const range = new MenuRange;
     if(String(ctx.from.id) !== playersID.Mestre) {
       range
