@@ -98,7 +98,7 @@ function rollDice(input) {
       total += modifier;
       
         if (j === 0) {
-          text += `${stringText}:\n`;
+          text = `${stringText}:\n`;
         }
         
       text +=`(${rolls.join(' + ')}) ${modifier === 0 ? "" : `${modifier > 0 ? `+ ${Math.abs(modifier)} ` : `- ${Math.abs(modifier)} `}`}= \n${total}\n`;
