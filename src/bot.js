@@ -1,7 +1,7 @@
 const { Bot, session } = require('grammy');
 const { conversations, createConversation } = require("@grammyjs/conversations");
 const { golpeFulminante, erroCritico, rollDice, playersID, selectName } = require("./handlers");
-// const { rulesMenu, rulesau } = require("./menus");
+const { rulesMenu} = require("./menus");
 const { getFormattedCharacters } = require("./utils");
 const { links } = require("./constants/characters");
 const { InlineKeyboard } = require("grammy");
@@ -21,6 +21,7 @@ const bot = new Bot(token);
 
 bot.use(session({ initial: () => ({}) }));
 // bot.use(hydrateReply);
+bot.use(rulesMenu);
 
 bot.command(["r", "roll", "rolar"], async (ctx) => {
   if(ctx.match !== ""){
@@ -43,7 +44,9 @@ bot.command("erro", async (ctx) => {
 });
 
 bot.command("regras", async (ctx) =>{
-  await ctx.reply("Regras!", { reply_markup: { inline_keyboard: [[{text: "Gerais!", url: links.rules.general }],[{text: "Combate!", url: links.rules.combat }],[{text: "Magias!", url: links.rules.spells }]] } });
+  await ctx.reply("Regras!", { reply_markup: rulesMenu})
+  
+  // { inline_keyboard: [[{text: "Gerais!", url: links.rules.general }],[{text: "Combate!", url: links.rules.combat }],[{text: "Magias!", url: links.rules.spells }]] } });
 });
 
 
@@ -53,5 +56,6 @@ bot.api.setMyCommands([
   { command: "fulminante", description: "Golpe fulminante" },
   { command: "erro", description: "Erro crítico" },
   { command: "regras", description: "Dispõe a lista de regras" },
+  { command: "help", description: "Dispõe a lista de regras" },
 ]);
 module.exports = { bot };

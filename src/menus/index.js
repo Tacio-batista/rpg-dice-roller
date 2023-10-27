@@ -4,16 +4,16 @@ const { InlineKeyboard } = require("grammy");
 
 
 
-// const rulesMenu = new Menu("rules-menu")
-//   .webApp("Gerais!", "https://t.me/SquareDice_bot/regrasGerais")
-//   .webApp("Combate!", links.rules.combat)
-//   .webApp("Magias!", "http://t.me/SquareDice_bot/regrasMagias");
-// const rulesau = new InlineKeyboard()
-//   .webApp("Gerais!", links.rules.general)
-//   .webApp("Combate!", links.rules.combat)
-//   .webApp("Magias!", links.rules.spells);
+const rulesMenu = new Menu("rules-menu")
+  .url("Gerais!", links.rules.general)
+  .row()
+  .url("Combate!", links.rules.combat)
+  .row()
+  .url("Magias!", links.rules.spells)
+  .row()
+  .text("❎", (ctx) => ctx.deleteMessage());
+  ;
 
 module.exports = {
-  // rulesMenu,
-  // rulesau
+  rulesMenu,
 };
