@@ -72,42 +72,6 @@ function erroCritico(value) {
 }
 
 function rollDice(input) {
-  const regex = /(\d*)d(\d+)([+\-]\d+)?(\/\d+)?\s+(.+)/;
-  const match = input.match(regex);
-
-  if (match) {
-    const numberOfDice = match[1] === "" ? 1 : parseInt(match[1]);
-    const numberOfSides = parseInt(match[2]);
-    const modifier = match[3] ? parseInt(match[3]) : 0;
-    const divisor = match[4] ? parseInt(match[4].substring(1)) : 1;
-    const text = match[5];
-
-    if (numberOfDice > 0 && numberOfSides > 0) {
-      let output = "";
-
-      for (let j = 0; j < divisor; j++) {
-        let total = 0;
-        let rolls = [];
-
-        for (let i = 0; i < numberOfDice; i++) {
-          const roll = Math.floor(Math.random() * numberOfSides) + 1;
-          total += roll;
-          rolls.push(roll);
-        }
-
-        total += modifier;
-
-        output += `(${rolls.join(' + ')}) ${modifier >= 0 ? '+' : '-'} ${Math.abs(modifier)} = ${total}\n`;
-      }
-
-      return `${text}:\n${output}`;
-    }
-  }
-
-  return "Formato inválido. Use o formato XdY[+/-Z][/D] <text>.";
-}
-
-function rollDice(input) {
   const regex = /(\d*)d(\d+)([+\-]\d+)?(\/\d+)?(?:\s+(.+))?/; // O último grupo (text) é tornando opcional
   const match = input.match(regex);
   let text;
