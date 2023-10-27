@@ -52,16 +52,6 @@ bot.command("regras", async (ctx) =>{
 });
 
 bot.command("ficha", async (ctx) =>{
-  if(await handleChatTypeResponse(String(ctx.from.id), ctx)){
-    if(String(ctx.from.id) !== playersID.Mestre){
-      await ctx.reply("Ficha!", { reply_markup: sheetsMenu});
-    }else{
-      await ctx.reply("Fichas!", { reply_markup: dgSheetsMenu});
-    }
-  }
-});
-
-bot.command("ficha", async (ctx) =>{
   const ID = String(ctx.from.id);
   if(await handleChatTypeResponse(ID, ctx)){
     switch (ID) {
