@@ -13,7 +13,7 @@ const rulesMenu = new Menu("rules-menu")
 
 const sheetsMenu = new Menu("sheets-menu")
   .dynamic(async (ctx) => {
-    const range = new MenuRange;
+    const range = new MenuRange();
     if(String(ctx.from.id) !== playersID.Mestre) {
       range
         .url("Abrir!", (ctx) => {
