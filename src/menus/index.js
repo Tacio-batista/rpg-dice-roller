@@ -37,7 +37,6 @@ const dgSheetsMenu = new Menu("dg-sheets-menu")
   
 module.exports = {
   rulesMenu,
-  sheetsMenu,
   dgSheetsMenu,
   tibiusMenu,
   abbadonMenu,

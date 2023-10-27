@@ -1,7 +1,7 @@
 const { Bot, session } = require('grammy');
 const { conversations, createConversation } = require("@grammyjs/conversations");
 const { golpeFulminante, erroCritico, rollDice, playersID, selectName, handleChatTypeResponse } = require("./handlers");
-const { rulesMenu, sheetsMenu, dgSheetsMenu, tibiusMenu, fergusMenu, abbadonMenu} = require("./menus");
+const { rulesMenu, dgSheetsMenu, tibiusMenu, fergusMenu, abbadonMenu} = require("./menus");
 const { getFormattedCharacters } = require("./utils");
 const { links } = require("./constants/characters");
 const { InlineKeyboard } = require("grammy");
@@ -22,7 +22,7 @@ const bot = new Bot(token);
 bot.use(session({ initial: () => ({}) }));
 // bot.use(hydrateReply);
 bot.use(rulesMenu);
-bot.use(sheetsMenu);
+bot.use(dgSheetsMenu);
 bot.use(tibiusMenu);
 bot.use(fergusMenu);
 bot.use(abbadonMenu);
