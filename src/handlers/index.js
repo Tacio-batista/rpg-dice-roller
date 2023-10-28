@@ -28,6 +28,7 @@ function getResultForType(type, result) {
             typeDesc.desc += "\n - Para um cancroide, esta é qualquer uma de suas patas verdadeiras; defina aleatoriamente. Para um aracnídeo, patas 1–2 são o par frontal, patas 3–4 são as centro-frontais, patas 5–6 são as centro-traseiras e patas 7–8 são as traseiras.";
             break;
           default:
+          break;
         }
         
         break;
@@ -53,7 +54,7 @@ function getResultForType(type, result) {
             typeDesc.desc += "\n - Um ictioide muitas vezes possui duas ou três nadadeiras ou asas como as de uma raia; jogue aleatoriamente. Trate uma nadadeira como uma extremidade (mão, pé) para fins de incapacitação. Uma nadadeira incapacitada afeta o equilíbrio: -3 na DX."
             break;
           default:
-          
+          break;
         }
         break;
       default:

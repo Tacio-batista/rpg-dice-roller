@@ -155,7 +155,7 @@ const body = {
     17: "Extremidade",
     18: "Extremidade"
   },
-  aviário: {
+  aviario: {
     3: "Crânio",
     4: "Crânio",
     5: "Rosto",
