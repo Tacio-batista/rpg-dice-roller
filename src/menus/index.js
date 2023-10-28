@@ -43,5 +43,6 @@ module.exports = {
   dgSheetsMenu,
   tibiusMenu,
   abbadonMenu,
-  fergusMenu
+  fergusMenu,
+  helpMenu
 };
