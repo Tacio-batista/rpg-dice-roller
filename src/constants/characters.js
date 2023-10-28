@@ -83,7 +83,7 @@ const body = {
     17: "Cauda",
     18: "Cauda"
   },
-  quadrupede alado: {
+  quadrupedealado: {
     3: "Crânio",
     4: "Crânio",
     5: "Rosto",
@@ -119,7 +119,7 @@ const body = {
     17: "Perna Intermediária",
     18: "Perna Intermediária"
   },
-  hexapode alado: {
+  hexapodealado: {
     3: "Crânio",
     4: "Crânio",
     5: "Pescoço",

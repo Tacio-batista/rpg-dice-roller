@@ -60,7 +60,7 @@ bot.command("regras", async (ctx) =>{
   }
 });
 
-bot.command(["ponto","impacto","parte","regiao"], async (ctx) =>{
+bot.command(["ponto","impacto","acerto","regiao", "parte"], async (ctx) =>{
   const ID = String(ctx.from.id);
   if(await handleChatTypeResponse(ID, ctx)){
     const playerName = await selectName(ctx);
