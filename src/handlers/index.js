@@ -57,7 +57,6 @@ function getResultForType(type, result) {
         
         }else if(typeResult === "Nadadeira"){
             break;
-          case 'Nadadeira':
             typeDesc.desc += "\n - Um ictioide muitas vezes possui duas ou três nadadeiras ou asas como as de uma raia; jogue aleatoriamente. Trate uma nadadeira como uma extremidade (mão, pé) para fins de incapacitação. Uma nadadeira incapacitada afeta o equilíbrio: -3 na DX."
         }
         break;
