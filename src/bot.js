@@ -63,6 +63,7 @@ bot.command("regras", async (ctx) =>{
 bot.command(["ponto","impacto","parte","regiao"], async (ctx) =>{
   const ID = String(ctx.from.id);
   if(await handleChatTypeResponse(ID, ctx)){
+    const playerName = await selectName(ctx);
     const result = await rollDice("3d6");
     const bodyPoint = await getResultForType(ctx.match,result.total);
     await ctx.reply(`${bodyPoint.typeDesc !== false ? `${playerName} rolou${result.text}\nE o PONTO DE IMPACTO foi:\n\n -> ${bodPoint.typeResult} (${bodyPoint.typeDesc.modifier})\n\n${bodyPoint.typeDesc.desc}` : bodyPoint.typeResult}` ,{reply_to_message_id: ctx.message.message_id});
