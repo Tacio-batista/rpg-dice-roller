@@ -19,17 +19,17 @@ const links = {
     Abbadon: "http://t.me/SquareDice_bot/fichaAbbadon",
   }
 }
-const obs = [
+var obs = [
   "","Um ataque que fracassar por 1 atinge o tronco.","Apenas ataques perfurantes, por perfuração e por queimadura de feixe concentrado podem visar os olhos — e somente ataques frontais ou laterais. Qualquer dano acima de PV/10 cega o olho. Caso contrário, trate como crânio, mas sem a RD adicional!","O crânio tem RD adicional de 2. O modificador de ferimento é ×4. Os testes de nocaute sofrem uma penalidade de -10. Golpes fulminantes usam a Tabela de Golpe Fulminante na Cabeça (pág. 557). Exceção: esses efeitos não se aplicam a dano por toxina.","Maxilar, bochechas, nariz, orelhas, etc. Se o alvo possuir um capacete aberto, ignore a RD. Os testes de nocaute sofrem uma penalidade de -5. Golpes fulminantes usam a Tabela de Golpe Fulminante na Cabeça (pág. 557). Dano por corrosão recebe um modificador de ferimento de ×1,5; um ferimento grave também cega um dos olhos (ou os dois se ultrapassar o PV total). Ataques aleatórios por trás atingem o crânio.", "Membro. Reduza o modificador de ferimento para danos por perfuração, extremamente perfurantes e muito perfurante para ×1. Qualquer ferimento grave (perda de mais de PV/2 em um único golpe) incapacita o membro. Dano além deste limiar é perdido.","Se houver um escudo, dobre a penalidade para atingir o ponto: -4 para braço do escudo, -8 para mão do escudo.","Homens humanos e os machos de espécies semelhantes sofrem o dobro do choque de danos por contusão e sofrem uma penalidade de -5 nos testes de nocaute. Caso contrário, trate como um golpe no tronco.","Extremidade. Trate como um membro, exceto que dano acima de PV/3 em um único golpe causa um ferimento grave incapacitante. Dano além deste limiar é perdido.","Se estiver determinando aleatoriamente, jogue 1d: 1–3 atinge a extremidade direita, 4–6 a esquerda.","Pescoço e garganta. Aumente o modificador de ferimento de ataques por contusão e por corrosão para ×1,5 e por corte para ×2. A critério tabelas do Mestre, uma pessoa morta por um golpe por corte no pescoço pode ser decapitada!","Coração, pulmões, rins, etc. Aumente o modificador de ferimento para ataques por perfuração ou qualquer ataque perfurante para ×3. Aumente o modificador de ferimento para ataques por queimadura de feixe concentrado para ×2. Outros ataques não podem visar os órgãos vitais."
 ];
 
-const bodyDescription = {
+var bodyDescription = {
   cranio: "Um ataque que fracassar por 1 atinge o tronco.\nO crânio tem RD adicional de 2. O modificador de ferimento é ×4. Os testes de nocaute sofrem uma penalidade de -10. Exceção: esses efeitos não se aplicam a dano por toxina.",
   rosto: ""
   // Braço, Crânio, Olho, Órgãos Vitais, Pé, Perna, Pescoço, Rosto, Virilha, Tronco:
 };
 
-const bodyTypes = {
+var bodyTypes = {
   humano: {
     3: "Crânio (-7)",
     4: "Crânio (-7)",
@@ -245,7 +245,7 @@ const bodyTypes = {
     17: "Pata 7-8 (-2)",
     18: "Pata 7-8 (-2)"
 }
-const fulminanteTabl = {
+var fulminanteTabl = {
   3: "O golpe causa o triplo do dano.",
   4: "A RD do alvo protege apenas com metade do valor (arredondado para baixo) depois de aplicados quaisquer divisores de armadura.",
   5: "O golpe causa o dobro do dano.",
@@ -264,7 +264,7 @@ const fulminanteTabl = {
   18: "O golpe causa o triplo do dano."
 };
 
-const erroTabl= {
+var erroTabl= {
   3: " -> A arma se quebra e fica inutilizável. \n\nExceção: algumas armas são mais difíceis de quebrar. Estas incluem armas sólidas que causam dano por contusão (maças, manguais, malhos, barras de metal, etc.); armas mágicas; armas de fogo (exceto armas com mecanismos wheel-lock, mísseis teleguiados e armas de feixe); e armas de qualidade superior ou altíssima de todos os tipos. Se o combatente possuir uma arma dessas, ele deve jogar novamente. Somente se obtiver um resultado de “arma quebrada” pela segunda vez é que essas armas se quebram. No caso de qualquer outro resultado, ignore o texto e o combatente deixa a arma cair.",
   4: " -> A arma se quebra e fica inutilizável. \n\nExceção: algumas armas são mais difíceis de quebrar. Estas incluem armas sólidas que causam dano por contusão (maças, manguais, malhos, barras de metal, etc.); armas mágicas; armas de fogo (exceto armas com mecanismos wheel-lock, mísseis teleguiados e armas de feixe); e armas de qualidade superior ou altíssima de todos os tipos. Se o combatente possuir uma arma dessas, ele deve jogar novamente. Somente se obtiver um resultado de “arma quebrada” pela segunda vez é que essas armas se quebram. No caso de qualquer outro resultado, ignore o texto e o combatente deixa a arma cair.",
   5: " -> O combatente atinge a si mesmo (com todo o dano) no braço ou perna (50% de chance para cada). \n\nExceção: se estiver realizando um ataque por perfuração ou perfurante com uma arma de combate corpo a corpo ou qualquer tipo de arma de combate à distância, jogue novamente. Se obtiver um resultado “atinge a si mesmo” pela segunda vez, ai então assuma este resultado — metade ou todo o dano, conforme o caso. No caso de um resultado diferente de “atinge a si mesmo”, use o outro resultado.",
