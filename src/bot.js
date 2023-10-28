@@ -35,6 +35,7 @@ bot.command(["r", "roll", "rolar"], async (ctx) => {
 });
 
 bot.command("fulminante", async (ctx) => {
+  const ID = String(ctx.from.id);
   if(await handleChatTypeResponse(ID, ctx)){
     const result = await rollDice("3d6");
     const output = await golpeFulminante(result.total);
@@ -43,6 +44,7 @@ bot.command("fulminante", async (ctx) => {
   }
 });
 bot.command("erro", async (ctx) => {
+  const ID = String(ctx.from.id);
   if(await handleChatTypeResponse(ID, ctx)){
     const result = await rollDice("3d6");
     const output = await erroCritico(result.total);
@@ -52,6 +54,7 @@ bot.command("erro", async (ctx) => {
 });
 
 bot.command("regras", async (ctx) =>{
+  const ID = String(ctx.from.id);
   if(await handleChatTypeResponse(ID, ctx)){
     await ctx.reply("Regras!", { reply_markup: rulesMenu});
   }
@@ -88,6 +91,6 @@ bot.api.setMyCommands([
   { command: "fulminante", description: "Rolagem para golpe fulminante" },
   { command: "erro", description: "Rolagem para erro crítico" },
   { command: "regras", description: "Dispõe a lista de regras" },
-  { command: "help", description: "Dispõe a lista de regras" },
+  { command: "help", description: "Lista de comandos explicados" },
 ]);
 module.exports = { bot };
