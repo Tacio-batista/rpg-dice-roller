@@ -60,7 +60,7 @@ function getResultForType(type, result) {
         typeDesc = body.part.find(part => part.name === typeResult);
     }
   } else {
-    typeResult = "Tipo desconhecido";
+    typeResult = "/tipo desconhecido.";
     typeDesc = false;
   }
     return { typeDesc, typeResult };

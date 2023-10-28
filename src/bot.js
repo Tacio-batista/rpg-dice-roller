@@ -3,7 +3,7 @@ const { conversations, createConversation } = require("@grammyjs/conversations")
 const { golpeFulminante, erroCritico, rollDice, playersID, selectName, handleChatTypeResponse, getResultForType } = require("./handlers");
 const { rulesMenu, dgSheetsMenu, tibiusMenu, fergusMenu, abbadonMenu} = require("./menus");
 const { getFormattedCharacters } = require("./utils");
-const { links } = require("./constants/characters");
+const { links, body } = require("./constants/characters");
 const { InlineKeyboard } = require("grammy");
 // const { bold, fmt, hydrateReply, italic, link } = require(
 //   "@grammyjs/parse-mode",
@@ -60,7 +60,7 @@ bot.command("regras", async (ctx) =>{
   }
 });
 
-bot.command(["ponto","impacto","acerto","regiao", "parte"], async (ctx) =>{
+bot.command(["ponto","impacto"], async (ctx) =>{
   const ID = String(ctx.from.id);
   if(await handleChatTypeResponse(ID, ctx)){
     const playerName = await selectName(ctx);
@@ -91,7 +91,14 @@ bot.command("ficha", async (ctx) =>{
 
 bot.command("help", async (ctx) => {
   const ID = String(ctx.from.id);
-  await ctx.reply(`/r ou /roll ou /rolar -> Possui o formato "XdY[+/-Z][*W] [text]" onde X é o numero de dados, Y o número de lados, Z para somar ou subitrair algum modificador, W indica quantos resultados quer obter e text indica alguma possível descrição. Apenas "d" e "Y" são obrigatórios para obter alguma rolagem de fato.${await handleChatTypeResponse(ID) === true ? `\n/fulminante -> Irá rolar 3d6 automaticamente, retornar os valores e qual o resultado de acordo com a tabela de "Golpe Fulminante" do manual.\n/erro -> Assim como o comando anterior, irá rolar 3d6 automaticamente, retornar os valores e qual o resultado de acordo com a tabela de "Erro Crítico" do manual.\n/regras -> Menu resumido de regras, atualmente com as regras "combate", "magias" e "gerais".\n/ficha -> Da acesso a ficha do seu personagem (o Mestre tem acesso a todas).` : ""}`);
+  await ctx.reply(`/r ou /roll ou /rolar -> Possui o formato "XdY[+/-Z][*W] [text]" onde X é o numero de dados, Y o número de lados, Z para somar ou subitrair algum modificador, W indica quantos resultados quer obter e text indica alguma possível descrição. Apenas "d" e "Y" são obrigatórios para obter alguma rolagem de fato.${await handleChatTypeResponse(ID) === true ? `\n/fulminante -> Irá rolar 3d6 automaticamente, retornar os valores e qual o resultado de acordo com a tabela de "Golpe Fulminante" do manual.\n/erro -> Assim como o comando anterior, irá rolar 3d6 automaticamente, retornar os valores e qual o resultado de acordo com a tabela de "Erro Crítico" do manual.\n/regras -> Menu resumido de regras, atualmente com as regras "combate", "magias" e "gerais".\n/ficha -> Da acesso a ficha do seu personagem (o Mestre tem acesso a todas).\n/tipo -> Lista todos os tipos de corpos aceitos para definir um 'ponto de impacto'.\n/ponto ou /impacto -> Irá rolar 3d6 automaticamente, retornar os valores e qual o resultado de acordo com as tabelas de "Ponto de Impacto"` : ""}`);
+});
+bot.command("tipo", async (ctx) =>{
+  const ID = String(ctx.from.id);
+  if(await handleChatTypeResponse(ID, ctx)){
+    await ctx.reply(`Tipos aceitos:\n\n${Object.keys(body.types).map(type => type).join("\n")}`);
+  }
+  
 })
 
 
@@ -100,7 +107,9 @@ bot.api.setMyCommands([
   { command: "roll", description: "Use o formato XdY [texto]" },
   { command: "fulminante", description: "Rolagem para golpe fulminante" },
   { command: "erro", description: "Rolagem para erro crítico" },
+  { command: "impacto", description: "Rolagem para ponto de impacto" },
+  { command: "tipo", description: "Dispõe a lista de tipos de corpos" },
   { command: "regras", description: "Dispõe a lista de regras" },
-  { command: "help", description: "Lista de comandos explicados" },
+  { command: "help", description: "Lista de comandos explicados" }
 ]);
 module.exports = { bot };
