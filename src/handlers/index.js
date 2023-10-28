@@ -1,4 +1,4 @@
-const { playersID, bodyTypes, erroTable, fulminanteTable } = require("../constants/characters");
+const { playersID, bodyTypes, erroTabl, fulminanteTabl } = require("../constants/characters");
 const { statusValue, idStatus, P} = require("../menus");
 const { InlineKeyboard } = require("grammy");
 
