@@ -10,7 +10,19 @@ function getResultForType(type, result) {
   if (body.types[type.toLowerCase()]) {
     typeResult = body.types[type.toLowerCase()][result];
     switch (typeResult) {
-      case 'Asa' || 'Cauda' || 'Braço 1-2' || 'Braço 3-4' || 'Braço 5-6' || 'Braço 7-8' || 'Braço Esquerdo' || 'Braço direito' || 'Pata 1-2' || 'Pata 3-4' || 'Pata 5-6' || 'Pata 7-8' || 'Pata':
+      case 'Asa':
+      case 'Cauda':
+      case 'Braço 1-2':
+      case 'Braço 3-4':
+      case 'Braço 5-6':
+      case 'Braço 7-8':
+      case 'Braço Esquerdo':
+      case 'Braço direito':
+      case 'Pata 1-2':
+      case 'Pata 3-4':
+      case 'Pata 5-6':
+      case 'Pata 7-8':
+      case 'Pata':
         
         typeDesc = body.part.find(part => part.name === "Braço");
         
@@ -24,7 +36,9 @@ function getResultForType(type, result) {
             typeDesc.desc += "\n - Para um cancroide, esta é qualquer uma de suas patas verdadeiras; defina aleatoriamente. Para um aracnídeo, patas 1–2 são o par frontal, patas 3–4 são as centro-frontais, patas 5–6 são as centro-traseiras e patas 7–8 são as traseiras.";
         }
         break;
-      case 'Perna Dianteira' || 'Perna Traseira' || 'Perna Esquerda' || 'Perna Direita' || 'Perna Intermediária':
+      case 'Perna Dianteira' || 'Perna Traseira':
+      case 'Perna Esquerda' || 'Perna Direita':
+      case 'Perna Intermediária':
         
         typeDesc = body.part.find(part => part.name === "Perna");
         
