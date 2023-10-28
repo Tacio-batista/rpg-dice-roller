@@ -14,23 +14,15 @@ function getResultForType(type, result) {
         
         typeDesc = body.part.find(part => part.name === "Braço");
         
-        switch (typeResult) {
-          case 'Asa':
+        if(typeResult === "Asa") {
             typeDesc.desc += "\n - Uma criatura voadora com uma asa incapacitada não consegue voar.";
-            break;
-          case 'Cauda':
+        }else if(typeResult === "Cauda"){
             typeDesc.desc += "\n - Se a cauda for um Braço Adicional ou Golpeador, ou se for uma cauda de peixe, trate-a como um membro (braço, perna) para fins de incapacitação; caso contrário, trate-a como uma extremidade (pé, mão). Uma cauda incapacitada afeta o equilíbrio. Para uma criatura terrestre, uma penalidade de -1 na DX. Para uma criatura nadadora ou voadora, uma penalidade de -2 na DX e o Deslocamento é diminuído pela metade. Se a criatura não tiver cauda, ou tiver uma cauda muito curta (como um coelho), trate como se fosse tronco.\n\nExtremidade: Jogue 1d: 1–2, uma mão humana da parte superior; 3–4, um pé frontal; 5–6 um pé traseiro. Num resultado ímpar, a parte esquerda é atingida, num resultado par, a direita.";
-            break;
-          case 'Braço 1-2' || 'Braço 3-4' || 'Braço 5-6' || 'Braço 7-8' :
+        }else if ('Braço 1-2' || 'Braço 3-4' || 'Braço 5-6' || 'Braço 7-8'){
             typeDesc.desc += "\n - Para um octópode, braços 1–4 são os que estiverem sendo usados no momento para manipulação, enquanto os braços 5–8 são os que estiverem sendo usados para locomoção. Para um cancroide, um braço é uma pinça frontal.";
-            break;
-          case 'Pata 1-2' || 'Pata 3-4' || 'Pata 5-6' || 'Pata 7-8' || 'Pata':
+        }else if ('Pata 1-2' || 'Pata 3-4' || 'Pata 5-6' || 'Pata 7-8' || 'Pata'){
             typeDesc.desc += "\n - Para um cancroide, esta é qualquer uma de suas patas verdadeiras; defina aleatoriamente. Para um aracnídeo, patas 1–2 são o par frontal, patas 3–4 são as centro-frontais, patas 5–6 são as centro-traseiras e patas 7–8 são as traseiras.";
-            break;
-          default:
-          break;
         }
-        
         break;
       case 'Perna Dianteira' || 'Perna Traseira' || 'Perna Esquerda' || 'Perna Direita' || 'Perna Intermediária':
         
@@ -46,15 +38,13 @@ function getResultForType(type, result) {
       case 'Extremidade' || "Nadadeira":
         
         typeDesc = body.part.find(part => part.name === "Mão");
-        switch (typeResult) {
-          case 'Extremidade':
+        if(typeResult === "Extremidade") {
             typeDesc.desc += "\n\nJogue 1d: 1–2, uma mão humana da parte superior; 3–4, um pé frontal; 5–6 um pé traseiro. Num resultado ímpar, a parte esquerda é atingida, num resultado par, a direita.";
+        
+        }else if(typeResult === "Nadadeira"){
             break;
           case 'Nadadeira':
             typeDesc.desc += "\n - Um ictioide muitas vezes possui duas ou três nadadeiras ou asas como as de uma raia; jogue aleatoriamente. Trate uma nadadeira como uma extremidade (mão, pé) para fins de incapacitação. Uma nadadeira incapacitada afeta o equilíbrio: -3 na DX."
-            break;
-          default:
-          break;
         }
         break;
       default:
