@@ -23,7 +23,7 @@ const obs = [
   "","Um ataque que fracassar por 1 atinge o tronco.",
   "Apenas ataques perfurantes, por perfuração e por queimadura de feixe concentrado podem visar os olhos — e somente ataques frontais ou laterais. Qualquer dano acima de PV/10 cega o olho. Caso contrário acertará o crânio sem RD adicional \nCrânio: O modificador de ferimento é ×4. Os testes de nocaute sofrem uma penalidade de -10. Golpes fulminantes usam a Tabela de Golpe Fulminante na Cabeça (pág. 557). \nExceção: esses efeitos não se aplicam a dano por toxina.",
   "O crânio tem RD adicional de 2. O modificador de ferimento é ×4. Os testes de nocaute sofrem uma penalidade de -10. Golpes fulminantes usam a Tabela de Golpe Fulminante na Cabeça (pág. 557). \nExceção: esses efeitos não se aplicam a dano por toxina.",
-  "Maxilar, bochechas, nariz, orelhas, etc. Se o alvo possuir um capacete aberto, ignore a RD. Os testes de nocaute sofrem uma penalidade de -5. Golpes fulminantes usam a Tabela de Golpe Fulminante na Cabeça (pág. 557). Dano por corrosão recebe um modificador de ferimento de ×1,5; um ferimento grave também cega um dos olhos (ou os dois se ultrapassar o PV total). Ataques aleatórios por trás atingem o crânio.\nCrânio: Possui RD adicional de 2. O modificador de ferimento é ×4. Os testes de nocaute sofrem uma penalidade de -10. Golpes fulminantes usam a Tabela de Golpe Fulminante na Cabeça (pág. 557). \nExceção: esses efeitos não se aplicam a dano por toxina.", 
+  "Maxilar, bochechas, nariz, orelhas, etc. Se o alvo possuir um capacete aberto, ignore a RD. Os testes de nocaute sofrem uma penalidade de -5. Golpes fulminantes usam a Tabela de Golpe Fulminante na Cabeça (pág. 557). Dano por corrosão recebe um modificador de ferimento de ×1,5; um ferimento grave também cega um dos olhos (ou os dois se ultrapassar o PV total). Ataques aleatórios por trás atingem o crânio.\n\nCrânio: Possui RD adicional de 2. O modificador de ferimento é ×4. Os testes de nocaute sofrem uma penalidade de -10. Golpes fulminantes usam a Tabela de Golpe Fulminante na Cabeça (pág. 557). \nExceção: esses efeitos não se aplicam a dano por toxina.", 
   "Membro. Reduza o modificador de ferimento para danos por perfuração, extremamente perfurantes e muito perfurante para ×1. Qualquer ferimento grave (perda de mais de PV/2 em um único golpe) incapacita o membro. Dano além deste limiar é perdido.",
   "Se houver um escudo, dobre a penalidade para atingir o ponto: -4 para braço do escudo, -8 para mão do escudo.",
   "Homens humanos e os machos de espécies semelhantes sofrem o dobro do choque de danos por contusão e sofrem uma penalidade de -5 nos testes de nocaute. Caso contrário, trate como um golpe no tronco.",
@@ -44,7 +44,8 @@ const body = {
     { name: "Mão", desc: " - " + obs[6] + "\n - " + obs[8] + "\n - " + obs[9], modifier: -4},
     { name: "Pé", desc: " - " + obs[8] + "\n - " + obs[9], modifier: -4},
     { name: "Pescoço", desc: " - " + obs[1] + "\n - " + obs[10], modifier: -5},
-    { name: "Órgãos", desc: " - " + obs[1] + "\n - " + obs[11], modifier: -3}
+    { name: "Órgãos", desc: " - " + obs[1] + "\n - " + obs[11], modifier: -3},
+    { name: "Tronco", desc: "", modifier: 0}
 ],
   types: { 
     humano: {
