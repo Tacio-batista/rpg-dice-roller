@@ -34,7 +34,7 @@ const obs = [
 ];
 
 const body = {
-  part = {
+  part: {
     { name: "Olho", desc: " - " + obs[1] + "\n - " + obs[2], modifier: -9},
     { name: "Crânio", desc: " - " + obs[1] + "\n - " + obs[3], modifier: -7},
     { name: "Rosto", desc: " - " + obs[1] + "\n - " + obs[4], modifier: -5},
@@ -46,7 +46,7 @@ const body = {
     { name: "Pescoço", desc: " - " + obs[1] + "\n - " + obs[10], modifier: -5},
     { name: "Órgãos", desc: " - " + obs[1] + "\n - " + obs[11], modifier: -3}
 },
-  types = { 
+  types: { 
     humano: {
     3: "Crânio",
     4: "Crânio",
