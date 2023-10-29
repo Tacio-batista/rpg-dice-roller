@@ -14,6 +14,9 @@ const {
     BOT_API_TOKEN: token = '',
 } = process.env;
 
+// require("dotenv").config();
+
+// const token = process.env.BOT_API_TOKEN || "";
 // Defina seu token nas variáveis de ambiente do Vercel
 const bot = new Bot(token);
 
@@ -69,9 +72,7 @@ bot.command(["imp","impacto"], async (ctx) =>{
     const match = ctx.match.match(REGEX);
     const numberOfDice =  match[1];
     const divisorMatch = match[2] ? match[2] : "";
-    await ctx.reply("3d6"+divisorMatch+" "+numberOfDice)
-    const result = await rollDice("3d6"+divisorMatch+" "+numberOfDice);
-    await ctx.reply(result.total)
+    const result = await rollDice("3d6"+divisorMatch+" "+numberOfDice, true);
     await ctx.reply(`${playerName} rolou${result.text}` ,{reply_to_message_id: ctx.message.message_id});
   }
 });
@@ -118,4 +119,5 @@ bot.api.setMyCommands([
   { command: "regras", description: "Dispõe a lista de regras" },
   { command: "help", description: "Lista de comandos explicados" }
 ]);
+// bot.start();
 module.exports = { bot };

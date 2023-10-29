@@ -17,6 +17,6 @@
     "nodemon": "^3.0.1"
   },
   "scripts": {
-    "start": "nodemon --trace-warnings ./src/index.js"
+    "start": "nodemon --trace-warnings ./src/bot.js"
   }
 }

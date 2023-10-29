@@ -46,8 +46,10 @@ function getDescForType(typeResult){
             typeDesc.desc += "\n - Para um cancroide, esta é qualquer uma de suas patas verdadeiras; defina aleatoriamente. Para um aracnídeo, patas 1–2 são o par frontal, patas 3–4 são as centro-frontais, patas 5–6 são as centro-traseiras e patas 7–8 são as traseiras.";
         }
         break;
-      case 'Perna Dianteira' || 'Perna Traseira':
-      case 'Perna Esquerda' || 'Perna Direita':
+      case 'Perna Dianteira':
+      case 'Perna Traseira':
+      case 'Perna Esquerda':
+      case 'Perna Direita':
       case 'Perna Intermediária':
         
         typeDesc = body.part.find(part => part.name === "Perna");
@@ -121,13 +123,14 @@ function erroCritico(value) {
 }
 
 
-function rollDice(input) {
+function rollDice(input, flag) {
   const regex = /(\d*)d(\d+)([+\-]\d+)?(\*\d+)?(?:\s+(.+))?/; // O último grupo (text) é tornando opcional
   const match = input.match(regex);
   let text;
   let total;
   let output;
   let bodyPoint;
+  const enter ="\n\n\n\n\n\n\n\n";
   if (match) {
     const numberOfDice = match[1] !== "" ? parseInt(match[1]) : 1 ;
     const numberOfSides = parseInt(match[2]);
@@ -154,10 +157,11 @@ function rollDice(input) {
         text = `${stringText}:\n`;
       }
       if(divisor !== 1){
+      
         
-      text +=`(${rolls.join(' + ')}) ${modifier === 0 ? "" : `${modifier > 0 ? `+ ${Math.abs(modifier)} ` : `- ${Math.abs(modifier)} `}`}= \n${total}\n${bodyPoint.typeDesc !== false ? `-> ${bodyPoint.typeResult} (${bodyPoint.typeDesc.modifier})` : bodyPoint.typeResult}\n`;
+      text +=`(${rolls.join(' + ')}) ${modifier === 0 ? "" : `${modifier > 0 ? `+ ${Math.abs(modifier)} ` : `- ${Math.abs(modifier)} `}`}= \n${total}${flag?`\n${bodyPoint.typeDesc !== false ? `-> ${bodyPoint.typeResult} (${bodyPoint.typeDesc.modifier})` : bodyPoint.typeResult}`: ""}\n`;
     }else{
-      text +=`(${rolls.join(' + ')}) ${modifier === 0 ? "" : `${modifier > 0 ? `+ ${Math.abs(modifier)} ` : `- ${Math.abs(modifier)} `}`}= \n${total}\n${bodyPoint.typeDesc !== false ? `\nE o PONTO DE IMPACTO foi:\n\n-> ${bodyPoint.typeResult} (${bodyPoint.typeDesc.modifier})\n\n${bodyPoint.typeDesc.desc}` : bodyPoint.typeResult}\n`;
+      text +=`(${rolls.join(' + ')}) ${modifier === 0 ? "" : `${modifier > 0 ? `+ ${Math.abs(modifier)} ` : `- ${Math.abs(modifier)} `}`}= \n${total}${flag?`\n${bodyPoint.typeDesc !== false ? `\nE o PONTO DE IMPACTO foi:\n\n-> ${bodyPoint.typeResult} (${bodyPoint.typeDesc.modifier})\n\n${bodyPoint.typeDesc.desc}` : bodyPoint.typeResult}`: ""}\n`;
       
     }
         
