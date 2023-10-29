@@ -65,7 +65,7 @@ bot.command(["imp","impacto"], async (ctx) =>{
   const ID = String(ctx.from.id);
   if(await handleChatTypeResponse(ID, ctx)){
     const playerName = await selectName(ctx);
-    const REGEX = /(?:(.+))?(\*\d+)?/
+    const REGEX = /(\w+)(\*\d*)?/;
     const match = ctx.match.match(REGEX);
     const numberOfDice =  match[1];
     const divisorMatch = match[2] ? match[2] : "";
