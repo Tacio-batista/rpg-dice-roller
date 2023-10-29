@@ -76,7 +76,7 @@ function getDescForType(typeResult){
       default:
         typeDesc = body.part.find(part => part.name === typeResult);
     }
-  if(type === "centauro" && typeResult === "Corpo"){
+  if(typeResult === "centauro" && typeResult === "Corpo"){
     typeDesc.desc += "\n - Para centauro 9–10 significa que a parte animal foi atingida, enquanto 11 significa que a parte superior humanoide foi atingida."
   }
   return typeDesc;
