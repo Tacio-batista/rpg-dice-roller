@@ -69,9 +69,11 @@ bot.command(["imp","impacto"], async (ctx) =>{
   if(await handleChatTypeResponse(ID, ctx)){
     const playerName = await selectName(ctx);
     const REGEX = /(\w+)(\*\d*)?/;
+      if(ctx.match){
     const match = ctx.match.match(REGEX);
     const numberOfDice =  match[1]?match[1]:"";
     const divisorMatch = match[2] ? match[2] : "";
+      }
     const result = await rollDice("3d6"+divisorMatch+" "+numberOfDice, true);
     await ctx.reply(`${playerName} rolou${result.text}` ,{reply_to_message_id: ctx.message.message_id});
   }
