@@ -9,7 +9,17 @@ function getResultForType(type, result) {
   // Object.keys(body.desc).map(desc => desc === type.toLowerCase());
   if (body.types[type.toLowerCase()]) {
     typeResult = body.types[type.toLowerCase()][result];
-    switch (typeResult) {
+    typeDesc = getDescForType(typeResult);
+    
+  } else {
+    typeResult = "/tipo desconhecido.";
+    typeDesc = false;
+  }
+    return { typeDesc, typeResult };
+}
+
+function getDescForType(typeResult){
+  switch (typeResult) {
       case 'Asa':
       case 'Cauda':
       case 'Braço 1-2':
@@ -63,11 +73,7 @@ function getResultForType(type, result) {
       default:
         typeDesc = body.part.find(part => part.name === typeResult);
     }
-  } else {
-    typeResult = "/tipo desconhecido.";
-    typeDesc = false;
-  }
-    return { typeDesc, typeResult };
+  return typeDesc;
 }
 
 function handleChatTypeResponse(chatID, ctx) {
