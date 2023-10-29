@@ -262,7 +262,62 @@ const body = {
     16: "Pata 5-6",
     17: "Pata 7-8",
     18: "Pata 7-8"
-}}};
+}
+  serpentealada:{
+    3: "Crânio",
+    4: "Crânio",
+    5: "Rosto",
+    6: "Pescoço",
+    7: "Pescoço",
+    8: "Pescoço",
+    9: "Tronco",
+    10: "Tronco",
+    11: "Tronco",
+    12: "Tronco",
+    13: "Tronco",
+    14: "Tronco",
+    15: "Asa",
+    16: "Asa",
+    17: "Asa",
+    18: "Asa"
+ }
+  homemcobra:{
+    3: "Crânio",
+    4: "Crânio",
+    5: "Rosto",
+    6: "Pescoço",
+    7: "Braço Direito",
+    8: "Braço Direito",
+    9: "Tronco",
+    10: "Tronco",
+    11: "Tronco",
+    12: "Tronco",
+    13: "Braço Esquerdo",
+    14: "Braço Esquerdo",
+    15: "Tronco",
+    16: "Tronco",
+    17: "Mão",
+    18: "Mão"
+  }
+  escorpiao:{
+    3: "Crânio",
+    4: "Crânio",
+    5: "Rosto",
+    6: "Rosto",
+    7: "Braço",
+    8: "Braço",
+    9: "Tronco",
+    10: "Tronco",
+    11: "Tronco",
+    12: "Cauda",
+    13: "Pata",
+    14: "Pata",
+    15: "Pata",
+    16: "Pata",
+    17: "Pé",
+    18: "Pé"
+  }
+}};
 const fulminanteTable = {
   3: "O golpe causa o triplo do dano.",
   4: "A RD do alvo protege apenas com metade do valor (arredondado para baixo) depois de aplicados quaisquer divisores de armadura.",
