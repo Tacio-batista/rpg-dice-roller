@@ -27,7 +27,7 @@ function getDescForType(typeResult){
       case 'Braço 5-6':
       case 'Braço 7-8':
       case 'Braço Esquerdo':
-      case 'Braço direito':
+      case 'Braço Direito':
       case 'Pata 1-2':
       case 'Pata 3-4':
       case 'Pata 5-6':
