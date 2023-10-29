@@ -262,7 +262,7 @@ const body = {
     16: "Pata 5-6",
     17: "Pata 7-8",
     18: "Pata 7-8"
-}
+},
   serpentealada:{
     3: "Crânio",
     4: "Crânio",
@@ -280,7 +280,7 @@ const body = {
     16: "Asa",
     17: "Asa",
     18: "Asa"
- }
+ },
   homemcobra:{
     3: "Crânio",
     4: "Crânio",
@@ -298,7 +298,7 @@ const body = {
     16: "Tronco",
     17: "Mão",
     18: "Mão"
-  }
+  },
   escorpiao:{
     3: "Crânio",
     4: "Crânio",
