@@ -61,13 +61,16 @@ bot.command("regras", async (ctx) =>{
   }
 });
 
-bot.command(["ponto","impacto"], async (ctx) =>{
+bot.command(["imp","impacto"], async (ctx) =>{
   const ID = String(ctx.from.id);
   if(await handleChatTypeResponse(ID, ctx)){
     const playerName = await selectName(ctx);
-    const result = await rollDice("3d6");
-    const bodyPoint = await getResultForType(ctx.match,result.total);
-    await ctx.reply(`${bodyPoint.typeDesc !== false ? `${playerName} rolou${result.text}\nE o PONTO DE IMPACTO foi:\n\n -> ${bodyPoint.typeResult} (${bodyPoint.typeDesc.modifier})\n\n${bodyPoint.typeDesc.desc}` : bodyPoint.typeResult}` ,{reply_to_message_id: ctx.message.message_id});
+    const REGEX = /(?:\s+(.+))?(\*\d+)?/
+    const match = ctx.match.match(REGEX);
+    const numberOfDice =  match[1];
+    const divisorMatch = match[2] ? match[2].match(/\*(\d+)/) : null;
+    const result = await rollDice("3d6"+divisorMatch+" "+numberOfDice);
+    await ctx.reply(`${playerName} rolou${result.text}` ,{reply_to_message_id: ctx.message.message_id});
   }
 });
 
@@ -105,7 +108,7 @@ bot.command("tipo", async (ctx) =>{
 
 
 bot.api.setMyCommands([
-  { command: "roll", description: "Use o formato XdY [texto]" },
+  { command: "roll", description: "Use o formato XdY[+/-Z][*W] [texto]" },
   { command: "fulminante", description: "Rolagem para golpe fulminante" },
   { command: "erro", description: "Rolagem para erro crítico" },
   { command: "impacto", description: "Rolagem para ponto de impacto" },

@@ -127,6 +127,7 @@ function rollDice(input) {
   let text;
   let total;
   let output;
+  let bodyPoint
   if (match) {
     const numberOfDice = match[1] !== "" ? parseInt(match[1]) : 1 ;
     const numberOfSides = parseInt(match[2]);
@@ -146,12 +147,20 @@ function rollDice(input) {
       }
       total += modifier;
       
-        if (j === 0) {
-          text = `${stringText}:\n`;
-        }
+      bodyPoint = getResultForType(stringText,total);
+      
+      if (j === 0) {
+        text = `${stringText}:\n`;
+      }
+      if(divisor !== 1){
         
-      text +=`(${rolls.join(' + ')}) ${modifier === 0 ? "" : `${modifier > 0 ? `+ ${Math.abs(modifier)} ` : `- ${Math.abs(modifier)} `}`}= \n${total}\n`;
+      text +=`(${rolls.join(' + ')}) ${modifier === 0 ? "" : `${modifier > 0 ? `+ ${Math.abs(modifier)} ` : `- ${Math.abs(modifier)} `}`}= \n${total}\n${bodyPoint.typeDesc !== false ? `-> ${bodyPoint.typeResult} (${bodyPoint.typeDesc.modifier})` : bodyPoint.typeResult}\n`;
+    }else{
+      text +=`(${rolls.join(' + ')}) ${modifier === 0 ? "" : `${modifier > 0 ? `+ ${Math.abs(modifier)} ` : `- ${Math.abs(modifier)} `}`}= \n${total}\n${bodyPoint.typeDesc !== false ? `\nE o PONTO DE IMPACTO foi:\n\n-> ${bodyPoint.typeResult} (${bodyPoint.typeDesc.modifier})\n\n${bodyPoint.typeDesc.desc}` : bodyPoint.typeResult}\n`;
+      
     }
+        
+      }
       
       // text = `${stringText}:\n${output}`;
     }
