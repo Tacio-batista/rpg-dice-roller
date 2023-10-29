@@ -61,7 +61,8 @@ function getDescForType(typeResult){
         typeDesc.desc += "\n\nExceção: Se for Cérebro RD 1.";
         
         break;
-      case 'Extremidade' || "Nadadeira":
+      case 'Extremidade':
+      case "Nadadeira":
         
         typeDesc = body.part.find(part => part.name === "Mão");
         if(typeResult === "Extremidade") {
