@@ -9,7 +9,7 @@ function getResultForType(type, result) {
   // Object.keys(body.desc).map(desc => desc === type.toLowerCase());
   if (body.types[type.toLowerCase()]) {
     typeResult = body.types[type.toLowerCase()][result];
-    typeDesc = getDescForType(typeResult);
+    typeDesc = getDescForType(typeResult, type);
     
   } else {
     typeResult = "/tipo desconhecido.";
@@ -18,7 +18,7 @@ function getResultForType(type, result) {
     return { typeDesc, typeResult };
 }
 
-function getDescForType(typeResult){
+function getDescForType(typeResult, type){
   switch (typeResult) {
       case 'Asa':
       case 'Cauda':
@@ -76,8 +76,8 @@ function getDescForType(typeResult){
       default:
         typeDesc = body.part.find(part => part.name === typeResult);
     }
-  if(typeResult === "centauro" && typeResult === "Corpo"){
-    typeDesc.desc += "\n - Para centauro 9–10 significa que a parte animal foi atingida, enquanto 11 significa que a parte superior humanoide foi atingida."
+  if(type === "centauro" && typeResult === "Corpo"){
+    typeDesc.desc += "\n\n - Para centauro 9–10 significa que a parte animal foi atingida, enquanto 11 significa que a parte superior humanoide foi atingida."
   }
   return typeDesc;
 }
