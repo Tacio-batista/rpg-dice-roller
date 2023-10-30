@@ -1,7 +1,7 @@
 const { Bot, session } = require('grammy');
 const { conversations, createConversation } = require("@grammyjs/conversations");
 const { golpeFulminante, erroCritico, rollDice, playersID, selectName, handleChatTypeResponse, getResultForType } = require("./handlers");
-const { rulesMenu, dgSheetsMenu, tibiusMenu, fergusMenu, abbadonMenu, helpMenu} = require("./menus");
+const { rulesMenu, dgSheetsMenu, tibiusMenu, fergusMenu, abbadonMenu, helpMenu, deleteP, pointMenu} = require("./menus");
 const { getFormattedCharacters } = require("./utils");
 const { links, body } = require("./constants/characters");
 const { InlineKeyboard } = require("grammy");
@@ -30,8 +30,10 @@ bot.use(tibiusMenu);
 bot.use(fergusMenu);
 bot.use(abbadonMenu);
 bot.use(helpMenu);
+bot.use(pointMenu);
 
 bot.command(["r", "roll", "rolar"], async (ctx) => {
+  await deleteP(9);
   if(ctx.match !== ""){
   const result = await rollDice(ctx.match);
   const playerName = await selectName(ctx);
@@ -39,6 +41,7 @@ bot.command(["r", "roll", "rolar"], async (ctx) => {
 });
 
 bot.command("fulminante", async (ctx) => {
+  await deleteP(9);
   const ID = String(ctx.from.id);
   if(await handleChatTypeResponse(ID, ctx)){
     const result = await rollDice("3d6");
@@ -48,6 +51,7 @@ bot.command("fulminante", async (ctx) => {
   }
 });
 bot.command("erro", async (ctx) => {
+  await deleteP(9);
   const ID = String(ctx.from.id);
   if(await handleChatTypeResponse(ID, ctx)){
     const result = await rollDice("3d6");
@@ -58,6 +62,7 @@ bot.command("erro", async (ctx) => {
 });
 
 bot.command("regras", async (ctx) =>{
+  await deleteP(9);
   const ID = String(ctx.from.id);
   if(await handleChatTypeResponse(ID, ctx)){
     await ctx.reply("Regras!", { reply_markup: rulesMenu});
@@ -65,6 +70,7 @@ bot.command("regras", async (ctx) =>{
 });
 
 bot.command(["imp","impacto"], async (ctx) =>{
+  await deleteP(9);
   const ID = String(ctx.from.id);
   if(await handleChatTypeResponse(ID, ctx)){
     const playerName = await selectName(ctx);
@@ -82,6 +88,7 @@ bot.command(["imp","impacto"], async (ctx) =>{
 });
 
 bot.command("ficha", async (ctx) =>{
+  await deleteP(9);
   const ID = String(ctx.from.id);
   if(await handleChatTypeResponse(ID, ctx)){
     switch (ID) {
@@ -100,19 +107,27 @@ bot.command("ficha", async (ctx) =>{
   }
 });
 
+bot.command(["ponto", "regiao"], async (ctx) =>{
+  await deleteP(9);
+  const ID = String(ctx.from.id);
+  if(await handleChatTypeResponse(ID, ctx)){
+    await ctx.reply("Escolha em que região quer ver os pontos de impacto.", {reply_markup: pointMenu});
+  }
+});
+
 bot.command("help", async (ctx) => {
+  await deleteP(9);
   const ID = String(ctx.from.id);
   await ctx.reply(`/r ou /roll ou /rolar -> Possui o formato "XdY[+/-Z][*W] [text]" onde X é o numero de dados, Y o número de lados, Z para somar ou subtrair algum modificador, W indica quantos resultados quer obter separadamnte e text indica alguma possível descrição. Apenas "d" e "Y" são obrigatórios para obter alguma rolagem de fato.${await handleChatTypeResponse(ID) === true ? `\n/fulminante -> Irá rolar 3d6 automaticamente, retornar os valores e qual o resultado de acordo com a tabela de "Golpe Fulminante" do manual.\n/erro -> Assim como o comando anterior, irá rolar 3d6 automaticamente, retornar os valores e qual o resultado de acordo com a tabela de "Erro Crítico" do manual.\n/regras -> Menu resumido de regras, atualmente com as regras "combate", "magias" e "gerais".\n/ficha -> Da acesso a ficha do seu personagem (o Mestre tem acesso a todas).\n/tipo -> Lista todos os tipos de corpos aceitos para definir um 'ponto de impacto'.\n/impacto ou /imp -> Formato [tipo][*W] onde "tipo" é o tipo corporal do alvo e W indica quantos resultados quer obter separadamente. Irá rolar 3d6 automaticamente, retornar os valores e qual o resultado de acordo com as tabelas de "Ponto de Impacto"` : ""}`, {reply_markup: helpMenu});
 });
 bot.command("tipo", async (ctx) =>{
+  await deleteP(9);
   const ID = String(ctx.from.id);
   if(await handleChatTypeResponse(ID, ctx)){
     await ctx.reply(`Tipos aceitos:\n\n${Object.keys(body.types).map(type => type).join("\n")}`, {reply_markup: helpMenu});
   }
   
-})
-
-
+});
 
 bot.api.setMyCommands([
   { command: "roll", description: "Use o formato XdY[+/-Z][*W] [texto]" },
@@ -120,6 +135,7 @@ bot.api.setMyCommands([
   { command: "erro", description: "Rolagem para erro crítico" },
   { command: "impacto", description: "Rolagem para ponto de impacto: [tipo][*W]" },
   { command: "tipo", description: "Dispõe a lista de tipos de corpos" },
+  { command: "ponto", description: "Dispõe as descrições dos pontos de impacto" },
   { command: "regras", description: "Dispõe a lista de regras" },
   { command: "help", description: "Lista de comandos explicados" }
 ]);

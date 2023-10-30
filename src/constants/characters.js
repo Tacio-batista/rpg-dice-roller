@@ -35,16 +35,16 @@ const obs = [
 
 const body = {
   part: [
-    { name: "Olho", desc: " - " + obs[1] + "\n - " + obs[2], modifier: -9},
-    { name: "Crânio", desc: " - " + obs[1] + "\n - " + obs[3], modifier: -7},
-    { name: "Rosto", desc: " - " + obs[1] + "\n - " + obs[4], modifier: -5},
-    { name: "Perna", desc: " - " + obs[5], modifier: -2},
-    { name: "Braço", desc: " - " + obs[5] + "\n - " + obs[6], modifier: -2},
-    { name: "Virilha", desc: " - " + obs[1] + "\n - " + obs[7], modifier: -3},
-    { name: "Mão", desc: " - " + obs[6] + "\n - " + obs[8] + "\n - " + obs[9], modifier: -4},
-    { name: "Pé", desc: " - " + obs[8] + "\n - " + obs[9], modifier: -4},
-    { name: "Pescoço", desc: " - " + obs[1] + "\n - " + obs[10], modifier: -5},
-    { name: "Órgãos", desc: " - " + obs[1] + "\n - " + obs[11], modifier: -3},
+    { name: "Olho", desc: obs[1] + "\n - " + obs[2], modifier: -9},
+    { name: "Crânio", desc: obs[1] + "\n - " + obs[3], modifier: -7},
+    { name: "Rosto", desc: obs[1] + "\n - " + obs[4], modifier: -5},
+    { name: "Perna", desc: obs[5], modifier: -2},
+    { name: "Braço", desc: obs[5] + "\n - " + obs[6], modifier: -2},
+    { name: "Virilha", desc: obs[1] + "\n - " + obs[7], modifier: -3},
+    { name: "Mão", desc: obs[6] + "\n - " + obs[8] + "\n - " + obs[9], modifier: -4},
+    { name: "Pé", desc: obs[8] + "\n - " + obs[9], modifier: -4},
+    { name: "Pescoço", desc: obs[1] + "\n - " + obs[10], modifier: -5},
+    { name: "Órgãos Vitais", desc: obs[1] + "\n - " + obs[11], modifier: -3},
     { name: "Tronco", desc: "", modifier: 0}
 ],
   types: { 
@@ -262,62 +262,7 @@ const body = {
     16: "Pata 5-6",
     17: "Pata 7-8",
     18: "Pata 7-8"
-},
-  serpentealada:{
-    3: "Crânio",
-    4: "Crânio",
-    5: "Rosto",
-    6: "Pescoço",
-    7: "Pescoço",
-    8: "Pescoço",
-    9: "Tronco",
-    10: "Tronco",
-    11: "Tronco",
-    12: "Tronco",
-    13: "Tronco",
-    14: "Tronco",
-    15: "Asa",
-    16: "Asa",
-    17: "Asa",
-    18: "Asa"
- },
-  homemcobra:{
-    3: "Crânio",
-    4: "Crânio",
-    5: "Rosto",
-    6: "Pescoço",
-    7: "Braço Direito",
-    8: "Braço Direito",
-    9: "Tronco",
-    10: "Tronco",
-    11: "Tronco",
-    12: "Tronco",
-    13: "Braço Esquerdo",
-    14: "Braço Esquerdo",
-    15: "Tronco",
-    16: "Tronco",
-    17: "Mão",
-    18: "Mão"
-  },
-  escorpiao:{
-    3: "Crânio",
-    4: "Crânio",
-    5: "Rosto",
-    6: "Rosto",
-    7: "Braço",
-    8: "Braço",
-    9: "Tronco",
-    10: "Tronco",
-    11: "Tronco",
-    12: "Cauda",
-    13: "Pata",
-    14: "Pata",
-    15: "Pata",
-    16: "Pata",
-    17: "Pé",
-    18: "Pé"
-  }
-}};
+}}};
 const fulminanteTable = {
   3: "O golpe causa o triplo do dano.",
   4: "A RD do alvo protege apenas com metade do valor (arredondado para baixo) depois de aplicados quaisquer divisores de armadura.",
