@@ -19,7 +19,7 @@ function getResultForType(type, result) {
 
 function getDescForPoint(pointas){
   const member = ["Braço", "Perna","Asa", "Braço x","Pata","Nadadeira","Cauda"];
-  const head = ["Olho", "Rosto", "Pescoço", "Crânio", "Cérebro"];
+  const head = ["Olho", "Rosto", "Pescoço", "Crânio"];
   const bodyPoint = ["Tronco", "Órgãos Vitais", "Virilha"];
   const extremidade = ["Mão", "Pé", "Extremidade"];
   const extrDesc = extremidade.map(extr =>{
@@ -47,8 +47,8 @@ function getDescForPoint(pointas){
   const headDesc = head.map((hed, i) =>{
     const point = getDescForType(hed);
     
-    if(i === 4){
-      point.desc = 'Mesmo que "Crânio" mas RD 1.';
+    if(i === 3){
+      point.desc += '\n\n -> Para os que for possível acerto no "Cérebro" seuge mesmo que "Crânio" mas RD 1.';
     }
     return ` -> ${hed} (${point.modifier}): ${point.desc}`;
     
