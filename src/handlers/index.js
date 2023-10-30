@@ -44,10 +44,10 @@ function getDescForPoint(pointas){
     return ` -> ${bod} (${point.modifier}): ${point.desc}`;
     
   }).join("\n\n");
-  const headDesc = head.map(hed =>{
+  const headDesc = head.map((hed, i) =>{
     const point = getDescForType(hed);
     
-    if(hed === "Cérebro"){
+    if(i === 4){
       point.desc = 'Mesmo que "Crânio" mas RD 1.';
     }
     return ` -> ${hed} (${point.modifier}): ${point.desc}`;
