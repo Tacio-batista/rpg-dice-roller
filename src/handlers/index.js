@@ -47,9 +47,9 @@ function getDescForPoint(pointas){
   const headDesc = head.map((hed, i) =>{
     const point = getDescForType(hed);
     
-    if(i === 3){
-      point.desc += '\n\n -> Para os que for possível acerto no "Cérebro" seuge mesmo que "Crânio" mas RD 1.';
-    }
+    // if(i === 3){
+    //   point.desc += '\n\n -> Para os que for possível acerto no "Cérebro" segue mesmo que "Crânio" mas RD 1.';
+    // }
     return ` -> ${hed} (${point.modifier}): ${point.desc}`;
     
   }).join("\n\n");
