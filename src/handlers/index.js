@@ -52,7 +52,7 @@ function getDescForPoint(pointas){
     // }
     return ` -> ${hed} (${point.modifier}): ${point.desc}`;
     
-  }).join("\n\n");
+  }).join("\n\n") + '\n\n -> Para os que for possível acerto no "Cérebro" segue mesmo que "Crânio" mas RD 1.';
   const memberDesc = member.map(mem =>{
     const point = getDescForType(mem);
     switch (mem) {
@@ -74,7 +74,6 @@ function getDescForPoint(pointas){
 
     return ` -> ${mem} (${point.modifier}): ${point.desc}`;
   }).join("\n\n");
-  headDesc +='\n\n -> Para os que for possível acerto no "Cérebro" segue mesmo que "Crânio" mas RD 1.'
   return {memberDesc, headDesc, bodyDesc, extrDesc};
 }
 
