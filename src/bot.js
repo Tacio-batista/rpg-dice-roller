@@ -5,9 +5,9 @@ const { rulesMenu, dgSheetsMenu, tibiusMenu, fergusMenu, abbadonMenu, helpMenu, 
 const { getFormattedCharacters } = require("./utils");
 const { links, body } = require("./constants/characters");
 const { InlineKeyboard } = require("grammy");
-// const { bold, fmt, hydrateReply, italic, link } = require(
-//   "@grammyjs/parse-mode",
-// );
+const { bold, fmt, hydrateReply, italic, link } = require(
+  "@grammyjs/parse-mode",
+);
 
 
 const {
@@ -16,14 +16,14 @@ const {
 
 // require("dotenv").config();
 
-// const token = process.env.BOT_API_TOKEN || "";
+const token = process.env.BOT_API_TOKEN || "";
 // Defina seu token nas variáveis de ambiente do Vercel
 const bot = new Bot(token);
 
 // Anexe todos os middlewares
 
 bot.use(session({ initial: () => ({}) }));
-// bot.use(hydrateReply);
+bot.use(hydrateReply);
 bot.use(rulesMenu);
 bot.use(dgSheetsMenu);
 bot.use(tibiusMenu);
@@ -37,7 +37,9 @@ bot.command(["r", "roll", "rolar"], async (ctx) => {
   if(ctx.match !== ""){
   const result = await rollDice(ctx.match);
   const playerName = await selectName(ctx);
-  await ctx.reply(`${result.total !== false ? `${playerName} rolou${result.text}`: result.text}`,{reply_to_message_id: ctx.message.message_id});}
+  await ctx.reply(`${result.total !== false ? `${playerName} rolou${result.text}`: result.text}`,{reply_to_message_id: ctx.message.message_id});
+  await ctx.replyFmt(fmt`${bold("rolou bem!")}`);
+  }
 });
 
 bot.command("fulminante", async (ctx) => {
