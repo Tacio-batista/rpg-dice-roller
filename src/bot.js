@@ -49,20 +49,20 @@ bot.command("fulminante", async (ctx) => {
   await deleteP(9);
   const ID = String(ctx.from.id);
   if(await handleChatTypeResponse(ID, ctx)){
-    const result = await rollDice("3d6");
+    const result = await rollDice("3d6",false,"V2");
     const output = await golpeFulminante(result.total);
     const playerName = await selectName(ctx);
-    await ctx.reply(`${playerName} rolou${result.text}\nE o resultado do *GOLPE FULMINANTE* foi:\n\n -> *${output}*`,{reply_to_message_id: ctx.message.message_id});
+    await ctx.replyWithMarkdownV2(`${playerName} rolou${result.text}\nE o resultado do *GOLPE FULMINANTE* foi:\n\n \\-\\> ||*${output}*\r||`,{reply_to_message_id: ctx.message.message_id});
   }
 });
 bot.command("erro", async (ctx) => {
   await deleteP(9);
   const ID = String(ctx.from.id);
   if(await handleChatTypeResponse(ID, ctx)){
-    const result = await rollDice("3d6");
+    const result = await rollDice("3d6",false,"V2");
     const output = await erroCritico(result.total);
     const playerName = await selectName(ctx);
-    await ctx.reply(`${playerName} rolou${result.text}\nE o resultado do *ERRO CRÍTICO* foi:\n\n${output}`,{reply_to_message_id: ctx.message.message_id});
+    await ctx.replyWithMarkdownV2(`${playerName} rolou${result.text}\nE o resultado do *ERRO CRÍTICO* foi:\n\n \\-\\> ||${output}||`,{reply_to_message_id: ctx.message.message_id});
   }
 });
 

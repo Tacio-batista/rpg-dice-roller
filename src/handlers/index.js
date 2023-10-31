@@ -189,7 +189,7 @@ function erroCritico(value) {
 }
 
 
-function rollDice(input, flag) {
+function rollDice(input, flag, markdown) {
   const regex = /(\d*)d(\d+)([+\-]\d+)?(\*\d+)?(?:\s+(.+))?/; // O último grupo (text) é tornando opcional
   let text;
   let total;
@@ -225,10 +225,25 @@ function rollDice(input, flag) {
       }
       if(divisor !== 1){
       
+      if (markdown === "V2"){
         
-      text +=`(${rolls.join(' + ')}) ${modifier === 0 ? "" : `${modifier > 0 ? `+ ${Math.abs(modifier)} ` : `- ${Math.abs(modifier)} `}`}= \n• *${total}*${flag?`${bodyPoint.typeDesc !== false ? ` -> _${bodyPoint.typeResult}_ (${bodyPoint.typeDesc.modifier})` : bodyPoint.typeResult}\n`: ""}\n`;
+        text +=`\\(${rolls.join(' \\+ ')}\\) ${modifier === 0 ? "" : `${modifier > 0 ? `+ ${Math.abs(modifier)} ` : `- ${Math.abs(modifier)} `}`}\\= \n• *${total}*${flag?`${bodyPoint.typeDesc !== false ? ` -> _${bodyPoint.typeResult}_ (${bodyPoint.typeDesc.modifier})` : bodyPoint.typeResult}\n`: ""}\n`;  
+        
+      }else{
+        
+        text +=`(${rolls.join(' + ')}) ${modifier === 0 ? "" : `${modifier > 0 ? `+ ${Math.abs(modifier)} ` : `- ${Math.abs(modifier)} `}`}= \n• *${total}*${flag?`${bodyPoint.typeDesc !== false ? ` -> _${bodyPoint.typeResult}_ (${bodyPoint.typeDesc.modifier})` : bodyPoint.typeResult}\n`: ""}\n`;
+      }
     }else{
-      text +=`(${rolls.join(' + ')}) ${modifier === 0 ? "" : `${modifier > 0 ? `+ ${Math.abs(modifier)} ` : `- ${Math.abs(modifier)} `}`}= \n• *${total}*${flag?`\n${bodyPoint.typeDesc !== false ? `\nE o *PONTO DE IMPACTO* foi:\n\n-> *${bodyPoint.typeResult}* (${bodyPoint.typeDesc.modifier})\n\n - ${bodyPoint.typeDesc.desc}` : bodyPoint.typeResult}`: ""}\n`;
+      
+      if(markdown === "V2"){
+        
+        text +=`\\(${rolls.join(' \\+ ')}\\) ${modifier === 0 ? "" : `${modifier > 0 ? `+ ${Math.abs(modifier)} ` : `- ${Math.abs(modifier)} `}`}\\= \n• *${total}*${flag?`\n${bodyPoint.typeDesc !== false ? `\nE o *PONTO DE IMPACTO* foi:\n\n-> *${bodyPoint.typeResult}* (${bodyPoint.typeDesc.modifier})\n\n - ${bodyPoint.typeDesc.desc}` : bodyPoint.typeResult}`: ""}\n`;
+        
+      }else{
+        
+        text +=`(${rolls.join(' + ')}) ${modifier === 0 ? "" : `${modifier > 0 ? `+ ${Math.abs(modifier)} ` : `- ${Math.abs(modifier)} `}`}= \n• *${total}*${flag?`\n${bodyPoint.typeDesc !== false ? `\nE o *PONTO DE IMPACTO* foi:\n\n-> *${bodyPoint.typeResult}* (${bodyPoint.typeDesc.modifier})\n\n - ${bodyPoint.typeDesc.desc}` : bodyPoint.typeResult}`: ""}\n`;
+        
+      }
       
     }
         
