@@ -218,7 +218,7 @@ function rollDice(input, flag) {
       bodyPoint = getResultForType(stringType,total);
       
       if (j === 0) {
-        text = `${stringText}:\n`;
+        text = `${bold(stringText)}:\n`;
       }
       if(divisor !== 1){
       

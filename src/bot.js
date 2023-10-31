@@ -37,8 +37,7 @@ bot.command(["r", "roll", "rolar"], async (ctx) => {
   if(ctx.match !== ""){
   const result = await rollDice(ctx.match);
   const playerName = await selectName(ctx);
-  await ctx.reply(`${result.total !== false ? `${playerName} rolou${result.text}`: result.text}`,{reply_to_message_id: ctx.message.message_id});
-  await ctx.replyFmt(fmt`${bold("rolou bem!")} pode seguir`);
+  await ctx.replyFmt(fmt`${result.total !== false ? `${playerName} rolou${result.text}`: result.text}`,{reply_to_message_id: ctx.message.message_id});
   }
 });
 
