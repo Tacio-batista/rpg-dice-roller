@@ -47,9 +47,6 @@ function getDescForPoint(pointas){
   const headDesc = head.map((hed, i) =>{
     const point = getDescForType(hed);
     
-    // if(i === 3){
-    //   point.desc += '\n\n -> Para os que for possível acerto no "Cérebro" segue mesmo que "Crânio" mas RD 1.';
-    // }
     return ` -> ${hed} (${point.modifier}): ${point.desc}`;
     
   }).join("\n\n") + '\n\n -> Para os que for possível acerto no "Cérebro" segue mesmo que "Crânio" mas RD 1.';
@@ -221,14 +218,14 @@ function rollDice(input, flag) {
       bodyPoint = getResultForType(stringType,total);
       
       if (j === 0) {
-        text = `${stringText}:\n`;
+        text = `${bold(`${stringText}`)}:\n`;
       }
       if(divisor !== 1){
       
         
       text +=`(${rolls.join(' + ')}) ${modifier === 0 ? "" : `${modifier > 0 ? `+ ${Math.abs(modifier)} ` : `- ${Math.abs(modifier)} `}`}= \n${total}${flag?`\n${bodyPoint.typeDesc !== false ? `-> ${bodyPoint.typeResult} (${bodyPoint.typeDesc.modifier})` : bodyPoint.typeResult}`: ""}\n`;
     }else{
-      text +=`(${rolls.join(' + ')}) ${modifier === 0 ? "" : `${modifier > 0 ? `+ ${Math.abs(modifier)} ` : `- ${Math.abs(modifier)} `}`}= \n${total}${flag?`\n${bodyPoint.typeDesc !== false ? `\nE o PONTO DE IMPACTO foi:\n\n-> ${bodyPoint.typeResult} (${bodyPoint.typeDesc.modifier})\n\n - ${bodyPoint.typeDesc.desc}` : bodyPoint.typeResult}`: ""}\n`;
+      text +=` (${rolls.join(' + ')}) ${modifier === 0 ? "" : `${modifier > 0 ? `+ ${Math.abs(modifier)} ` : `- ${Math.abs(modifier)} `}`}= \n${total}${flag?`\n${bodyPoint.typeDesc !== false ? `\nE o PONTO DE IMPACTO foi:\n\n-> ${bodyPoint.typeResult} (${bodyPoint.typeDesc.modifier})\n\n - ${bodyPoint.typeDesc.desc}` : bodyPoint.typeResult}`: ""}\n`;
       
     }
         
