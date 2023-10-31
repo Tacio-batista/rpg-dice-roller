@@ -1,5 +1,7 @@
 const { playersID, body, erroTable, fulminanteTable } = require("../constants/characters");
 const { InlineKeyboard } = require("grammy");
+const { bold, fmt, hydrateReply, italic, link } = require(
+  "@grammyjs/parse-mode",);
 
 
 function getResultForType(type, result) {
@@ -33,7 +35,7 @@ function getDescForPoint(pointas){
       default:
     }
     
-    return ` -> ${extr} (${point.modifier}): ${point.desc}`;
+    return ` -> *${extr}* (${point.modifier}): ${point.desc}`;
     
   }).join("\n\n");
   const bodyDesc = bodyPoint.map(bod =>{
@@ -41,13 +43,13 @@ function getDescForPoint(pointas){
     if (bod === "Tronco"){
       point.desc = " Acerto comum\n - Para centauro 9–10 significa que a parte animal foi atingida, enquanto 11 significa que a parte superior humanoide foi atingida."
     }
-    return ` -> ${bod} (${point.modifier}): ${point.desc}`;
+    return ` -> *${bod}* (${point.modifier}): ${point.desc}`;
     
   }).join("\n\n");
   const headDesc = head.map((hed, i) =>{
     const point = getDescForType(hed);
     
-    return ` -> ${hed} (${point.modifier}): ${point.desc}`;
+    return ` -> *${hed}* (${point.modifier}): ${point.desc}`;
     
   }).join("\n\n") + '\n\n -> Para os que for possível acerto no "Cérebro" segue mesmo que "Crânio" mas RD 1.';
   const memberDesc = member.map(mem =>{
@@ -69,7 +71,7 @@ function getDescForPoint(pointas){
         // Se nenhum caso corresponder a typeResult, você pode adicionar um tratamento padrão aqui.
     }
 
-    return ` -> ${mem} (${point.modifier}): ${point.desc}`;
+    return ` -> *${mem}* (${point.modifier}): ${point.desc}`;
   }).join("\n\n");
   return {memberDesc, headDesc, bodyDesc, extrDesc};
 }
@@ -158,16 +160,16 @@ function selectName(ctx){
   switch(String(ctx.from.id)){
     
     case playersID.Tibius:
-      return "Tibius";
+      return "*Tibius*";
       
     case playersID.Abbadon:
-      return "Abbadon";
+      return "*Abbadon*";
       
     case playersID.Mestre:
-      return "Mestre";
+      return "*Mestre*";
       
     case playersID.Fergus:
-      return "Fergus";
+      return "*Fergus*";
       
     default:
       return `@${ctx.from.username? ctx.from.username : ctx.from.first_name}`;
@@ -189,11 +191,12 @@ function erroCritico(value) {
 
 function rollDice(input, flag) {
   const regex = /(\d*)d(\d+)([+\-]\d+)?(\*\d+)?(?:\s+(.+))?/; // O último grupo (text) é tornando opcional
-  const match = input.match(regex);
   let text;
   let total;
   let output;
   let bodyPoint;
+  const match = input.match(regex);
+  
   const enter ="\n\n\n\n\n\n\n\n";
   if (match) {
     const numberOfDice = match[1] !== "" ? parseInt(match[1]) : 1 ;
@@ -218,24 +221,24 @@ function rollDice(input, flag) {
       bodyPoint = getResultForType(stringType,total);
       
       if (j === 0) {
-        text = `${bold(stringText)}:\n`;
+        text = `*${stringText}*:\n`;
       }
       if(divisor !== 1){
       
         
-      text +=`(${rolls.join(' + ')}) ${modifier === 0 ? "" : `${modifier > 0 ? `+ ${Math.abs(modifier)} ` : `- ${Math.abs(modifier)} `}`}= \n${total}${flag?`\n${bodyPoint.typeDesc !== false ? `-> ${bodyPoint.typeResult} (${bodyPoint.typeDesc.modifier})` : bodyPoint.typeResult}`: ""}\n`;
+      text +=`(${rolls.join(' + ')}) ${modifier === 0 ? "" : `${modifier > 0 ? `+ ${Math.abs(modifier)} ` : `- ${Math.abs(modifier)} `}`}= \n• *${total}*${flag?`${bodyPoint.typeDesc !== false ? ` -> _${bodyPoint.typeResult}_ (${bodyPoint.typeDesc.modifier})` : bodyPoint.typeResult}\n`: ""}\n`;
     }else{
-      text +=` (${rolls.join(' + ')}) ${modifier === 0 ? "" : `${modifier > 0 ? `+ ${Math.abs(modifier)} ` : `- ${Math.abs(modifier)} `}`}= \n${total}${flag?`\n${bodyPoint.typeDesc !== false ? `\nE o PONTO DE IMPACTO foi:\n\n-> ${bodyPoint.typeResult} (${bodyPoint.typeDesc.modifier})\n\n - ${bodyPoint.typeDesc.desc}` : bodyPoint.typeResult}`: ""}\n`;
+      text +=`(${rolls.join(' + ')}) ${modifier === 0 ? "" : `${modifier > 0 ? `+ ${Math.abs(modifier)} ` : `- ${Math.abs(modifier)} `}`}= \n• *${total}*${flag?`\n${bodyPoint.typeDesc !== false ? `\nE o *PONTO DE IMPACTO* foi:\n\n-> *${bodyPoint.typeResult}* (${bodyPoint.typeDesc.modifier})\n\n - ${bodyPoint.typeDesc.desc}` : bodyPoint.typeResult}`: ""}\n`;
       
     }
         
       }
       
-      // text = `${stringText}:\n${output}`;
     }
+    // text = fmt`${text}`;
   }else{
-  text = "Formato inválido. Use o formato XdY[+/-Z][*W] [texto].\n/help para maior entendimento.";
-  total = false;
+    text = `Formato inválido. Use o formato XdY\[[+/-Z\]]\[[*W\]] \[[texto\]].\n/help para maior entendimento.`;
+    total = false;
   }
 
   return {text, total};

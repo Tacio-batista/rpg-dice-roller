@@ -5,7 +5,7 @@ const { rulesMenu, dgSheetsMenu, tibiusMenu, fergusMenu, abbadonMenu, helpMenu, 
 const { getFormattedCharacters } = require("./utils");
 const { links, body } = require("./constants/characters");
 const { InlineKeyboard } = require("grammy");
-const { bold, fmt, hydrateReply, italic, link } = require(
+const { bold, fmt, hydrateReply, italic, link, parseMode } = require(
   "@grammyjs/parse-mode",
 );
 
@@ -23,7 +23,10 @@ const bot = new Bot(token);
 // Anexe todos os middlewares
 
 bot.use(session({ initial: () => ({}) }));
+
 bot.use(hydrateReply);
+bot.api.config.use(parseMode("Markdown"));
+
 bot.use(rulesMenu);
 bot.use(dgSheetsMenu);
 bot.use(tibiusMenu);
@@ -37,7 +40,8 @@ bot.command(["r", "roll", "rolar"], async (ctx) => {
   if(ctx.match !== ""){
   const result = await rollDice(ctx.match);
   const playerName = await selectName(ctx);
-  await ctx.replyFmt(fmt`${result.total !== false ? `${playerName} rolou${result.text}`: result.text}`,{reply_to_message_id: ctx.message.message_id});
+    await ctx.reply(`${result.total !== false ?`${playerName} rolou${result.text}`: result.text}`,{reply_to_message_id: ctx.message.message_id});
+  
   }
 });
 
@@ -48,7 +52,7 @@ bot.command("fulminante", async (ctx) => {
     const result = await rollDice("3d6");
     const output = await golpeFulminante(result.total);
     const playerName = await selectName(ctx);
-    await ctx.reply(`${playerName} rolou${result.text}\nE o resultado do GOLPE FULMINANTE foi:\n\n${output}`,{reply_to_message_id: ctx.message.message_id});
+    await ctx.reply(`${playerName} rolou${result.text}\nE o resultado do *GOLPE FULMINANTE* foi:\n\n -> *${output}*`,{reply_to_message_id: ctx.message.message_id});
   }
 });
 bot.command("erro", async (ctx) => {
@@ -58,7 +62,7 @@ bot.command("erro", async (ctx) => {
     const result = await rollDice("3d6");
     const output = await erroCritico(result.total);
     const playerName = await selectName(ctx);
-    await ctx.reply(`${playerName} rolou${result.text}\nE o resultado do ERRO CRÍTICO foi:\n\n${output}`,{reply_to_message_id: ctx.message.message_id});
+    await ctx.reply(`${playerName} rolou${result.text}\nE o resultado do *ERRO CRÍTICO* foi:\n\n${output}`,{reply_to_message_id: ctx.message.message_id});
   }
 });
 
@@ -119,13 +123,13 @@ bot.command(["ponto", "regiao"], async (ctx) =>{
 bot.command("help", async (ctx) => {
   await deleteP(9);
   const ID = String(ctx.from.id);
-  await ctx.reply(`/r ou /roll ou /rolar -> Possui o formato "XdY[+/-Z][*W] [text]" onde X é o numero de dados, Y o número de lados, Z para somar ou subtrair algum modificador, W indica quantos resultados quer obter separadamnte e text indica alguma possível descrição. Apenas "d" e "Y" são obrigatórios para obter alguma rolagem de fato.${await handleChatTypeResponse(ID) === true ? `\n/fulminante -> Irá rolar 3d6 automaticamente, retornar os valores e qual o resultado de acordo com a tabela de "Golpe Fulminante" do manual.\n/erro -> Assim como o comando anterior, irá rolar 3d6 automaticamente, retornar os valores e qual o resultado de acordo com a tabela de "Erro Crítico" do manual.\n/regras -> Menu resumido de regras, atualmente com as regras "combate", "magias" e "gerais".\n/ficha -> Da acesso a ficha do seu personagem (o Mestre tem acesso a todas).\n/tipo -> Lista todos os tipos de corpos aceitos para definir um 'ponto de impacto'.\n/impacto ou /imp -> Formato [tipo][*W] onde "tipo" é o tipo corporal do alvo e W indica quantos resultados quer obter separadamente. Irá rolar 3d6 automaticamente, retornar os valores e qual o resultado de acordo com as tabelas de "Ponto de Impacto"\n/ponto ou /regiao -> Abre o menu de descrições dos pontos de impactos da maioria dos tipos de corpos.` : ""}`, {reply_markup: helpMenu});
+  await ctx.reply(`/r ou /roll ou /rolar -> Possui o formato "XdY\[[+/-Z\]]\[[*W\]] \[[texto\]]" onde *X* é o numero de dados, *Y* o número de lados, *Z* para somar ou subtrair algum modificador, *W* indica quantos resultados quer obter separadamnte e *texto* indica alguma possível descrição. Apenas *"d" e "Y" são obrigatórios* para obter alguma rolagem de fato.${await handleChatTypeResponse(ID) === true ? `\n/fulminante -> Irá rolar 3d6 automaticamente, retornar os valores e qual o resultado de acordo com a tabela de "Golpe Fulminante" do manual.\n/erro -> Assim como o comando anterior, irá rolar 3d6 automaticamente, retornar os valores e qual o resultado de acordo com a tabela de "Erro Crítico" do manual.\n/regras -> Menu resumido de regras, atualmente com as regras "combate", "magias" e "gerais".\n/ficha -> Da acesso a ficha do seu personagem (o Mestre tem acesso a todas).\n/tipo -> Lista todos os tipos de corpos aceitos para definir um 'ponto de impacto'.\n/impacto ou /imp -> Formato [tipo][*W] onde "tipo" é o tipo corporal do alvo e W indica quantos resultados quer obter separadamente. Irá rolar 3d6 automaticamente, retornar os valores e qual o resultado de acordo com as tabelas de "Ponto de Impacto"\n/ponto ou /regiao -> Abre o menu de descrições dos pontos de impactos da maioria dos tipos de corpos.` : ""}`, {reply_markup: helpMenu});
 });
 bot.command("tipo", async (ctx) =>{
   await deleteP(9);
   const ID = String(ctx.from.id);
   if(await handleChatTypeResponse(ID, ctx)){
-    await ctx.reply(`Tipos aceitos:\n\n${Object.keys(body.types).map(type => type).join("\n")}`, {reply_markup: helpMenu});
+    await ctx.reply(`Tipos aceitos:\n\n - ${Object.keys(body.types).map(type => type).join("\n - ")}`, {reply_markup: helpMenu});
   }
   
 });
