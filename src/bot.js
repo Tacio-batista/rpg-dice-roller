@@ -16,7 +16,7 @@ const {
 
 // require("dotenv").config();
 
-const token = process.env.BOT_API_TOKEN || "";
+// const token = process.env.BOT_API_TOKEN || "";
 // Defina seu token nas variáveis de ambiente do Vercel
 const bot = new Bot(token);
 
