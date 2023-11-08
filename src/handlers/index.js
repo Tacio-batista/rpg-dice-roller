@@ -96,7 +96,8 @@ function getDescForType(typeResult, type){
       case 'Pata x':
         
         typeDesc = body.part.find(part => part.name === "Braço");
-        
+        typeDesc.desc = -2
+      
         if(typeResult === "Asa") {
             typeDesc.desc += "\n - Uma criatura voadora com uma asa incapacitada não consegue voar.";
             typeDesc.modifier = -2;
