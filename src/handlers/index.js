@@ -20,7 +20,7 @@ function getResultForType(type, result) {
 }
 
 function getDescForPoint(pointas){
-  const member = ["Braço", "Perna","Asa", "Braço x","Pata","Nadadeira","Cauda"];
+  const member = ["Braço", "Perna","Asa", "Braço x","Pata x","Nadadeira","Cauda"];
   const head = ["Olho", "Rosto", "Pescoço", "Crânio"];
   const bodyPoint = ["Tronco", "Órgãos Vitais", "Virilha"];
   const extremidade = ["Mão", "Pé", "Extremidade"];
@@ -64,7 +64,7 @@ function getDescForPoint(pointas){
       case 'Braço x':
         point.desc = " Para um octópode, braços 1–4 são os que estiverem sendo usados no momento para manipulação, enquanto os braços 5–8 são os que estiverem sendo usados para locomoção. Para um cancroide, um braço é uma pinça frontal.";
         break;
-      case 'Pata':
+      case 'Pata x':
         point.desc = " Para um cancroide, esta é qualquer uma de suas patas verdadeiras; defina aleatoriamente. Para um aracnídeo, patas 1–2 são o par frontal, patas 3–4 são as centro-frontais, patas 5–6 são as centro-traseiras e patas 7–8 são as traseiras.";
         break;
       default:
@@ -101,11 +101,11 @@ function getDescForType(typeResult, type){
             typeDesc.modifier = -2;
         }else if(typeResult === "Cauda"){
             typeDesc.desc += "\n - Se a cauda for um Braço Adicional ou Golpeador, ou se for uma cauda de peixe, trate-a como um membro (braço, perna) para fins de incapacitação; caso contrário, trate-a como uma extremidade (pé, mão). Uma cauda incapacitada afeta o equilíbrio. Para uma criatura terrestre, uma penalidade de -1 na DX. Para uma criatura nadadora ou voadora, uma penalidade de -2 na DX e o Deslocamento é diminuído pela metade. Se a criatura não tiver cauda, ou tiver uma cauda muito curta (como um coelho), trate como se fosse tronco.\n\nExtremidade: Jogue 1d: 1–2, uma mão humana da parte superior; 3–4, um pé frontal; 5–6 um pé traseiro. Num resultado ímpar, a parte esquerda é atingida, num resultado par, a direita.";
-            typeDesc.modifier = -4;
+            typeDesc.modifier = -3;
         }else if (typeResult === 'Braço 1-2' || typeResult === 'Braço 3-4' || typeResult === 'Braço 5-6' || typeResult === 'Braço 7-8'|| typeResult === 'Braço x'){
             typeDesc.desc += "\n - Para um octópode, braços 1–4 são os que estiverem sendo usados no momento para manipulação, enquanto os braços 5–8 são os que estiverem sendo usados para locomoção. Para um cancroide, um braço é uma pinça frontal.";
             typeDesc.modifier = -2;
-        }else if (typeResult === 'Pata 1-2' ||typeResult ===  'Pata 3-4' || typeResult === 'Pata 5-6' || typeResult === 'Pata 7-8' ||typeResult ===  'Pata'){
+        }else if (typeResult === 'Pata 1-2' ||typeResult ===  'Pata 3-4' || typeResult === 'Pata 5-6' || typeResult === 'Pata 7-8' ||typeResult ===  'Pata' ||typeResult ===  'Pata x'){
             typeDesc.desc += "\n - Para um cancroide, esta é qualquer uma de suas patas verdadeiras; defina aleatoriamente. Para um aracnídeo, patas 1–2 são o par frontal, patas 3–4 são as centro-frontais, patas 5–6 são as centro-traseiras e patas 7–8 são as traseiras.";
             typeDesc.modifier = -2;
         }
