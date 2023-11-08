@@ -93,6 +93,7 @@ function getDescForType(typeResult, type){
       case 'Pata 7-8':
       case 'Pata':
       case 'Braço x':
+      case 'Pata x':
         
         typeDesc = body.part.find(part => part.name === "Braço");
         
