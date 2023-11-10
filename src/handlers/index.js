@@ -141,7 +141,7 @@ function getDescForType(typeResult, type){
         typeDesc = body.part.find(part => part.name === typeResult);
     }
   if(type === "centauro" && typeResult === "Tronco"){
-    typeDesc.desc += " - Para centauro 9–10 significa que a parte animal foi atingida, enquanto 11 significa que a parte superior humanoide foi atingida."
+    typeDesc.desc += "\n\n - Para centauro 9–10 significa que a parte animal foi atingida, enquanto 11 significa que a parte superior humanoide foi atingida."
   }
   if(typeResult === "Cauda"){
     typeDesc.modifier = -3;
@@ -250,7 +250,7 @@ function rollDice(input, flag, markdown) {
         
       }else{
         
-        text +=`(${rolls.join(' + ')}) ${modifier === 0 ? "" : `${modifier > 0 ? `+ ${Math.abs(modifier)} ` : `- ${Math.abs(modifier)} `}`}= \n• *${total}*${flag?`\n${bodyPoint.typeDesc !== false ? `\nE o *PONTO DE IMPACTO* foi:\n\n-> *${bodyPoint.typeResult}* (${bodyPoint.typeDesc.modifier})\n\n - ${bodyPoint.typeDesc.desc}` : bodyPoint.typeResult}`: ""}\n`;
+        text +=`(${rolls.join(' + ')}) ${modifier === 0 ? "" : `${modifier > 0 ? `+ ${Math.abs(modifier)} ` : `- ${Math.abs(modifier)} `}`}= \n• *${total}*${flag?`\n${bodyPoint.typeDesc !== false ? `\nE o *PONTO DE IMPACTO* foi:\n\n-> *${bodyPoint.typeResult}* (${bodyPoint.typeDesc.modifier})${bodyPoint.typeResult !== "Tronco" ? `\n\n - ${bodyPoint.typeDesc.desc}` : bodyPoint.typeDesc.desc}` : bodyPoint.typeResult}`: ""}\n`;
         
       }
       
