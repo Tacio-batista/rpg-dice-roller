@@ -200,6 +200,7 @@ function rollDice(input, flag, markdown) {
   let total;
   let output;
   let bodyPoint;
+  let impFlag;
   const match = input.match(regex);
   
   const enter ="\n\n\n\n\n\n\n\n";
@@ -224,6 +225,7 @@ function rollDice(input, flag, markdown) {
       total += modifier;
       
       bodyPoint = getResultForType(stringType,total);
+      impFlag = bodyPoint.typeDesc;
       
       if (j === 0) {
         text = `*${stringText}*:\n`;
@@ -261,7 +263,7 @@ function rollDice(input, flag, markdown) {
     total = false;
   }
 
-  return {text, total};
+  return {text, total, impFlag};
 }
 
 
