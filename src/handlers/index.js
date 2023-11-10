@@ -201,6 +201,7 @@ function rollDice(input, flag, markdown) {
   let output;
   let bodyPoint;
   let impFlag;
+  let tempText;
   const match = input.match(regex);
   
   const enter ="\n\n\n\n\n\n\n\n";
@@ -226,6 +227,7 @@ function rollDice(input, flag, markdown) {
       
       bodyPoint = getResultForType(stringType,total);
       impFlag = bodyPoint.typeDesc;
+      tempText = bodyPoint.typeResult;
       
       if (j === 0) {
         text = `*${stringText}*:\n`;
@@ -261,6 +263,9 @@ function rollDice(input, flag, markdown) {
   }else{
     text = `Formato inválido. Use o formato XdY\[[+/-Z\]]\[[*W\]] \[[texto\]].\n/help para maior entendimento.`;
     total = false;
+  }
+  if (impFlag === false){
+    text = tempText;
   }
 
   return {text, total, impFlag};
