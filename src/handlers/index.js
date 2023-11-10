@@ -60,7 +60,6 @@ function getDescForPoint(pointas){
         break;
       case 'Cauda':
         point.desc = " Se a cauda for um Braço Adicional ou Golpeador, ou se for uma cauda de peixe, trate-a como um membro (braço, perna) para fins de incapacitação; caso contrário, trate-a como uma extremidade (pé, mão). Uma cauda incapacitada afeta o equilíbrio. Para uma criatura terrestre, uma penalidade de -1 na DX. Para uma criatura nadadora ou voadora, uma penalidade de -2 na DX e o Deslocamento é diminuído pela metade. Se a criatura não tiver cauda, ou tiver uma cauda muito curta (como um coelho), trate como se fosse tronco.\n\nExtremidade: Jogue 1d: 1–2, uma mão humana da parte superior; 3–4, um pé frontal; 5–6 um pé traseiro. Num resultado ímpar, a parte esquerda é atingida, num resultado par, a direita.";
-        point.modifier = -3;
         break;
       case 'Braço x':
         point.desc = " Para um octópode, braços 1–4 são os que estiverem sendo usados no momento para manipulação, enquanto os braços 5–8 são os que estiverem sendo usados para locomoção. Para um cancroide, um braço é uma pinça frontal.";
@@ -69,7 +68,7 @@ function getDescForPoint(pointas){
         point.desc = " Para um cancroide, esta é qualquer uma de suas patas verdadeiras; defina aleatoriamente. Para um aracnídeo, patas 1–2 são o par frontal, patas 3–4 são as centro-frontais, patas 5–6 são as centro-traseiras e patas 7–8 são as traseiras.";
         break;
       default:
-        point.modifier = -2;
+      point.modifier = -2;
         // Se nenhum caso corresponder a typeResult, você pode adicionar um tratamento padrão aqui.
     }
 
@@ -98,6 +97,7 @@ function getDescForType(typeResult, type){
       case 'Pata x':
         
         typeDesc = body.part.find(part => part.name === "Braço");
+        typeDesc.desc = -2;
       
         if(typeResult === "Asa") {
             typeDesc.desc += "\n - Uma criatura voadora com uma asa incapacitada não consegue voar.";
@@ -143,8 +143,9 @@ function getDescForType(typeResult, type){
   if(type === "centauro" && typeResult === "Tronco"){
     typeDesc.desc += " - Para centauro 9–10 significa que a parte animal foi atingida, enquanto 11 significa que a parte superior humanoide foi atingida."
   }
-  const tempMod = { ...typeDesc};
-  typeDesc.modifier = typeResult === "Cauda" ? -3: tempMod.modifier;
+  if(typeResult === "Cauda"){
+    typeDesc.modifier = -3;
+  }
   return typeDesc;
 }
 
