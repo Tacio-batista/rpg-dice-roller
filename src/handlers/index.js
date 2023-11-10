@@ -13,7 +13,7 @@ function getResultForType(type, result) {
     typeDesc = getDescForType(typeResult, type);
     
   } else {
-    typeResult = "Tipo desconhecido.\nUtilize o formato [tipo][*W] com o /tipo adequado.";
+    typeResult = "Tipo desconhecido.\nUtilize o formato \[[tipo\]]\[[*W\]] com o /tipo adequado.";
     typeDesc = false;
   }
     return { typeDesc, typeResult };
