@@ -96,8 +96,7 @@ function getDescForType(typeResult, type){
       case 'Braço x':
       case 'Pata x':
         
-        typeDesc = body.part.find(part => part.name === "Braço");
-        typeDesc.desc = -2;
+        typeDesc = { ...body.part.find(part => part.name === "Braço")};
       
         if(typeResult === "Asa") {
             typeDesc.desc += "\n - Uma criatura voadora com uma asa incapacitada não consegue voar.";
@@ -117,19 +116,19 @@ function getDescForType(typeResult, type){
       case 'Perna Direita':
       case 'Perna Intermediária':
         
-        typeDesc = body.part.find(part => part.name === "Perna");
+        typeDesc = { ...body.part.find(part => part.name === "Perna")};
         
         break;
       case 'Cérebro':
         
-        typeDesc = body.part.find(part => part.name === "Crânio");
+        typeDesc = { ...body.part.find(part => part.name === "Crânio")};
         typeDesc.desc += "\n\nExceção: Se for Cérebro RD 1.";
         
         break;
       case 'Extremidade':
       case "Nadadeira":
         
-        typeDesc = body.part.find(part => part.name === "Mão");
+        typeDesc = { ...body.part.find(part => part.name === "Mão")};
         if(typeResult === "Extremidade") {
             typeDesc.desc += "\n\nJogue 1d: 1–2, uma mão humana da parte superior; 3–4, um pé frontal; 5–6 um pé traseiro. Num resultado ímpar, a parte esquerda é atingida, num resultado par, a direita.";
         
@@ -138,7 +137,7 @@ function getDescForType(typeResult, type){
         }
         break;
       default:
-        typeDesc = body.part.find(part => part.name === typeResult);
+        typeDesc = { ...body.part.find(part => part.name === typeResult)};
     }
   if(type === "centauro" && typeResult === "Tronco"){
     typeDesc.desc += "\n\n - Para centauro 9–10 significa que a parte animal foi atingida, enquanto 11 significa que a parte superior humanoide foi atingida."
