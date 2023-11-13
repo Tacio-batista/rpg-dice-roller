@@ -263,7 +263,7 @@ function rollDice(input, flag, markdown) {
     text = `Formato inválido. Use o formato XdY\[[+/-Z\]]\[[*W\]] \[[texto\]].\n/help para maior entendimento.`;
     total = false;
   }
-  if (impFlag === false){
+  if (impFlag === false && flag !== false){
     text = tempText;
   }
 
