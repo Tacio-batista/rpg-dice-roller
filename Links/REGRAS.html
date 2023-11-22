@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1" name="viewport">
-<title>REGRAS</title>
+<title>REGRAS II</title>
 <style title="Twine CSS">@keyframes appear{0%{opacity:0}to{opacity:1}}@keyframes fade-in-out{0%,to{opacity:0}50%{opacity:1}}@keyframes rumble{25%{top:-0.1em}75%{top:.1em}0%,to{top:0px}}@keyframes shudder{25%{left:.1em}75%{left:-0.1em}0%,to{left:0px}}@keyframes buoy{25%{top:.25em}75%{top:-0.25em}0%,to{top:0px}}@keyframes sway{25%{left:.25em}75%{left:-0.25em}0%,to{left:0px}}@keyframes pulse{0%{transform:scale(0, 0)}20%{transform:scale(1.2, 1.2)}40%{transform:scale(0.9, 0.9)}60%{transform:scale(1.05, 1.05)}80%{transform:scale(0.925, 0.925)}to{transform:scale(1, 1)}}@keyframes zoom-in{0%{transform:scale(0, 0)}to{transform:scale(1, 1)}}@keyframes shudder-in{0%,to{transform:translateX(0em)}5%,25%,45%{transform:translateX(-1em)}15%,35%,55%{transform:translateX(1em)}65%{transform:translateX(-0.6em)}75%{transform:translateX(0.6em)}85%{transform:translateX(-0.2em)}95%{transform:translateX(0.2em)}}@keyframes rumble-in{0%,to{transform:translateY(0em)}5%,25%,45%{transform:translateY(-1em)}15%,35%,55%{transform:translateY(1em)}65%{transform:translateY(-0.6em)}75%{transform:translateY(0.6em)}85%{transform:translateY(-0.2em)}95%{transform:translateY(0.2em)}}@keyframes fidget{0%,8.1%,82.1%,31.1%,38.1%,44.1%,40.1%,47.1%,74.1%,16.1%,27.1%,72.1%,24.1%,95.1%,6.1%,36.1%,20.1%,4.1%,91.1%,14.1%,87.1%,to{left:0px;top:0px}8%,82%,31%,38%,44%{left:-1px}40%,47%,74%,16%,27%{left:1px}72%,24%,95%,6%,36%{top:-1px}20%,4%,91%,14%,87%{top:1px}}@keyframes slide-right{0%{transform:translateX(-100vw)}}@keyframes slide-left{0%{transform:translateX(100vw)}}@keyframes slide-up{0%{transform:translateY(100vh)}}@keyframes slide-down{0%{transform:translateY(-100vh)}}@keyframes fade-right{0%{opacity:0;transform:translateX(-1em)}to{opacity:1}}@keyframes fade-left{0%{opacity:0;transform:translateX(1em)}to{opacity:1}}@keyframes fade-up{0%{opacity:0;transform:translateY(1em)}to{opacity:1}}@keyframes fade-down{0%{opacity:0;transform:translateY(-1em)}to{opacity:1}}@keyframes flicker{0%,29%,31%,63%,65%,77%,79%,86%,88%,91%,93%{opacity:0}30%{opacity:.2}64%{opacity:.4}78%{opacity:.6}87%{opacity:.8}92%,to{opacity:1}}@keyframes blur{0%{filter:blur(2rem);opacity:0}25%{opacity:1}to{filter:blur(0rem);opacity:1}}.dom-debug-mode tw-story,.dom-debug-mode tw-passage,.dom-debug-mode tw-sidebar,.dom-debug-mode tw-include,.dom-debug-mode tw-hook,.dom-debug-mode tw-expression,.dom-debug-mode tw-link,.dom-debug-mode tw-dialog,.dom-debug-mode tw-columns,.dom-debug-mode tw-column,.dom-debug-mode tw-align{outline:1px solid #f5a3da;min-height:32px;display:block !important}.dom-debug-mode tw-story::before,.dom-debug-mode tw-passage::before,.dom-debug-mode tw-sidebar::before,.dom-debug-mode tw-include::before,.dom-debug-mode tw-hook::before,.dom-debug-mode tw-expression::before,.dom-debug-mode tw-link::before,.dom-debug-mode tw-dialog::before,.dom-debug-mode tw-columns::before,.dom-debug-mode tw-column::before,.dom-debug-mode tw-align::before{position:absolute;top:0;left:0;height:16px;background-color:#f5a3da;color:#000;font-size:16px;font-weight:normal;font-style:normal;font-family:monospace;display:inline-block;line-height:100%;white-space:pre;z-index:999997}.dom-debug-mode tw-story:hover,.dom-debug-mode tw-passage:hover,.dom-debug-mode tw-sidebar:hover,.dom-debug-mode tw-include:hover,.dom-debug-mode tw-hook:hover,.dom-debug-mode tw-expression:hover,.dom-debug-mode tw-link:hover,.dom-debug-mode tw-dialog:hover,.dom-debug-mode tw-columns:hover,.dom-debug-mode tw-column:hover,.dom-debug-mode tw-align:hover{outline:1px solid #fc9}.dom-debug-mode tw-story:hover::before,.dom-debug-mode tw-passage:hover::before,.dom-debug-mode tw-sidebar:hover::before,.dom-debug-mode tw-include:hover::before,.dom-debug-mode tw-hook:hover::before,.dom-debug-mode tw-expression:hover::before,.dom-debug-mode tw-link:hover::before,.dom-debug-mode tw-dialog:hover::before,.dom-debug-mode tw-columns:hover::before,.dom-debug-mode tw-column:hover::before,.dom-debug-mode tw-align:hover::before{background-color:#fc9;transition:background-color 1s}.dom-debug-mode tw-passage,.dom-debug-mode tw-include,.dom-debug-mode tw-hook,.dom-debug-mode tw-expression,.dom-debug-mode tw-link,.dom-debug-mode tw-dialog,.dom-debug-mode tw-columns,.dom-debug-mode tw-column,.dom-debug-mode tw-align{padding:1em;margin:0}.dom-debug-mode tw-story::before{content:'<tw-story tags="' attr(tags) '">'}.dom-debug-mode tw-passage::before{top:-16px;content:'<tw-passage tags="' attr(tags) '">'}.dom-debug-mode tw-sidebar::before{top:-16px;content:"<tw-sidebar>"}.dom-debug-mode tw-hook::before{content:'<tw-hook name="' attr(name) '">'}.dom-debug-mode tw-expression::before{content:'<tw-expression name="' attr(name) '">'}.dom-debug-mode tw-link::before{content:'<tw-link name="' attr(name) '">'}.dom-debug-mode tw-dialog::before{content:"<tw-dialog>"}.dom-debug-mode tw-columns::before{content:"<tw-columns>"}.dom-debug-mode tw-column::before{content:"<tw-column>"}.dom-debug-mode tw-align::before{content:"<tw-align>"}.dom-debug-mode tw-include::before{content:'<tw-include type="' attr(type) '" name="' attr(name) '">'}tw-open-button[goto]{display:none}.debug-mode tw-open-button[replay],.debug-mode tw-open-button[goto]{display:inline}.debug-mode tw-expression{display:inline-block !important}.debug-mode tw-expression[type=variable]::after{font-size:.8rem;padding-left:.2rem;padding-right:.2rem;vertical-align:top;content:"$" attr(name)}.debug-mode tw-expression[type=tempVariable]::after{font-size:.8rem;padding-left:.2rem;padding-right:.2rem;vertical-align:top;content:"_" attr(name)}.debug-mode tw-expression[return=boolean]{background-color:rgba(179,179,179,.2)}.debug-mode tw-expression[return=array]{background-color:rgba(255,102,102,.2)}.debug-mode tw-expression[return=dataset]{background-color:rgba(255,128,0,.2)}.debug-mode tw-expression[return=number]{background-color:rgba(255,179,102,.2)}.debug-mode tw-expression[return=datamap]{background-color:rgba(255,255,102,.2)}.debug-mode tw-expression[return=changer]{background-color:rgba(179,255,102,.2)}.debug-mode tw-expression[return=lambda]{background-color:rgba(102,255,102,.2)}.debug-mode tw-expression[return=hookname]{background-color:rgba(102,255,204,.2)}.debug-mode tw-expression[return=string]{background-color:rgba(102,255,255,.2)}.debug-mode tw-expression[return=datatype]{background-color:rgba(102,153,255,.2)}.debug-mode tw-expression[return=gradient],.debug-mode tw-expression[return=colour]{background-color:rgba(204,102,255,.2)}.debug-mode tw-expression[return=instant],.debug-mode tw-expression[return=macro]{background-color:rgba(240,117,199,.2)}.debug-mode tw-expression[return=command]{background-color:rgba(153,153,255,.2)}.debug-mode tw-expression.false{background-color:rgba(255,0,0,.2) !important}.debug-mode tw-expression[type=macro]::before{content:"(" attr(name) ":)";padding:0 .5rem;font-size:1rem;vertical-align:middle;line-height:normal;background-color:inherit;border:1px solid rgba(255,255,255,.5)}.debug-mode tw-expression[title]:not([title=""]){cursor:help}.debug-mode tw-hook{background-color:rgba(0,85,255,.1) !important}.debug-mode tw-hook::before{font-size:.8rem;padding-left:.2rem;padding-right:.2rem;vertical-align:top;content:"["}.debug-mode tw-hook::after{font-size:.8rem;padding-left:.2rem;padding-right:.2rem;vertical-align:top;content:"]"}.debug-mode tw-hook[name]::after{font-size:.8rem;padding-left:.2rem;padding-right:.2rem;vertical-align:top;content:"]<" attr(name) "|"}.debug-mode tw-pseudo-hook{background-color:rgba(255,170,0,.1) !important}.debug-mode tw-collapsed::before{font-size:.8rem;padding-left:.2rem;padding-right:.2rem;vertical-align:top;content:"{"}.debug-mode tw-collapsed::after{font-size:.8rem;padding-left:.2rem;padding-right:.2rem;vertical-align:top;content:"}"}.debug-mode tw-verbatim::before,.debug-mode tw-verbatim::after{font-size:.8rem;padding-left:.2rem;padding-right:.2rem;vertical-align:top;content:"`"}.debug-mode tw-align[style*="text-align: center"]{background:linear-gradient(to right, hsla(14deg, 100%, 87%, 0) 0%, hsla(14deg, 100%, 87%, 0.25) 50%, hsla(14deg, 100%, 87%, 0) 100%)}.debug-mode tw-align[style*="text-align: left"]{background:linear-gradient(to right, hsla(14deg, 100%, 87%, 0.25) 0%, hsla(14deg, 100%, 87%, 0) 100%)}.debug-mode tw-align[style*="text-align: right"]{background:linear-gradient(to right, hsla(14deg, 100%, 87%, 0) 0%, hsla(14deg, 100%, 87%, 0.25) 100%)}.debug-mode tw-column{background-color:rgba(189,228,255,.2)}.debug-mode tw-enchantment{animation:enchantment .5s infinite;border:1px solid}.debug-mode tw-link::after,.debug-mode tw-broken-link::after{font-size:.8rem;padding-left:.2rem;padding-right:.2rem;vertical-align:top;content:attr(passage-name)}.debug-mode tw-include{background-color:rgba(204,128,51,.1)}.debug-mode tw-include::before{font-size:.8rem;padding-left:.2rem;padding-right:.2rem;vertical-align:top;content:attr(type) ' "' attr(name) '"'}.debug-dialogs tw-backdrop:not(.eval-replay):not(.harlowe-crash){pointer-events:none;opacity:.1}tw-eval-replay tw-eval-code,tw-eval-replay tw-eval-explanation{max-height:20vh;overflow:auto;margin:10px auto}tw-eval-replay tw-eval-code{display:block;font-family:monospace;padding-bottom:1ex;border-bottom:2px solid gray}tw-eval-replay tw-eval-explanation{display:block;text-align:center}tw-eval-replay tw-eval-explanation>code{white-space:pre-wrap}tw-eval-replay tw-eval-explanation>code.from-block{width:40%;display:inline-block;text-align:left;max-height:4em;overflow-wrap:anywhere;overflow-y:scroll}tw-eval-replay tw-eval-explanation>code.from-block~.to-desc{width:calc(40% - 2em);margin-left:2em;display:inline-block}tw-eval-replay tw-eval-explanation>code.from-block+span::after{content:"..."}tw-eval-replay tw-eval-explanation>code.from-inline{text-align:right}tw-eval-replay tw-eval-explanation>:nth-child(2){white-space:pre}tw-eval-replay tw-eval-explanation>.to-desc{text-align:left}tw-eval-replay tw-eval-explanation>table{width:100%;margin-top:1em}tw-eval-replay tw-eval-explanation>table td{white-space:pre-wrap !important;word-wrap:anywhere}tw-eval-replay tw-eval-reason{text-align:center;font-size:80%;font-style:italic;display:block}tw-eval-replay tw-eval-it{text-align:center;font-size:80%;display:block}tw-eval-replay tw-dialog-links{display:-ms-flexbox;display:flex;-ms-flex-pack:distribute;justify-content:space-around}@keyframes enchantment{0%,to{border-color:#ffb366}50%{border-color:#6fc}}tw-debugger{position:fixed;box-sizing:border-box;bottom:0;right:0;z-index:999999;min-width:14em;min-height:1em;padding:0em .5em .5em 1em;font-size:1.25em;font-family:sans-serif;color:#262626;background-color:#fff;border-left:solid #262626 2px;border-top:solid #262626 2px;border-top-left-radius:.5em;opacity:1}tw-debugger.fade-panel:not(:hover){opacity:.33}tw-debugger.theme-dark{color:#d9d9d9;background-color:#000}tw-debugger.theme-dark{border-color:#d9d9d9 rgba(0,0,0,0) rgba(0,0,0,0) #d9d9d9}tw-debugger select{margin-right:1em;width:12em}tw-debugger button,tw-debugger tw-link{border-radius:3px;border:solid #999 1px;margin:auto 4px;color:#262626;background-color:#fff;cursor:pointer}tw-debugger button.enabled,tw-debugger tw-link.enabled{color:#000;background-color:#d9d9d9;box-shadow:inset #999 3px 5px .5em}tw-debugger.theme-dark button,tw-debugger.theme-dark tw-link{color:#d9d9d9;background-color:#000;border-color:#666}tw-debugger.theme-dark button.enabled,tw-debugger.theme-dark tw-link.enabled{color:#e6e6e6;background-color:#424242;box-shadow:inset #666 3px 5px .5em}tw-debugger button{font-size:1em;overflow-x:hidden;text-overflow:ellipsis;white-space:pre}tw-debugger tw-link{font-size:1.25em;border-radius:16px;border-style:solid;border-width:2px;text-align:center;padding:0px 8px;display:block}tw-debugger tw-link:hover{border-color:#262626;color:#262626}tw-debugger.theme-dark tw-link:hover{border-color:#d9d9d9;color:#d9d9d9}tw-debugger tw-dialog{background-color:#fff;color:#000;font-size:1.25em}tw-debugger.theme-dark tw-dialog{background-color:#000;color:#e6e6e6}tw-debugger .panel{display:-ms-flexbox;display:flex;-ms-flex-direction:column;flex-direction:column;position:absolute;bottom:100%;left:-2px;right:0;padding:1em;overflow-y:scroll;overflow-x:hidden;border:inherit;box-sizing:content-box;background-color:#fff;border-bottom:solid #999 2px;border-top-left-radius:.5em;border-bottom-left-radius:.5em;font-size:.8em}tw-debugger .panel:empty,tw-debugger .panel[hidden]{display:none}tw-debugger.theme-dark .panel{background-color:#000;border-bottom-color:#666}tw-debugger .panel-source .panel-row-buttons{width:2rem}tw-debugger .panel-source .source-tags{width:20%;font-style:italic}tw-debugger .panel-row-source td{font-family:monospace;font-size:1rem;white-space:pre-wrap;overflow-wrap:anywhere;max-height:8rem;padding:1rem}tw-debugger .panel-rows{width:100%;overflow-x:scroll}tw-debugger .panel-rows>*{display:table-row}tw-debugger .panel-rows>div:nth-of-type(2n){background-color:#e6e6e6}tw-debugger .panel-tools .panel-rows>*,tw-debugger .panel-options .panel-rows>*{margin-top:.4rem;display:block}tw-debugger.theme-dark .panel-rows>div:nth-of-type(2n){background-color:#212121}tw-debugger .panel-row-buttons{text-align:right}tw-debugger .panel-variables .panel-rows:empty::before{content:"~ No variables ~";font-style:italic;color:#575757;text-align:center}tw-debugger .panel-enchantments .panel-rows:empty::before{content:"~ No enchantments ~";font-style:italic;color:#575757;text-align:center}tw-debugger .panel-errors .panel-rows:empty::before{content:"~ No errors... for now. ~";font-style:italic;color:#575757;text-align:center}tw-debugger .panel-errors .panel-rows:empty+.panel-errors-bottom{display:none}tw-debugger.theme-dark .panel-variables .panel-rows:empty::before,tw-debugger.theme-dark .panel-enchantments .panel-rows:empty::before,tw-debugger.theme-dark .panel-errors .panel-rows:empty::before{color:#a8a8a8}tw-debugger .panel-rows:empty+.panel-variables-bottom{display:none}tw-debugger th[data-col]{text-decoration:underline;cursor:pointer}tw-debugger th[data-col][data-order=asc]::after{content:"↓"}tw-debugger th[data-col][data-order=desc]::after{content:"↑"}tw-debugger .panel-storylets:not(.panel-exclusive) .storylet-exclusive,tw-debugger .panel-storylets:not(.panel-urgent) .storylet-urgent{display:none}tw-debugger .storylet-exclusive,tw-debugger .storylet-urgent,tw-debugger .storylet-open{text-align:center}tw-debugger .panel-variables-bottom{padding-top:5px}tw-debugger .enchantment-row{min-height:1.5em}tw-debugger .variable-path{opacity:.4}tw-debugger .temporary-variable-scope,tw-debugger .enchantment-local{font-family:sans-serif;font-weight:normal;opacity:.8;font-size:.75em}tw-debugger .temporary-variable-scope:not(:empty)::before,tw-debugger .enchantment-local:not(:empty)::before{content:" in "}tw-debugger .variable-name,tw-debugger .enchantment-name{font-family:monospace;font-weight:bold}tw-debugger .variable-type{color:#575757;font-weight:normal;text-overflow:ellipsis;overflow:hidden;max-width:10em}tw-debugger.theme-dark .variable-type{color:#a8a8a8}tw-debugger .error-row{display:table-row;background-color:rgba(230,101,204,.3)}tw-debugger .error-row:nth-of-type(2n){background-color:rgba(237,145,219,.3)}tw-debugger .error-row>*{display:table-cell;padding:.25em .5em}tw-debugger .error-row .error-message[title]:not([title=""]){cursor:help}tw-debugger .error-row .error-passage{color:#575757}tw-debugger.theme-dark .error-row .error-passage{color:#a8a8a8}tw-debugger .storylet-row{background-color:rgba(193,240,225,.3)}tw-debugger .storylet-row:nth-child(2n){background-color:rgba(152,231,204,.3)}tw-debugger .storylet-row.storylet-closed{font-style:italic;background-color:#fff}tw-debugger .storylet-row.storylet-closed:nth-child(2n){background-color:#e6e6e6}tw-debugger .storylet-row.storylet-closed>:not(.storylet-lambda){opacity:.6}.storylet-error tw-debugger .storylet-row{background-color:rgba(230,101,204,.3)}.storylet-error tw-debugger .storylet-row:nth-child(2n){background-color:rgba(237,145,219,.3)}tw-debugger .storylet-row .storylet-name,tw-debugger .storylet-row .storylet-value{display:inline-block;width:50%}tw-debugger .storylet-row .storylet-lambda{font-family:monospace;font-size:1rem;white-space:pre-wrap;overflow-wrap:anywhere}tw-debugger.theme-dark .storylet-row.storylet-closed{background-color:#000}tw-debugger.theme-dark .storylet-row.storylet-closed:nth-child(2n){background-color:#212121}tw-debugger .tabs{padding-bottom:.5em}tw-debugger .tab{border-radius:0px 0px .5em .5em;border-top:none;top:-2px}tw-debugger .resizer-h{position:absolute;height:14em;border-left:2px solid #999;border-right:2px solid #999;top:10px;left:4px;width:8px;cursor:ew-resize}tw-debugger.theme-dark .resizer-h{border-color:rgba(0,0,0,0) #666}tw-debugger .resizer-v{position:absolute;height:8px;border-top:2px solid #999;border-bottom:2px solid #999;margin-bottom:4px;top:4px;left:10px;width:95%;cursor:ns-resize;box-sizing:border-box}tw-debugger.theme-dark .resizer-v{border-color:#666 rgba(0,0,0,0)}tw-debugger mark{color:inherit;background-color:rgba(101,230,230,.3) !important}tw-dialog{z-index:999997;border:#fff solid 2px;padding:2em;color:#fff;background-color:#000;display:block}@media(min-width: 576px){tw-dialog{max-width:50vw}}tw-dialog input[type=text]{font-size:inherit;width:100%;border:solid #fff !important}tw-dialog-links{text-align:right;display:-ms-flexbox;display:flex;-ms-flex-pack:end;justify-content:flex-end}tw-backdrop{z-index:999996;position:fixed;top:0;left:0;right:0;bottom:0;background-color:rgba(0,0,0,.8);display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center;-ms-flex-pack:center;justify-content:center}tw-backdrop~tw-backdrop{display:none}tw-link,.enchantment-link{cursor:pointer;color:#4169e1;font-weight:bold;text-decoration:none;transition:color .2s ease-in-out}tw-passage [style^=color] tw-link:not(:hover),tw-passage [style*=" color"] tw-link:not(:hover),tw-passage [style^=color][hover=true] tw-link:hover,tw-passage [style*=" color"][hover=true] tw-link:hover,tw-passage [style^=color] .enchantment-link:not(:hover),tw-passage [style*=" color"] .enchantment-link:not(:hover),tw-passage [style^=color][hover=true] .enchantment-link:hover,tw-passage [style*=" color"][hover=true] .enchantment-link:hover{color:inherit}tw-link:hover,.enchantment-link:hover{color:#00bfff}tw-link:active,.enchantment-link:active{color:#dd4b39}.visited{color:#6941e1}tw-passage [style^=color] .visited:not(:hover),tw-passage [style*=" color"] .visited:not(:hover),tw-passage [style^=color][hover=true] .visited:hover,tw-passage [style*=" color"][hover=true] .visited:hover{color:inherit}.visited:hover{color:#e3e}tw-broken-link{color:#933;border-bottom:2px solid #933;cursor:not-allowed}tw-passage [style^=color] tw-broken-link:not(:hover),tw-passage [style*=" color"] tw-broken-link:not(:hover),tw-passage [style^=color][hover=true] tw-broken-link:hover,tw-passage [style*=" color"][hover=true] tw-broken-link:hover{color:inherit}tw-link.enchantment-mouseover,.link.enchantment-mouseover,tw-expression.enchantment-mouseover>tw-link{color:inherit;font-weight:inherit;transition:none;cursor:inherit;border-bottom:2px dashed #999}tw-link.enchantment-mouseover:hover,tw-link.enchantment-mouseover:active,.link.enchantment-mouseover:hover,.link.enchantment-mouseover:active,tw-expression.enchantment-mouseover>tw-link:hover,tw-expression.enchantment-mouseover>tw-link:active{color:inherit}tw-link.enchantment-mouseover.enchantment-button,.link.enchantment-mouseover.enchantment-button,tw-expression.enchantment-mouseover>tw-link.enchantment-button{border-style:dashed}tw-link.enchantment-mouseout,.link.enchantment-mouseout,tw-expression.enchantment-mouseout>tw-link{color:inherit;font-weight:inherit;transition:none;cursor:inherit;border:rgba(64,149,191,.6) 1px solid;border-radius:.2em}tw-link.enchantment-mouseout:hover,tw-link.enchantment-mouseout:active,.link.enchantment-mouseout:hover,.link.enchantment-mouseout:active,tw-expression.enchantment-mouseout>tw-link:hover,tw-expression.enchantment-mouseout>tw-link:active{color:inherit}tw-link.enchantment-mouseout:hover,.link.enchantment-mouseout:hover,tw-expression.enchantment-mouseout>tw-link:hover{background-color:rgba(175,197,207,.75);border:rgba(0,0,0,0) 1px solid}tw-link.enchantment-dblclick,.link.enchantment-dblclick,tw-expression.enchantment-dblclick>tw-link{color:inherit;font-weight:inherit;transition:none;cursor:inherit;cursor:pointer;border:2px solid #999;border-radius:0}tw-link.enchantment-dblclick:hover,tw-link.enchantment-dblclick:active,.link.enchantment-dblclick:hover,.link.enchantment-dblclick:active,tw-expression.enchantment-dblclick>tw-link:hover,tw-expression.enchantment-dblclick>tw-link:active{color:inherit}tw-link.enchantment-dblclick:active,.link.enchantment-dblclick:active,tw-expression.enchantment-dblclick>tw-link:active{background-color:#999}tw-link.enchantment-button,.link.enchantment-button,.enchantment-button:not(.link) tw-link,.enchantment-button:not(.link) .link{border-radius:16px;border-style:solid;border-width:2px;text-align:center;padding:0px 8px;display:block}.enchantment-button{display:block}.enchantment-clickblock{cursor:pointer;width:100%;height:100%;display:block}.enchantment-clickblock>:not(tw-enchantment)::after{content:"";width:100%;height:100%;top:0;left:0;display:block;box-sizing:border-box;position:absolute;pointer-events:none;color:rgba(65,105,225,.5);transition:color .2s ease-in-out}.enchantment-clickblock>:not(tw-enchantment):hover::after{color:rgba(0,191,255,.5)}.enchantment-clickblock>:not(tw-enchantment):active::after{color:rgba(222,78,59,.5)}.enchantment-clickblock>:not(tw-enchantment)::after{box-shadow:inset 0 0 0 .5vmax}.enchantment-clickblock>tw-passage::after,.enchantment-clickblock>tw-sidebar::after{box-shadow:0 0 0 .5vmax}.enchantment-mouseoverblock>:not(tw-enchantment)::after{content:"";width:100%;height:100%;top:0;left:0;display:block;box-sizing:border-box;position:absolute;pointer-events:none;border:2px dashed #999}.enchantment-mouseoutblock>:not(tw-enchantment)::after{content:"";width:100%;height:100%;top:0;left:0;display:block;box-sizing:border-box;position:absolute;pointer-events:none;border:rgba(64,149,191,.6) 2px solid}.enchantment-mouseoutblock:hover>:not(tw-enchantment)::after{content:"";width:100%;height:100%;top:0;left:0;display:block;box-sizing:border-box;position:absolute;pointer-events:none;background-color:rgba(175,197,207,.75);border:rgba(0,0,0,0) 2px solid;border-radius:.2em}.enchantment-dblclickblock>:not(tw-enchantment)::after{content:"";width:100%;height:100%;top:0;left:0;display:block;box-sizing:border-box;position:absolute;pointer-events:none;cursor:pointer;border:2px solid #999}tw-dialog-links{padding-top:1.5em}tw-dialog-links tw-link{border-radius:16px;border-style:solid;border-width:2px;text-align:center;padding:0px 8px;display:block;display:inline-block}html{margin:0;height:100%;overflow-x:hidden}*,:before,:after{position:relative;box-sizing:inherit}body{margin:0;height:100%}tw-storydata{display:none}tw-story{display:-ms-flexbox;display:flex;-ms-flex-direction:column;flex-direction:column;font:100% Georgia,serif;box-sizing:border-box;width:100%;min-height:100%;font-size:1.5em;line-height:1.5em;padding:5% 5%;overflow:hidden;background-color:#000;color:#fff}tw-story [style*=content-box] *{box-sizing:border-box}@media(min-width: 576px){tw-story{padding:5% 20%}}tw-story tw-consecutive-br{display:block;height:1.6ex;visibility:hidden}tw-story select{background-color:rgba(0,0,0,0);font:inherit;border-style:solid;padding:2px}tw-story select:not([disabled]){color:inherit}tw-story textarea{resize:none;background-color:rgba(0,0,0,0);font:inherit;color:inherit;border-style:none;padding:2px}tw-story input[type=text]{background-color:rgba(0,0,0,0);font:inherit;color:inherit;border-style:none}tw-story input[type=checkbox]{transform:scale(1.5);margin:0 .5em .5em .5em;vertical-align:middle}tw-story tw-noscript{animation:appear .8s}tw-passage{display:block}tw-sidebar{text-align:center;display:-ms-flexbox;display:flex;-ms-flex-pack:justify;justify-content:space-between}@media(min-width: 576px){tw-sidebar{left:-5em;width:3em;position:absolute;-ms-flex-direction:column;flex-direction:column}tw-enchantment[style*=width]>tw-sidebar{width:inherit}}tw-icon{display:inline-block;margin:.5em 0;font-size:66px;font-family:"Verdana",sans-serif}tw-icon[alt]{opacity:.2;cursor:pointer}tw-icon[alt]:hover{opacity:.4}tw-icon[data-label]::after{font-weight:bold;content:attr(data-label);font-size:20px;bottom:-20px;left:-50%;white-space:nowrap}tw-meter{display:block}tw-hook:empty,tw-expression:empty{display:none}tw-error{display:inline-block;border-radius:.2em;padding:.2em;font-size:1rem;cursor:help;white-space:pre-wrap}tw-error.error{background-color:rgba(223,58,190,.6);color:#fff}tw-error.warning{background-color:rgba(223,140,58,.6);color:#fff;display:none}.debug-mode tw-error.warning{display:inline}tw-error-explanation{display:block;font-size:.8rem;line-height:1rem}tw-open-button,tw-folddown{cursor:pointer;line-height:0em;border-radius:4px;border:1px solid rgba(255,255,255,.5);font-size:.8rem;margin:0 .2rem;padding:3px;white-space:pre}tw-folddown::after{content:"▶"}tw-folddown.open::after{content:"▼"}tw-open-button[replay]{display:none}tw-error tw-open-button,tw-eval-replay tw-open-button{display:inline !important}tw-open-button::after{content:attr(label)}tw-notifier{border-radius:.2em;padding:.2em;font-size:1rem;background-color:rgba(223,182,58,.4);display:none}.debug-mode tw-notifier{display:inline}tw-notifier::before{content:attr(message)}tw-colour{border:1px solid #000;display:inline-block;width:1em;height:1em}tw-enchantment:empty{display:none}h1{font-size:3em}h2{font-size:2.25em}h3{font-size:1.75em}h1,h2,h3,h4,h5,h6{line-height:1em;margin:.3em 0 .6em 0}pre{font-size:1rem;line-height:initial}small{font-size:70%}big{font-size:120%}mark{color:rgba(0,0,0,.6);background-color:#ff9}ins{color:rgba(0,0,0,.6);background-color:rgba(255,242,204,.5);border-radius:.5em;box-shadow:0em 0em .2em #ffe699;text-decoration:none}center{text-align:center;margin:0 auto;width:60%}blink{text-decoration:none;animation:fade-in-out 1s steps(1, end) infinite alternate}tw-align{display:block}tw-columns{display:-ms-flexbox;display:flex;-ms-flex-direction:row;flex-direction:row;-ms-flex-pack:justify;justify-content:space-between}.transition-in{animation:appear 0ms step-start}.transition-out{animation:appear 0ms step-end}[data-t8n^=dissolve].transition-in,[data-t8n=fade].transition-in{animation:appear .8s}[data-t8n^=dissolve].transition-out,[data-t8n=fade].transition-out{animation:appear .8s reverse}[data-t8n^=shudder].transition-in{display:inline-block !important;animation:shudder-in .8s}[data-t8n^=shudder].transition-out{display:inline-block !important;animation:shudder-in .8s reverse}[data-t8n^=rumble].transition-in{display:inline-block !important;animation:rumble-in .8s}[data-t8n^=rumble].transition-out{display:inline-block !important;animation:rumble-in .8s reverse}[data-t8n^=pulse].transition-in{animation:pulse .8s;display:inline-block !important}[data-t8n^=pulse].transition-out{animation:pulse .8s reverse;display:inline-block !important}[data-t8n^=zoom].transition-in{animation:zoom-in .8s;display:inline-block !important}[data-t8n^=zoom].transition-out{animation:zoom-in .8s reverse;display:inline-block !important}[data-t8n^=blur].transition-in{animation:blur .8s;display:inline-block !important}[data-t8n^=blur].transition-out{animation:blur .8s reverse;display:inline-block !important}[data-t8n^=slideleft].transition-in{animation:slide-left .8s;display:inline-block !important}[data-t8n^=slideleft].transition-out{animation:slide-right .8s reverse;display:inline-block !important}[data-t8n^=slideright].transition-in{animation:slide-right .8s;display:inline-block !important}[data-t8n^=slideright].transition-out{animation:slide-left .8s reverse;display:inline-block !important}[data-t8n^=slideup].transition-in{animation:slide-up .8s;display:inline-block !important}[data-t8n^=slideup].transition-out{animation:slide-down .8s reverse;display:inline-block !important}[data-t8n^=slidedown].transition-in{animation:slide-down .8s;display:inline-block !important}[data-t8n^=slidedown].transition-out{animation:slide-up .8s reverse;display:inline-block !important}[data-t8n^=fadeleft].transition-in{animation:fade-left .8s;display:inline-block !important}[data-t8n^=fadeleft].transition-out{animation:fade-right .8s reverse;display:inline-block !important}[data-t8n^=faderight].transition-in{animation:fade-right .8s;display:inline-block !important}[data-t8n^=faderight].transition-out{animation:fade-left .8s reverse;display:inline-block !important}[data-t8n^=fadeup].transition-in{animation:fade-up .8s;display:inline-block !important}[data-t8n^=fadeup].transition-out{animation:fade-down .8s reverse;display:inline-block !important}[data-t8n^=fadedown].transition-in{animation:fade-down .8s;display:inline-block !important}[data-t8n^=fadedown].transition-out{animation:fade-up .8s reverse;display:inline-block !important}[data-t8n^=flicker].transition-in{animation:flicker .8s}[data-t8n^=flicker].transition-out{animation:flicker .8s reverse}
 </style>
 </head>
 <body>
-<tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play REGRAS.</tw-noscript></noscript></tw-story>
-<tw-storydata name="REGRAS" startnode="1" creator="Twine" creator-version="2.6.2" format="Harlowe" format-version="3.3.5" ifid="626ad6e9-b492-4c70-9609-c1a38654e2c0" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="REGRAS" tags="" position="2475,900" size="100,100">(size:2)+ (text-colour:green)+(b4r:&quot;double&quot;,&quot;none&quot;)+(b4r-colour:green,white)[REGRAS]
+<tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play REGRAS II.</tw-noscript></noscript></tw-story>
+<tw-storydata name="REGRAS II" startnode="1" creator="Twine" creator-version="2.6.2" format="Harlowe" format-version="3.3.5" ifid="ec512dcb-54d3-49e7-8b1c-606ab4c845c0" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="REGRAS" tags="" position="2100,850" size="100,100">(size:2)+ (text-colour:green)+(b4r:&quot;double&quot;,&quot;none&quot;)+(b4r-colour:green,white)[REGRAS]
 
 (text-colour:green)[//
 O proposito deste arquivo é para explicar as regras do manual de uma maneira mais direta e simples, como consulta - ai para aprofundar em algum ponto é só consultar o manual.
@@ -32,8 +32,6 @@ Muitas dessas regras tambem são meio que &quot;da casa&quot;, todas as adaptaç
 
 
 
-(text-colour:#22b8cf)[[[REGRAS PARA DECORAR-&gt;BÁSICAS]]] - //Regras para ir decorando//
-
 
 (text-colour:#fcc419)[[[COMBATE-&gt;COMBATE]]] - //Regras sobre porradaria//
 
@@ -55,13 +53,13 @@ max-height:100%;
 &lt;/style&gt;
 &lt;img src=https://i.pinimg.com/564x/85/d3/66/85d3663ce106401bbedd0c5ca138ca22.jpg&gt;
 &lt;/div&gt;
-//Versão Maio 23//
+//Versão Novem 23//
 
 
 
 
 
-</tw-passagedata><tw-passagedata pid="2" name="COMBATE" tags="" position="2900,975" size="100,100">(size:2)+ (text-colour:green)+(b4r:&quot;double&quot;,&quot;none&quot;)+(b4r-colour:green,white)[&#39;&#39;REGRAS DE COMBATE&#39;&#39;]
+</tw-passagedata><tw-passagedata pid="2" name="COMBATE" tags="" position="2375,900" size="100,100">(size:2)+ (text-colour:green)+(b4r:&quot;double&quot;,&quot;none&quot;)+(b4r-colour:green,white)[&#39;&#39;REGRAS DE COMBATE&#39;&#39;]
 
 //Tem muita regra de combate, vou colocar de maneira mais clara possivel tudo o que precisa saber para um combate simples - mais uma vez, para se aprofundar consulte o manual.
 
@@ -86,7 +84,7 @@ max-height:100%;
 
 (text-colour:#fcc419)[[DANO-&gt;Dano]] - //Dano que se leva.//
 
-(text-colour:#38d9a9)[[RECUPERAÇÃO-&gt;Recupereção]] - //Como se recuperar.//
+
 
 
 
@@ -157,11 +155,11 @@ Não é fácil decidir os níveis de habilidade de um personagem a fim de mantê
 em uma perícia tende a ser excessivo e inacreditável e, muitas vezes, menos útil do que um nível mais baixo combinado com uma ou mais perícias secundárias. 
 
 Exemplo: Em vez de aumentar seu NH em Caratê até 30, um Mestre do kung fu estará usando melhor seus pontos se comprar Caratê 25 e níveis razoáveis de Acrobacia, Judô, Meditação, etc.
-Um Mestre também deve pensar em usar alguns pontos em vantagens que anulam penalidades em condições adversas. Por exemplo, um Mestre do kung fu poderia comprar Treinado por um Mestre (reduzindo a penalidade de muitos ataques e bloqueios) e Reflexos em Combate (aumentando suas chances de se defender), aprimorando suas capacidades de uma forma que não seria possível com um simples valor elevado de perícia. Talvez o Mestre queira limitar os personagens a níveis de habilidade entre 20 e 25 para encorajar os jogadores a desenvolverem seus personagens gradualmente, em vez de aplicar todos os pontos em apenas uma ou duas perícias.//</tw-passagedata><tw-passagedata pid="5" name="BÁSICAS" tags="" position="2800,725" size="100,100">(size:2)+ (text-colour:green)+(b4r:&quot;double&quot;,&quot;none&quot;)+(b4r-colour:green,white) [REGRAS GERAIS]
+Um Mestre também deve pensar em usar alguns pontos em vantagens que anulam penalidades em condições adversas. Por exemplo, um Mestre do kung fu poderia comprar Treinado por um Mestre (reduzindo a penalidade de muitos ataques e bloqueios) e Reflexos em Combate (aumentando suas chances de se defender), aprimorando suas capacidades de uma forma que não seria possível com um simples valor elevado de perícia. Talvez o Mestre queira limitar os personagens a níveis de habilidade entre 20 e 25 para encorajar os jogadores a desenvolverem seus personagens gradualmente, em vez de aplicar todos os pontos em apenas uma ou duas perícias.//</tw-passagedata><tw-passagedata pid="5" name="BÁSICAS" tags="" position="2275,500" size="100,100">(size:2)+ (text-colour:green)+(b4r:&quot;double&quot;,&quot;none&quot;)+(b4r-colour:green,white) [REGRAS GERAIS]
 
 
 
-&#39;&#39;Aqui algumas regras gerais que estamos definindo para a Mesa:&#39;&#39;
+&#39;&#39;Regras menores para ir decorando:&#39;&#39;
 
 
 
@@ -183,9 +181,15 @@ Com certeza tem individualidades  (talvez um automata que goste de organicos nao
 
 
 ---
-(text-colour:green)[&#39;&#39;3.Adquirindo Vantagens e Desvantagens durante a campanha&#39;&#39;]
-//Geralmente vantagens partem de uma ideia que é alguma capacidade física, mental ou social (sobrenatural, mundana e exótica tambem). Portanto existem algumas vantagens que são difíceis de justificar o por que você esta ganhando ela. POR EXEMPLO: A Vantagem BOCA ADICIONAL não é desenvolvida com treino ou com estudo, vc nasce com ela. Mas já a DESTEMOR pode ser treinada  &#39;&#39;se as condições forem justificadas.
-&#39;&#39;//
+(text-colour:green)[&#39;&#39;3. Iluminação&#39;&#39;]
+//+1 Luz do Sol bem forte ou mais.
+0 Uma sala iluminada normalmente
+-1 Uma tocha, até dois metros dela.
+-2 Um fósforo, ou algo semelhante (menor que uma tocha)
+-3 A luz da lua e das estrelas, bem brilhantes
+-4 Uma noite com poucas estrelas e pouca luz
+-5 Uma noite nublada.
+-6 Um quarto totalmente escuro.//
 
 
 ---
@@ -193,10 +197,8 @@ Com certeza tem individualidades  (talvez um automata que goste de organicos nao
 //demora 2 segundos.//
 
 ---
-(text-colour:green)[&#39;&#39;5. Desvantagens&#39;&#39;]
-//regra 1 A primeira e clássica, não pode pegar vantagens que eliminam desvantagens ou vice-versa. 
-regra 2 Desvantagens naturais de raça e sociais tem custo 0 (tipo todo mundo ter problema de memória)
-regra 3 Quarta regra, só pode ter um máximo de 5 Desvantagens e/ou -60 pnts + 4 Peculiaridades.//
+(text-colour:green)[&#39;&#39;5. Comida e Dormida&#39;&#39;]
+//Vocês precisam dormir + ou - 8 horas por dia. Vocês precisam comer de 2 a 4 vezes por dia..//
 
 ---
 (text-colour:green)[&#39;&#39;6. Rolagens Críticas&#39;&#39;]
@@ -209,11 +211,10 @@ regra 3 Quarta regra, só pode ter um máximo de 5 Desvantagens e/ou -60 pnts + 
 
 ---
 (text-colour:green)[&#39;&#39;7. Bônus de defesa&#39;&#39;]
-//Bonus de defesa (DB em ingles) são adicionados para todas (e quaisquer) defesas ativas que vc realizar.//
+//Bonus de defesa (DB em ingles) são adicionados para todas (e quaisquer) defesas ativas que vc realizar. Escudo da DB nao so para bloqueio, mas para aparar e esquivar também por exemplo.//
 
----
-(text-colour:green)[&#39;&#39;8. Comida e bebída&#39;&#39;]
-//Tem que comer pelo menos 2 vezes por dia.//</tw-passagedata><tw-passagedata pid="6" name="GERAIS" tags="" position="2150,550" size="100,100">(size:2)+ (text-colour:green)+(b4r:&quot;double&quot;,&quot;none&quot;)+(b4r-colour:green,white)[ REGRAS GERAIS]
+
+</tw-passagedata><tw-passagedata pid="6" name="GERAIS" tags="" position="2025,650" size="100,100">(size:2)+ (text-colour:green)+(b4r:&quot;double&quot;,&quot;none&quot;)+(b4r-colour:green,white)[ REGRAS GERAIS]
 
 
 //Regras Gerais que estamos utilizando, muitas pegas de suplementos, outras ajustadas das regras originais para poder funcionar em nossa mesa e campanha.//
@@ -226,13 +227,17 @@ regra 3 Quarta regra, só pode ter um máximo de 5 Desvantagens e/ou -60 pnts + 
 (text-colour:#cc5de8)[(t8n-depart:&quot;dissolve&quot;)+(t8n-arrive:&quot;dissolve&quot;)[[CRAFT-&gt;CRAFT]]]
 //Regras para &quot;Craftar&quot; as coisas, como poções, forja, carpintaria, civil, artesanato...//
 
----
-(text-colour:#ff922b)[(t8n-depart:&quot;dissolve&quot;)+(t8n-arrive:&quot;dissolve&quot;)[[FADÍGA E SONO!-&gt;Fádiga e Sono]]]
-//Regras para Dormir.//
 
+(text-colour:#38d9a9)[[RECUPERAÇÃO DE HP-&gt;Recupereção]] 
+//Regras para recuperar o HP//
+
+
+(text-colour:#38d9a9)[[BASICAS-&gt;BÁSICAS]] 
+//Regras menores e da casa para ir decorando//
 ---
 
-</tw-passagedata><tw-passagedata pid="7" name="Aprendizado" tags="" position="1900,375" size="100,100">(size:2)+ (text-colour:green)+(b4r:&quot;double&quot;,&quot;none&quot;)+(b4r-colour:green,white)[&#39;&#39;APRENDENDO E &#39;GANHANDO NIVES&#39;&#39;]
+
+</tw-passagedata><tw-passagedata pid="7" name="Aprendizado" tags="" position="2025,300" size="100,100">(size:2)+ (text-colour:green)+(b4r:&quot;double&quot;,&quot;none&quot;)+(b4r-colour:green,white)[&#39;&#39;APRENDENDO E &#39;GANHANDO NIVES&#39;&#39;]
 
 
 ---
@@ -751,11 +756,7 @@ Vai depender muito do objeto.//
 
 
 
-</tw-passagedata><tw-passagedata pid="17" name="LINK UMANA" tags="" position="1550,975" size="100,100">(open-url: &quot;https://knightflyer.tripod.com/GURPS_Fantasy/UMANA2.html&quot;)</tw-passagedata><tw-passagedata pid="18" name="Recupereção" tags="" position="3350,1000" size="100,100">(size:2)+ (text-colour:green)+(b4r:&quot;double&quot;,&quot;none&quot;)+(b4r-colour:green,white)[&#39;&#39;RECUPERANDO-SE&#39;&#39;]
-
-
-//Para ferimentos comuns como raladuras, roxões, pequenos cortes, você sempre pode ser recuperar naturalmente. Porém para ferimentos mais agressivos talvez algumas medidas precisem ser tomadas.
-Sempre importante diferenciar que HP são machucados e PF são pontos de fadiga, e fadiga se recupera com descansos comuns (1 pnt  a cada 10 min descansando).//
+</tw-passagedata><tw-passagedata pid="17" name="LINK UMANA" tags="" position="1550,975" size="100,100">(open-url: &quot;https://knightflyer.tripod.com/GURPS_Fantasy/UMANA2.html&quot;)</tw-passagedata><tw-passagedata pid="18" name="Recupereção" tags="" position="2125,450" size="100,100">(size:2)+ (text-colour:green)+(b4r:&quot;double&quot;,&quot;none&quot;)+(b4r-colour:green,white)[&#39;&#39;RECUPERANDO-SE&#39;&#39;]
 
 
 &lt;style&gt; img {
@@ -767,43 +768,64 @@ max-height:100%;
 &lt;img src=https://i.pinimg.com/564x/ce/66/4b/ce664b01baf1cde3fbd4a7f48ceb667b.jpg&gt;
 &lt;/div&gt;
 
+//O atributo HP reflete a sua condição fisica no momento. 
+Se vc perde um braço e vira maneta, perdera HP na hora que seu braço é cortado, porém nao quer dizer que o seu HP sera diminuido permanente. Você apenas perde o braço.
+
+Para refletir essas situaçoes, podemos traduzir que o HP é o seu limiar de Dano temporario. E as condições como um segundo efeito que pode ou não acontecer.
+
+Quando vc leva uma picada de uma Tarantula vc vai ficar com muita dor na hora, depois de algumas horas a picada vai melhorando, qualquer sangue vai sumindo e pronto.
+Isso se representa como perdendo HP e recuperando nas proximas horas.
+
+Agora o veneno da aranha, que causa uma febre em alguns casos, se reflete como uma condição, que nao interfere em nada no seu HP.
+
+Os PF são pontos de fadiga, e fadiga se recupera com descansos comuns (1 pnt  a cada 10 min descansando).//
 
 
 
-&#39;&#39;RECUPERAÇÃO NATURAL&#39;&#39;
+
+&#39;&#39;RECUPERAÇÃO&#39;&#39;
 ---
-//Para ferimentos comuns, se você ficar comendo bem e descansando bem, o munal sugere que você recupere 1 PV por dia (vencendo um teste de HT). Porém a seguinte regra vai ser adotada:
-
-(text-colour:magenta)[Comer e Dormir muito bem por 1 dia:]
-Significa 2 refeições boas e 1 noite de sono boa, em um lugar macio, quentinho, etc... 
-Irá se &quot;Curar&quot; completamente. 
-
-(text-colour:cyan)[Comer e Dormir mais ou menos por 1 dia:]
-Significa 2 refeições mais ou menos e 1 noite de sono &quot;Acampado precariamente&quot;.
-Irá se &quot;Curar&quot; completamente em um sucesso no teste de HT, caso falhe vc recupera apenas metade da diferença entre os PV atual com os PV total (arredondando pra cima). 
-Ex: Se o seu total de PV é 10 mas atualmente esta com 5 PV, se falhar no teste você recupera 3 PV - se acertar recupera tudo.
-
-(text-colour:red)[Nao Comer ou Dormir em 1 dia:]
-Significa perder uma refeição ou a noite de sono.Vai depender da situação, porém não será mais que 4 pontos de vida no dia, e metade disso se falhar um teste de HT.
-
-(text-colour:blue)[1 dia inteiro descansando independente das condições:]
-Você recupera 3 pontos de vida. //
+//
+Você recupera 1 de HP por hora se vencer um teste de HT.
+Comer e descansar pode dar um bonus na rolagem.
+Primeiros socorros da um bonus e ainda pode acelerar a cura.
+Magias de cura e vantangens podem restaurar HP tambem.//
 
 
-(text-colour:#a61e4d)[&#39;&#39;RECUPERAÇÃO GRAVE&#39;&#39;]
+&#39;&#39;CONDIÇÕES&#39;&#39;
 ---
-//Para situações mais graves como perder um braço, sangramento continuo, grandes cortes que precisem levar pontos, queimaduras graves, ossos quebrados, etc...
+//Uma condição é um tipo de consequencia que se recebe ao levar um determinado dano. É como cortar um dedo em uma latinha e ficar com o dedo ardendo por toda uma tarde.
 
-Nestes casos vai depender da gravidade do dano e dos cuidados que algum medico te dar.//
+Corte e Perfuração - Causa sangramento, requer pontos e  só se fecham depois de alguns dias.
+Contusão - Significa um osso quebrado ou musculo luxado
+Venenos e Doenças - Vai depender do tipo de veneno e da doença
+
+//
 
 
 
-
-(text-colour:#74b816)[&#39;&#39;MEDICINA, CIRURGIA e PRIMEIROS SOCORROS&#39;&#39;]
+&#39;&#39;RECEBENDO CONDIÇÕES DEVIDO A PERDA DE HP&#39;&#39;
 ---
-//Se um teste de umas dessas perícias acima for realizado - além de dar um boost na recuperação do paciente ele tambem pode receber um bonus nos testes de HT
+//Quando em alguma situação, você perde HP, vc corre o risco de receber alguma condição, como um corte que requeira pontos ou ossos quebrados.
 
-Por padrao (a situação pode mudar isso) um acerto no teste ocasiona em +1PV recuperado e +1 no teste de HT//
+O que determina isso é o quanto de dano vc recebe em uma paulada só!
+
+Receber 2 de dano para alguem que tem 10 de HP total  é diferente do que para alguem que tem 4 de HP total, que nesse ultimo caso ta perdendo metade do HP em uma paulada só.
+
+Portanto:
+
+Se o valor do dano recebido (depois do calculo e arredondado para baixo) for:
+até 40% da sua vida total - nao tem nenhuma condição
+até 70% da sua vida total - com um teste de HT se evita a condição
+acima de 70% - sempre tera uma condição e sempre sera grave (Cortes e perfurações requerem cirurgias, e contusões são faturas expostas).
+
+Ou seja, para alguem que tem 10 de HP, até 4 de dano não tem nenhuma condição.
+Entre 5, 6 e 7 de dano causam condição ao falhar em um teste de HT
+8, 9 e 10 de dano, sempre causa alguma condição, e grave.
+
+
+RECEBER CONDIÇÕES SEM RECEBER DANO
+Talvez dormir de mau jeito, torcer o pé, uma planta urticante, etc... te causara uma condição, porém causara um dano mínimo! Isso tambem pode ocorrer.//
 
 
 
@@ -811,8 +833,7 @@ Por padrao (a situação pode mudar isso) um acerto no teste ocasiona em +1PV re
 
 
 
-
-</tw-passagedata><tw-passagedata pid="19" name="Grid de Batalha" tags="" position="3225,700" size="100,100">(size:2)+ (text-colour:green)+(b4r:&quot;double&quot;,&quot;none&quot;)+(b4r-colour:green,white)[&#39;&#39;GRID&#39;&#39;]
+ </tw-passagedata><tw-passagedata pid="19" name="Grid de Batalha" tags="" position="3225,700" size="100,100">(size:2)+ (text-colour:green)+(b4r:&quot;double&quot;,&quot;none&quot;)+(b4r-colour:green,white)[&#39;&#39;GRID&#39;&#39;]
 
 
 &#39;&#39;EXPLICAÇÃO TEÓRICA&#39;&#39;
@@ -1319,6 +1340,13 @@ O livro ele da um exemplo de quanto seria os descontos para o limite de apenas 1
 Outras fontes dão exemplos de limitação em outras escolas.
 Juntando todos os exemplos cheguei a esta tabela://
 
+
+• AM1: 15 Mana Pool
+• AM2: 25 Mana Pool
+• AM3: 35 Mana Pool
+
+• Regen de Mana: 8/Dia
+
 &lt;style&gt; img {
 max-width:100%;
 max-height:100%;
@@ -1326,7 +1354,7 @@ max-height:100%;
 
 &lt;/style&gt;
 &lt;img src=https://i.ibb.co/TLfG7Qz/escokla.jpg&gt;
-//Ela da um desconto maior que o sugerido no livro para quem se limita mais, e da um desconto menor que o sugerido para quem se limita menos.//</tw-passagedata><tw-passagedata pid="29" name="TOOLS" tags="" position="2475,775" size="100,100">
+//Ela da um desconto maior que o sugerido no livro para quem se limita mais, e da um desconto menor que o sugerido para quem se limita menos.//</tw-passagedata><tw-passagedata pid="29" name="TOOLS" tags="" position="2600,350" size="100,100">
 &lt;style&gt; img {
 max-width:100%;
 max-height:100%;
@@ -1339,7 +1367,7 @@ max-height:100%;
 
 Regras Versão Abril/2023
 
-&lt;img src=https://i.pinimg.com/564x/85/d3/66/85d3663ce106401bbedd0c5ca138ca22.jpg width=00px height=300px&gt;</tw-passagedata><tw-passagedata pid="30" name="Teste de Influencia" tags="" position="2475,1325" size="100,100">(size:2)+ (text-colour:green)+(b4r:&quot;double&quot;,&quot;none&quot;)+(b4r-colour:green,white)[&#39;&#39;TESTE DE INFLUÊNCIA&#39;&#39;]
+&lt;img src=https://i.pinimg.com/564x/85/d3/66/85d3663ce106401bbedd0c5ca138ca22.jpg width=00px height=300px&gt;</tw-passagedata><tw-passagedata pid="30" name="Teste de Influencia" tags="" position="2750,300" size="100,100">(size:2)+ (text-colour:green)+(b4r:&quot;double&quot;,&quot;none&quot;)+(b4r-colour:green,white)[&#39;&#39;TESTE DE INFLUÊNCIA&#39;&#39;]
 
 EM EDIÇÃO
 
@@ -1423,7 +1451,7 @@ A penalidade devido
  
  Ferimentos Graves: Um ferimento grave é qualquer lesão que provoca uma perda de PV maior que o 1/2 do PVInicial do personagem. 
 Se sofrer um ferimento grave no tronco, o personagem precisa fazer um teste de HT. Se fracassar, ele fica atordoado ou derrubado; no caso de uma margem de fracasso maior ou igual a 5, ele perde a consciência
-</tw-passagedata><tw-passagedata pid="32" name="ALQUIMIA" tags="" position="1625,400" size="100,100">(size:2)+ (text-colour:green)+(b4r:&quot;double&quot;,&quot;none&quot;)+(b4r-colour:green,white)[&#39;&#39;ALQUIMIA - CRIANDO POÇÕES&#39;&#39;]
+</tw-passagedata><tw-passagedata pid="32" name="ALQUIMIA" tags="" position="1525,425" size="100,100">(size:2)+ (text-colour:green)+(b4r:&quot;double&quot;,&quot;none&quot;)+(b4r-colour:green,white)[&#39;&#39;ALQUIMIA - CRIANDO POÇÕES&#39;&#39;]
 
 //
 &#39;&#39;GUIA DE ENCONTRAR MATERIAIS -&gt;(text-colour:#c2255c)[ [[ALQUIMIA - MATERIAIS-&gt;ALQUIMIA - MATERIAIS]]]
@@ -1589,100 +1617,7 @@ Então temos que para fazer uma poção dessas é necessário ter un NH de 9 ou 
 //
 &#39;&#39;GUIA DE ENCONTRAR MATERIAIS -&gt;(text-colour:#c2255c)[ [[ALQUIMIA - MATERIAIS-&gt;ALQUIMIA - MATERIAIS]]]
 &#39;&#39;//
-</tw-passagedata><tw-passagedata pid="33" name="Fádiga e Sono" tags="" position="2200,300" size="100,100">(size:2)+ (text-colour:green)+(b4r:&quot;double&quot;,&quot;none&quot;)+(b4r-colour:green,white)[&#39;&#39;SONO&#39;&#39;]
-
-
-
-Para quem tem sono leve vcs devem fazer 1 teste de HT por hora até conseguir dormir. Se forem acordados durante a noite vao precisar começar de novo a fazer os testes.
-
-
-
-
-
-&#39;&#39;PF perdidos devido ao sono só se recuperam dormindo.&#39;&#39;
-
-(text-colour:red)[1 hora sem dormir  = -1 PF devido ao sono (Vou chamar de PFS)]
-
-//- A cada 16 horas acordado, vc começa a receber -1 PFS por hora.
-
-- A cada -2 PFS vc recebe -1 em todos os atributos.
-
-- Um teste de HT pode te ajudar a evitar a redução de atributos nas proximas horas. 
-
- - Mas a cada -4 PFS vc tem -1 na rolagem de HT.
- 
- - Se a sua FADIGA chegar a -1 vc desmaia de sono. 
- 
-(text-colour:green)[ - A cada 1 hora dormindo vc ganha 1PFS]
-
-- Mas para isso dar certo vc precisa de pelo menos 2 horas seguidas de sono
-
-- Se vc tirar um cochilo de pelo meno 2 horas vc pode ficar acordado por mais 16 horas sem receber as penalidades de perda de PFS a cada 2 horas.
-//
-
-
-
-
----
-(text-colour:orange)[&#39;&#39;SITUAÇÕES&#39;&#39;]
-
-(text-colour:orange)[&#39;&#39;SITUAÇÃO 1: INDO DORMIR TARDE&#39;&#39;]
-Você esta acordado já a 16 horas, e vc esta em um lugar em que vc não pode dormir. A cada hora vc perde 1 ponto de fadiga devido a falta de sono (ou seja, vc recebe -1PFS).
-
-
-&#39;&#39; Vc tem 6 PF no total da sua ficha. Vc é fraquinho.&#39;&#39;
-//Depois de 16 horas acordado:
-Vc fica por 2 horas tretanto! tem monstro vindo de todo o lado.
-Nessas 2 horas vc recebeu -2 PFS e a batalha te custou -3 Pontos de Fadiga.
-
-Agora vc ta com 1 PF. -2 por sono e -3 por batalha
-
-Vc senta e descansa - normalmente te recupera 1 PF a cada 10 minutos.
-
-Vc só pode descansar até recuperar os pontos perdidos por batalha, os pontos perdidos por sono apenas dormindo.
-
-....//
-
-
-
-(text-colour:orange)[&#39;&#39;SITUAÇÃO 2: ACORDANDO CEDO&#39;&#39;]
-
-//Vc só conseguiu dormir por 4 horas na noite anterior.
-Vc esta agora com -4 PF que só se recuperam dormindo (-4PFS).
-Vc tem -2 em todos os seus atributos a não ser que vença 1 teste de HT a cada 2 horas. 
-
-Uma noite mal dormida reflete duranto o dia inteiro - ou até vc dormir.
-
-Vc pode ficar mais 16 horas sem dormir desde que acordou, porém com o teste de HT a cada duas horas para sobrepujar o cansaço.
-
-A partir de 16 horas acordado vc volta para a situação 1 - indo dormir tarde.
-//
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</tw-passagedata><tw-passagedata pid="34" name="FORJA" tags="" position="1600,550" size="100,100">&#39;&#39;(size:2)+ (text-colour:green)+(b4r:&quot;double&quot;,&quot;none&quot;)+(b4r-colour:green,white)[ FORJA]&#39;&#39;
+</tw-passagedata><tw-passagedata pid="33" name="FORJA" tags="" position="1550,625" size="100,100">&#39;&#39;(size:2)+ (text-colour:green)+(b4r:&quot;double&quot;,&quot;none&quot;)+(b4r-colour:green,white)[ FORJA]&#39;&#39;
 
 
 (text-colour:green)[&#39;&#39;PERÍCIAS&#39;&#39;]
@@ -1770,7 +1705,7 @@ O MAXIMO DE ADIÇÃO/REDUÇÃO DE TEMPO É DE 10 - ou seja, adição de 10x o te
 
 
 
-</tw-passagedata><tw-passagedata pid="35" name="ALQUIMIA - MATERIAIS" tags="" position="1450,450" size="100,100">(size:2)+ (text-colour:green)+(b4r:&quot;double&quot;,&quot;none&quot;)+(b4r-colour:green,white)[&#39;&#39;ALQUIMIA - MATERIAIS&#39;&#39;]
+</tw-passagedata><tw-passagedata pid="34" name="ALQUIMIA - MATERIAIS" tags="" position="1675,350" size="100,100">(size:2)+ (text-colour:green)+(b4r:&quot;double&quot;,&quot;none&quot;)+(b4r-colour:green,white)[&#39;&#39;ALQUIMIA - MATERIAIS&#39;&#39;]
 
 //&#39;&#39;
 Para definir o MATERIAL vc deve multiplicar o custo da vantagem por cada 50 g de material. 
@@ -1856,7 +1791,31 @@ E então ele começa a fazer um desenho da erva no livro...&#39;&#39;
 
 
 
-</tw-passagedata></tw-storydata>
+</tw-passagedata><tw-passagedata pid="35" name="Iluminação" tags="" position="2250,325" size="100,100">Level  Lmin  Lmax  Examples
++3  50,000  200,000  Moderate Glare, Sunlight, or Hazy Sunlight 
++2  10,000  50,000  Moderate Overcast 
++1  2,000  10,000  Heavy Overcast, Open Shade 
++0  500  2,000  Bright Indoor lighting (offices and the like) 
+-1  100  500  Normal Indoor lighting (living rooms, etc). 
+-2  20  100  Dim Indoor Lighting. Some brightly lit outdoor areas at night. 
+-3  5  20  Major streets at night. Good torch at two yards. 
+-4  1  5  Street Lights at Night. 
+-5  0.2  1  Moonlight above half full. Candle at 2 yards. Urban night sky light. 
+-6  0.05  0.2  Moonlight below half full. 
+-7  0.01  0.05  
+-8  0.002  0.05  Starlight, no urban glow. 
+-9  0.0005  0.002  Moonless night, light overcast.
+
++1 Luz do Sol ou mais.
+0 Uma sala iluminada normalmente
+-1 Uma tocha, até dois metros dela.
+-2 Um fósforo, ou algo semelhante (menor que uma tocha)
+-3 A luz da lua e das estrelas, bem brilhantes
+-4 Uma noite com poucas estrelas e pouca luz
+-5 Uma noite nublada.
+-6 Um quarto totalmente escuro.
+
+</tw-passagedata><tw-passagedata pid="36" name="Passagem Sem Nome 2" tags="" position="2875,300" size="100,100"></tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
