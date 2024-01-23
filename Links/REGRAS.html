@@ -3,117 +3,54 @@
 <head>
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1" name="viewport">
-<title>REGRAS II</title>
+<title>REGRA GERAIS</title>
 <style title="Twine CSS">@keyframes appear{0%{opacity:0}to{opacity:1}}@keyframes fade-in-out{0%,to{opacity:0}50%{opacity:1}}@keyframes rumble{25%{top:-0.1em}75%{top:.1em}0%,to{top:0px}}@keyframes shudder{25%{left:.1em}75%{left:-0.1em}0%,to{left:0px}}@keyframes buoy{25%{top:.25em}75%{top:-0.25em}0%,to{top:0px}}@keyframes sway{25%{left:.25em}75%{left:-0.25em}0%,to{left:0px}}@keyframes pulse{0%{transform:scale(0, 0)}20%{transform:scale(1.2, 1.2)}40%{transform:scale(0.9, 0.9)}60%{transform:scale(1.05, 1.05)}80%{transform:scale(0.925, 0.925)}to{transform:scale(1, 1)}}@keyframes zoom-in{0%{transform:scale(0, 0)}to{transform:scale(1, 1)}}@keyframes shudder-in{0%,to{transform:translateX(0em)}5%,25%,45%{transform:translateX(-1em)}15%,35%,55%{transform:translateX(1em)}65%{transform:translateX(-0.6em)}75%{transform:translateX(0.6em)}85%{transform:translateX(-0.2em)}95%{transform:translateX(0.2em)}}@keyframes rumble-in{0%,to{transform:translateY(0em)}5%,25%,45%{transform:translateY(-1em)}15%,35%,55%{transform:translateY(1em)}65%{transform:translateY(-0.6em)}75%{transform:translateY(0.6em)}85%{transform:translateY(-0.2em)}95%{transform:translateY(0.2em)}}@keyframes fidget{0%,8.1%,82.1%,31.1%,38.1%,44.1%,40.1%,47.1%,74.1%,16.1%,27.1%,72.1%,24.1%,95.1%,6.1%,36.1%,20.1%,4.1%,91.1%,14.1%,87.1%,to{left:0px;top:0px}8%,82%,31%,38%,44%{left:-1px}40%,47%,74%,16%,27%{left:1px}72%,24%,95%,6%,36%{top:-1px}20%,4%,91%,14%,87%{top:1px}}@keyframes slide-right{0%{transform:translateX(-100vw)}}@keyframes slide-left{0%{transform:translateX(100vw)}}@keyframes slide-up{0%{transform:translateY(100vh)}}@keyframes slide-down{0%{transform:translateY(-100vh)}}@keyframes fade-right{0%{opacity:0;transform:translateX(-1em)}to{opacity:1}}@keyframes fade-left{0%{opacity:0;transform:translateX(1em)}to{opacity:1}}@keyframes fade-up{0%{opacity:0;transform:translateY(1em)}to{opacity:1}}@keyframes fade-down{0%{opacity:0;transform:translateY(-1em)}to{opacity:1}}@keyframes flicker{0%,29%,31%,63%,65%,77%,79%,86%,88%,91%,93%{opacity:0}30%{opacity:.2}64%{opacity:.4}78%{opacity:.6}87%{opacity:.8}92%,to{opacity:1}}@keyframes blur{0%{filter:blur(2rem);opacity:0}25%{opacity:1}to{filter:blur(0rem);opacity:1}}.dom-debug-mode tw-story,.dom-debug-mode tw-passage,.dom-debug-mode tw-sidebar,.dom-debug-mode tw-include,.dom-debug-mode tw-hook,.dom-debug-mode tw-expression,.dom-debug-mode tw-link,.dom-debug-mode tw-dialog,.dom-debug-mode tw-columns,.dom-debug-mode tw-column,.dom-debug-mode tw-align{outline:1px solid #f5a3da;min-height:32px;display:block !important}.dom-debug-mode tw-story::before,.dom-debug-mode tw-passage::before,.dom-debug-mode tw-sidebar::before,.dom-debug-mode tw-include::before,.dom-debug-mode tw-hook::before,.dom-debug-mode tw-expression::before,.dom-debug-mode tw-link::before,.dom-debug-mode tw-dialog::before,.dom-debug-mode tw-columns::before,.dom-debug-mode tw-column::before,.dom-debug-mode tw-align::before{position:absolute;top:0;left:0;height:16px;background-color:#f5a3da;color:#000;font-size:16px;font-weight:normal;font-style:normal;font-family:monospace;display:inline-block;line-height:100%;white-space:pre;z-index:999997}.dom-debug-mode tw-story:hover,.dom-debug-mode tw-passage:hover,.dom-debug-mode tw-sidebar:hover,.dom-debug-mode tw-include:hover,.dom-debug-mode tw-hook:hover,.dom-debug-mode tw-expression:hover,.dom-debug-mode tw-link:hover,.dom-debug-mode tw-dialog:hover,.dom-debug-mode tw-columns:hover,.dom-debug-mode tw-column:hover,.dom-debug-mode tw-align:hover{outline:1px solid #fc9}.dom-debug-mode tw-story:hover::before,.dom-debug-mode tw-passage:hover::before,.dom-debug-mode tw-sidebar:hover::before,.dom-debug-mode tw-include:hover::before,.dom-debug-mode tw-hook:hover::before,.dom-debug-mode tw-expression:hover::before,.dom-debug-mode tw-link:hover::before,.dom-debug-mode tw-dialog:hover::before,.dom-debug-mode tw-columns:hover::before,.dom-debug-mode tw-column:hover::before,.dom-debug-mode tw-align:hover::before{background-color:#fc9;transition:background-color 1s}.dom-debug-mode tw-passage,.dom-debug-mode tw-include,.dom-debug-mode tw-hook,.dom-debug-mode tw-expression,.dom-debug-mode tw-link,.dom-debug-mode tw-dialog,.dom-debug-mode tw-columns,.dom-debug-mode tw-column,.dom-debug-mode tw-align{padding:1em;margin:0}.dom-debug-mode tw-story::before{content:'<tw-story tags="' attr(tags) '">'}.dom-debug-mode tw-passage::before{top:-16px;content:'<tw-passage tags="' attr(tags) '">'}.dom-debug-mode tw-sidebar::before{top:-16px;content:"<tw-sidebar>"}.dom-debug-mode tw-hook::before{content:'<tw-hook name="' attr(name) '">'}.dom-debug-mode tw-expression::before{content:'<tw-expression name="' attr(name) '">'}.dom-debug-mode tw-link::before{content:'<tw-link name="' attr(name) '">'}.dom-debug-mode tw-dialog::before{content:"<tw-dialog>"}.dom-debug-mode tw-columns::before{content:"<tw-columns>"}.dom-debug-mode tw-column::before{content:"<tw-column>"}.dom-debug-mode tw-align::before{content:"<tw-align>"}.dom-debug-mode tw-include::before{content:'<tw-include type="' attr(type) '" name="' attr(name) '">'}tw-open-button[goto]{display:none}.debug-mode tw-open-button[replay],.debug-mode tw-open-button[goto]{display:inline}.debug-mode tw-expression{display:inline-block !important}.debug-mode tw-expression[type=variable]::after{font-size:.8rem;padding-left:.2rem;padding-right:.2rem;vertical-align:top;content:"$" attr(name)}.debug-mode tw-expression[type=tempVariable]::after{font-size:.8rem;padding-left:.2rem;padding-right:.2rem;vertical-align:top;content:"_" attr(name)}.debug-mode tw-expression[return=boolean]{background-color:rgba(179,179,179,.2)}.debug-mode tw-expression[return=array]{background-color:rgba(255,102,102,.2)}.debug-mode tw-expression[return=dataset]{background-color:rgba(255,128,0,.2)}.debug-mode tw-expression[return=number]{background-color:rgba(255,179,102,.2)}.debug-mode tw-expression[return=datamap]{background-color:rgba(255,255,102,.2)}.debug-mode tw-expression[return=changer]{background-color:rgba(179,255,102,.2)}.debug-mode tw-expression[return=lambda]{background-color:rgba(102,255,102,.2)}.debug-mode tw-expression[return=hookname]{background-color:rgba(102,255,204,.2)}.debug-mode tw-expression[return=string]{background-color:rgba(102,255,255,.2)}.debug-mode tw-expression[return=datatype]{background-color:rgba(102,153,255,.2)}.debug-mode tw-expression[return=gradient],.debug-mode tw-expression[return=colour]{background-color:rgba(204,102,255,.2)}.debug-mode tw-expression[return=instant],.debug-mode tw-expression[return=macro]{background-color:rgba(240,117,199,.2)}.debug-mode tw-expression[return=command]{background-color:rgba(153,153,255,.2)}.debug-mode tw-expression.false{background-color:rgba(255,0,0,.2) !important}.debug-mode tw-expression[type=macro]::before{content:"(" attr(name) ":)";padding:0 .5rem;font-size:1rem;vertical-align:middle;line-height:normal;background-color:inherit;border:1px solid rgba(255,255,255,.5)}.debug-mode tw-expression[title]:not([title=""]){cursor:help}.debug-mode tw-hook{background-color:rgba(0,85,255,.1) !important}.debug-mode tw-hook::before{font-size:.8rem;padding-left:.2rem;padding-right:.2rem;vertical-align:top;content:"["}.debug-mode tw-hook::after{font-size:.8rem;padding-left:.2rem;padding-right:.2rem;vertical-align:top;content:"]"}.debug-mode tw-hook[name]::after{font-size:.8rem;padding-left:.2rem;padding-right:.2rem;vertical-align:top;content:"]<" attr(name) "|"}.debug-mode tw-pseudo-hook{background-color:rgba(255,170,0,.1) !important}.debug-mode tw-collapsed::before{font-size:.8rem;padding-left:.2rem;padding-right:.2rem;vertical-align:top;content:"{"}.debug-mode tw-collapsed::after{font-size:.8rem;padding-left:.2rem;padding-right:.2rem;vertical-align:top;content:"}"}.debug-mode tw-verbatim::before,.debug-mode tw-verbatim::after{font-size:.8rem;padding-left:.2rem;padding-right:.2rem;vertical-align:top;content:"`"}.debug-mode tw-align[style*="text-align: center"]{background:linear-gradient(to right, hsla(14deg, 100%, 87%, 0) 0%, hsla(14deg, 100%, 87%, 0.25) 50%, hsla(14deg, 100%, 87%, 0) 100%)}.debug-mode tw-align[style*="text-align: left"]{background:linear-gradient(to right, hsla(14deg, 100%, 87%, 0.25) 0%, hsla(14deg, 100%, 87%, 0) 100%)}.debug-mode tw-align[style*="text-align: right"]{background:linear-gradient(to right, hsla(14deg, 100%, 87%, 0) 0%, hsla(14deg, 100%, 87%, 0.25) 100%)}.debug-mode tw-column{background-color:rgba(189,228,255,.2)}.debug-mode tw-enchantment{animation:enchantment .5s infinite;border:1px solid}.debug-mode tw-link::after,.debug-mode tw-broken-link::after{font-size:.8rem;padding-left:.2rem;padding-right:.2rem;vertical-align:top;content:attr(passage-name)}.debug-mode tw-include{background-color:rgba(204,128,51,.1)}.debug-mode tw-include::before{font-size:.8rem;padding-left:.2rem;padding-right:.2rem;vertical-align:top;content:attr(type) ' "' attr(name) '"'}.debug-dialogs tw-backdrop:not(.eval-replay):not(.harlowe-crash){pointer-events:none;opacity:.1}tw-eval-replay tw-eval-code,tw-eval-replay tw-eval-explanation{max-height:20vh;overflow:auto;margin:10px auto}tw-eval-replay tw-eval-code{display:block;font-family:monospace;padding-bottom:1ex;border-bottom:2px solid gray}tw-eval-replay tw-eval-explanation{display:block;text-align:center}tw-eval-replay tw-eval-explanation>code{white-space:pre-wrap}tw-eval-replay tw-eval-explanation>code.from-block{width:40%;display:inline-block;text-align:left;max-height:4em;overflow-wrap:anywhere;overflow-y:scroll}tw-eval-replay tw-eval-explanation>code.from-block~.to-desc{width:calc(40% - 2em);margin-left:2em;display:inline-block}tw-eval-replay tw-eval-explanation>code.from-block+span::after{content:"..."}tw-eval-replay tw-eval-explanation>code.from-inline{text-align:right}tw-eval-replay tw-eval-explanation>:nth-child(2){white-space:pre}tw-eval-replay tw-eval-explanation>.to-desc{text-align:left}tw-eval-replay tw-eval-explanation>table{width:100%;margin-top:1em}tw-eval-replay tw-eval-explanation>table td{white-space:pre-wrap !important;word-wrap:anywhere}tw-eval-replay tw-eval-reason{text-align:center;font-size:80%;font-style:italic;display:block}tw-eval-replay tw-eval-it{text-align:center;font-size:80%;display:block}tw-eval-replay tw-dialog-links{display:-ms-flexbox;display:flex;-ms-flex-pack:distribute;justify-content:space-around}@keyframes enchantment{0%,to{border-color:#ffb366}50%{border-color:#6fc}}tw-debugger{position:fixed;box-sizing:border-box;bottom:0;right:0;z-index:999999;min-width:14em;min-height:1em;padding:0em .5em .5em 1em;font-size:1.25em;font-family:sans-serif;color:#262626;background-color:#fff;border-left:solid #262626 2px;border-top:solid #262626 2px;border-top-left-radius:.5em;opacity:1}tw-debugger.fade-panel:not(:hover){opacity:.33}tw-debugger.theme-dark{color:#d9d9d9;background-color:#000}tw-debugger.theme-dark{border-color:#d9d9d9 rgba(0,0,0,0) rgba(0,0,0,0) #d9d9d9}tw-debugger select{margin-right:1em;width:12em}tw-debugger button,tw-debugger tw-link{border-radius:3px;border:solid #999 1px;margin:auto 4px;color:#262626;background-color:#fff;cursor:pointer}tw-debugger button.enabled,tw-debugger tw-link.enabled{color:#000;background-color:#d9d9d9;box-shadow:inset #999 3px 5px .5em}tw-debugger.theme-dark button,tw-debugger.theme-dark tw-link{color:#d9d9d9;background-color:#000;border-color:#666}tw-debugger.theme-dark button.enabled,tw-debugger.theme-dark tw-link.enabled{color:#e6e6e6;background-color:#424242;box-shadow:inset #666 3px 5px .5em}tw-debugger button{font-size:1em;overflow-x:hidden;text-overflow:ellipsis;white-space:pre}tw-debugger tw-link{font-size:1.25em;border-radius:16px;border-style:solid;border-width:2px;text-align:center;padding:0px 8px;display:block}tw-debugger tw-link:hover{border-color:#262626;color:#262626}tw-debugger.theme-dark tw-link:hover{border-color:#d9d9d9;color:#d9d9d9}tw-debugger tw-dialog{background-color:#fff;color:#000;font-size:1.25em}tw-debugger.theme-dark tw-dialog{background-color:#000;color:#e6e6e6}tw-debugger .panel{display:-ms-flexbox;display:flex;-ms-flex-direction:column;flex-direction:column;position:absolute;bottom:100%;left:-2px;right:0;padding:1em;overflow-y:scroll;overflow-x:hidden;border:inherit;box-sizing:content-box;background-color:#fff;border-bottom:solid #999 2px;border-top-left-radius:.5em;border-bottom-left-radius:.5em;font-size:.8em}tw-debugger .panel:empty,tw-debugger .panel[hidden]{display:none}tw-debugger.theme-dark .panel{background-color:#000;border-bottom-color:#666}tw-debugger .panel-source .panel-row-buttons{width:2rem}tw-debugger .panel-source .source-tags{width:20%;font-style:italic}tw-debugger .panel-row-source td{font-family:monospace;font-size:1rem;white-space:pre-wrap;overflow-wrap:anywhere;max-height:8rem;padding:1rem}tw-debugger .panel-rows{width:100%;overflow-x:scroll}tw-debugger .panel-rows>*{display:table-row}tw-debugger .panel-rows>div:nth-of-type(2n){background-color:#e6e6e6}tw-debugger .panel-tools .panel-rows>*,tw-debugger .panel-options .panel-rows>*{margin-top:.4rem;display:block}tw-debugger.theme-dark .panel-rows>div:nth-of-type(2n){background-color:#212121}tw-debugger .panel-row-buttons{text-align:right}tw-debugger .panel-variables .panel-rows:empty::before{content:"~ No variables ~";font-style:italic;color:#575757;text-align:center}tw-debugger .panel-enchantments .panel-rows:empty::before{content:"~ No enchantments ~";font-style:italic;color:#575757;text-align:center}tw-debugger .panel-errors .panel-rows:empty::before{content:"~ No errors... for now. ~";font-style:italic;color:#575757;text-align:center}tw-debugger .panel-errors .panel-rows:empty+.panel-errors-bottom{display:none}tw-debugger.theme-dark .panel-variables .panel-rows:empty::before,tw-debugger.theme-dark .panel-enchantments .panel-rows:empty::before,tw-debugger.theme-dark .panel-errors .panel-rows:empty::before{color:#a8a8a8}tw-debugger .panel-rows:empty+.panel-variables-bottom{display:none}tw-debugger th[data-col]{text-decoration:underline;cursor:pointer}tw-debugger th[data-col][data-order=asc]::after{content:"↓"}tw-debugger th[data-col][data-order=desc]::after{content:"↑"}tw-debugger .panel-storylets:not(.panel-exclusive) .storylet-exclusive,tw-debugger .panel-storylets:not(.panel-urgent) .storylet-urgent{display:none}tw-debugger .storylet-exclusive,tw-debugger .storylet-urgent,tw-debugger .storylet-open{text-align:center}tw-debugger .panel-variables-bottom{padding-top:5px}tw-debugger .enchantment-row{min-height:1.5em}tw-debugger .variable-path{opacity:.4}tw-debugger .temporary-variable-scope,tw-debugger .enchantment-local{font-family:sans-serif;font-weight:normal;opacity:.8;font-size:.75em}tw-debugger .temporary-variable-scope:not(:empty)::before,tw-debugger .enchantment-local:not(:empty)::before{content:" in "}tw-debugger .variable-name,tw-debugger .enchantment-name{font-family:monospace;font-weight:bold}tw-debugger .variable-type{color:#575757;font-weight:normal;text-overflow:ellipsis;overflow:hidden;max-width:10em}tw-debugger.theme-dark .variable-type{color:#a8a8a8}tw-debugger .error-row{display:table-row;background-color:rgba(230,101,204,.3)}tw-debugger .error-row:nth-of-type(2n){background-color:rgba(237,145,219,.3)}tw-debugger .error-row>*{display:table-cell;padding:.25em .5em}tw-debugger .error-row .error-message[title]:not([title=""]){cursor:help}tw-debugger .error-row .error-passage{color:#575757}tw-debugger.theme-dark .error-row .error-passage{color:#a8a8a8}tw-debugger .storylet-row{background-color:rgba(193,240,225,.3)}tw-debugger .storylet-row:nth-child(2n){background-color:rgba(152,231,204,.3)}tw-debugger .storylet-row.storylet-closed{font-style:italic;background-color:#fff}tw-debugger .storylet-row.storylet-closed:nth-child(2n){background-color:#e6e6e6}tw-debugger .storylet-row.storylet-closed>:not(.storylet-lambda){opacity:.6}.storylet-error tw-debugger .storylet-row{background-color:rgba(230,101,204,.3)}.storylet-error tw-debugger .storylet-row:nth-child(2n){background-color:rgba(237,145,219,.3)}tw-debugger .storylet-row .storylet-name,tw-debugger .storylet-row .storylet-value{display:inline-block;width:50%}tw-debugger .storylet-row .storylet-lambda{font-family:monospace;font-size:1rem;white-space:pre-wrap;overflow-wrap:anywhere}tw-debugger.theme-dark .storylet-row.storylet-closed{background-color:#000}tw-debugger.theme-dark .storylet-row.storylet-closed:nth-child(2n){background-color:#212121}tw-debugger .tabs{padding-bottom:.5em}tw-debugger .tab{border-radius:0px 0px .5em .5em;border-top:none;top:-2px}tw-debugger .resizer-h{position:absolute;height:14em;border-left:2px solid #999;border-right:2px solid #999;top:10px;left:4px;width:8px;cursor:ew-resize}tw-debugger.theme-dark .resizer-h{border-color:rgba(0,0,0,0) #666}tw-debugger .resizer-v{position:absolute;height:8px;border-top:2px solid #999;border-bottom:2px solid #999;margin-bottom:4px;top:4px;left:10px;width:95%;cursor:ns-resize;box-sizing:border-box}tw-debugger.theme-dark .resizer-v{border-color:#666 rgba(0,0,0,0)}tw-debugger mark{color:inherit;background-color:rgba(101,230,230,.3) !important}tw-dialog{z-index:999997;border:#fff solid 2px;padding:2em;color:#fff;background-color:#000;display:block}@media(min-width: 576px){tw-dialog{max-width:50vw}}tw-dialog input[type=text]{font-size:inherit;width:100%;border:solid #fff !important}tw-dialog-links{text-align:right;display:-ms-flexbox;display:flex;-ms-flex-pack:end;justify-content:flex-end}tw-backdrop{z-index:999996;position:fixed;top:0;left:0;right:0;bottom:0;background-color:rgba(0,0,0,.8);display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center;-ms-flex-pack:center;justify-content:center}tw-backdrop~tw-backdrop{display:none}tw-link,.enchantment-link{cursor:pointer;color:#4169e1;font-weight:bold;text-decoration:none;transition:color .2s ease-in-out}tw-passage [style^=color] tw-link:not(:hover),tw-passage [style*=" color"] tw-link:not(:hover),tw-passage [style^=color][hover=true] tw-link:hover,tw-passage [style*=" color"][hover=true] tw-link:hover,tw-passage [style^=color] .enchantment-link:not(:hover),tw-passage [style*=" color"] .enchantment-link:not(:hover),tw-passage [style^=color][hover=true] .enchantment-link:hover,tw-passage [style*=" color"][hover=true] .enchantment-link:hover{color:inherit}tw-link:hover,.enchantment-link:hover{color:#00bfff}tw-link:active,.enchantment-link:active{color:#dd4b39}.visited{color:#6941e1}tw-passage [style^=color] .visited:not(:hover),tw-passage [style*=" color"] .visited:not(:hover),tw-passage [style^=color][hover=true] .visited:hover,tw-passage [style*=" color"][hover=true] .visited:hover{color:inherit}.visited:hover{color:#e3e}tw-broken-link{color:#933;border-bottom:2px solid #933;cursor:not-allowed}tw-passage [style^=color] tw-broken-link:not(:hover),tw-passage [style*=" color"] tw-broken-link:not(:hover),tw-passage [style^=color][hover=true] tw-broken-link:hover,tw-passage [style*=" color"][hover=true] tw-broken-link:hover{color:inherit}tw-link.enchantment-mouseover,.link.enchantment-mouseover,tw-expression.enchantment-mouseover>tw-link{color:inherit;font-weight:inherit;transition:none;cursor:inherit;border-bottom:2px dashed #999}tw-link.enchantment-mouseover:hover,tw-link.enchantment-mouseover:active,.link.enchantment-mouseover:hover,.link.enchantment-mouseover:active,tw-expression.enchantment-mouseover>tw-link:hover,tw-expression.enchantment-mouseover>tw-link:active{color:inherit}tw-link.enchantment-mouseover.enchantment-button,.link.enchantment-mouseover.enchantment-button,tw-expression.enchantment-mouseover>tw-link.enchantment-button{border-style:dashed}tw-link.enchantment-mouseout,.link.enchantment-mouseout,tw-expression.enchantment-mouseout>tw-link{color:inherit;font-weight:inherit;transition:none;cursor:inherit;border:rgba(64,149,191,.6) 1px solid;border-radius:.2em}tw-link.enchantment-mouseout:hover,tw-link.enchantment-mouseout:active,.link.enchantment-mouseout:hover,.link.enchantment-mouseout:active,tw-expression.enchantment-mouseout>tw-link:hover,tw-expression.enchantment-mouseout>tw-link:active{color:inherit}tw-link.enchantment-mouseout:hover,.link.enchantment-mouseout:hover,tw-expression.enchantment-mouseout>tw-link:hover{background-color:rgba(175,197,207,.75);border:rgba(0,0,0,0) 1px solid}tw-link.enchantment-dblclick,.link.enchantment-dblclick,tw-expression.enchantment-dblclick>tw-link{color:inherit;font-weight:inherit;transition:none;cursor:inherit;cursor:pointer;border:2px solid #999;border-radius:0}tw-link.enchantment-dblclick:hover,tw-link.enchantment-dblclick:active,.link.enchantment-dblclick:hover,.link.enchantment-dblclick:active,tw-expression.enchantment-dblclick>tw-link:hover,tw-expression.enchantment-dblclick>tw-link:active{color:inherit}tw-link.enchantment-dblclick:active,.link.enchantment-dblclick:active,tw-expression.enchantment-dblclick>tw-link:active{background-color:#999}tw-link.enchantment-button,.link.enchantment-button,.enchantment-button:not(.link) tw-link,.enchantment-button:not(.link) .link{border-radius:16px;border-style:solid;border-width:2px;text-align:center;padding:0px 8px;display:block}.enchantment-button{display:block}.enchantment-clickblock{cursor:pointer;width:100%;height:100%;display:block}.enchantment-clickblock>:not(tw-enchantment)::after{content:"";width:100%;height:100%;top:0;left:0;display:block;box-sizing:border-box;position:absolute;pointer-events:none;color:rgba(65,105,225,.5);transition:color .2s ease-in-out}.enchantment-clickblock>:not(tw-enchantment):hover::after{color:rgba(0,191,255,.5)}.enchantment-clickblock>:not(tw-enchantment):active::after{color:rgba(222,78,59,.5)}.enchantment-clickblock>:not(tw-enchantment)::after{box-shadow:inset 0 0 0 .5vmax}.enchantment-clickblock>tw-passage::after,.enchantment-clickblock>tw-sidebar::after{box-shadow:0 0 0 .5vmax}.enchantment-mouseoverblock>:not(tw-enchantment)::after{content:"";width:100%;height:100%;top:0;left:0;display:block;box-sizing:border-box;position:absolute;pointer-events:none;border:2px dashed #999}.enchantment-mouseoutblock>:not(tw-enchantment)::after{content:"";width:100%;height:100%;top:0;left:0;display:block;box-sizing:border-box;position:absolute;pointer-events:none;border:rgba(64,149,191,.6) 2px solid}.enchantment-mouseoutblock:hover>:not(tw-enchantment)::after{content:"";width:100%;height:100%;top:0;left:0;display:block;box-sizing:border-box;position:absolute;pointer-events:none;background-color:rgba(175,197,207,.75);border:rgba(0,0,0,0) 2px solid;border-radius:.2em}.enchantment-dblclickblock>:not(tw-enchantment)::after{content:"";width:100%;height:100%;top:0;left:0;display:block;box-sizing:border-box;position:absolute;pointer-events:none;cursor:pointer;border:2px solid #999}tw-dialog-links{padding-top:1.5em}tw-dialog-links tw-link{border-radius:16px;border-style:solid;border-width:2px;text-align:center;padding:0px 8px;display:block;display:inline-block}html{margin:0;height:100%;overflow-x:hidden}*,:before,:after{position:relative;box-sizing:inherit}body{margin:0;height:100%}tw-storydata{display:none}tw-story{display:-ms-flexbox;display:flex;-ms-flex-direction:column;flex-direction:column;font:100% Georgia,serif;box-sizing:border-box;width:100%;min-height:100%;font-size:1.5em;line-height:1.5em;padding:5% 5%;overflow:hidden;background-color:#000;color:#fff}tw-story [style*=content-box] *{box-sizing:border-box}@media(min-width: 576px){tw-story{padding:5% 20%}}tw-story tw-consecutive-br{display:block;height:1.6ex;visibility:hidden}tw-story select{background-color:rgba(0,0,0,0);font:inherit;border-style:solid;padding:2px}tw-story select:not([disabled]){color:inherit}tw-story textarea{resize:none;background-color:rgba(0,0,0,0);font:inherit;color:inherit;border-style:none;padding:2px}tw-story input[type=text]{background-color:rgba(0,0,0,0);font:inherit;color:inherit;border-style:none}tw-story input[type=checkbox]{transform:scale(1.5);margin:0 .5em .5em .5em;vertical-align:middle}tw-story tw-noscript{animation:appear .8s}tw-passage{display:block}tw-sidebar{text-align:center;display:-ms-flexbox;display:flex;-ms-flex-pack:justify;justify-content:space-between}@media(min-width: 576px){tw-sidebar{left:-5em;width:3em;position:absolute;-ms-flex-direction:column;flex-direction:column}tw-enchantment[style*=width]>tw-sidebar{width:inherit}}tw-icon{display:inline-block;margin:.5em 0;font-size:66px;font-family:"Verdana",sans-serif}tw-icon[alt]{opacity:.2;cursor:pointer}tw-icon[alt]:hover{opacity:.4}tw-icon[data-label]::after{font-weight:bold;content:attr(data-label);font-size:20px;bottom:-20px;left:-50%;white-space:nowrap}tw-meter{display:block}tw-hook:empty,tw-expression:empty{display:none}tw-error{display:inline-block;border-radius:.2em;padding:.2em;font-size:1rem;cursor:help;white-space:pre-wrap}tw-error.error{background-color:rgba(223,58,190,.6);color:#fff}tw-error.warning{background-color:rgba(223,140,58,.6);color:#fff;display:none}.debug-mode tw-error.warning{display:inline}tw-error-explanation{display:block;font-size:.8rem;line-height:1rem}tw-open-button,tw-folddown{cursor:pointer;line-height:0em;border-radius:4px;border:1px solid rgba(255,255,255,.5);font-size:.8rem;margin:0 .2rem;padding:3px;white-space:pre}tw-folddown::after{content:"▶"}tw-folddown.open::after{content:"▼"}tw-open-button[replay]{display:none}tw-error tw-open-button,tw-eval-replay tw-open-button{display:inline !important}tw-open-button::after{content:attr(label)}tw-notifier{border-radius:.2em;padding:.2em;font-size:1rem;background-color:rgba(223,182,58,.4);display:none}.debug-mode tw-notifier{display:inline}tw-notifier::before{content:attr(message)}tw-colour{border:1px solid #000;display:inline-block;width:1em;height:1em}tw-enchantment:empty{display:none}h1{font-size:3em}h2{font-size:2.25em}h3{font-size:1.75em}h1,h2,h3,h4,h5,h6{line-height:1em;margin:.3em 0 .6em 0}pre{font-size:1rem;line-height:initial}small{font-size:70%}big{font-size:120%}mark{color:rgba(0,0,0,.6);background-color:#ff9}ins{color:rgba(0,0,0,.6);background-color:rgba(255,242,204,.5);border-radius:.5em;box-shadow:0em 0em .2em #ffe699;text-decoration:none}center{text-align:center;margin:0 auto;width:60%}blink{text-decoration:none;animation:fade-in-out 1s steps(1, end) infinite alternate}tw-align{display:block}tw-columns{display:-ms-flexbox;display:flex;-ms-flex-direction:row;flex-direction:row;-ms-flex-pack:justify;justify-content:space-between}.transition-in{animation:appear 0ms step-start}.transition-out{animation:appear 0ms step-end}[data-t8n^=dissolve].transition-in,[data-t8n=fade].transition-in{animation:appear .8s}[data-t8n^=dissolve].transition-out,[data-t8n=fade].transition-out{animation:appear .8s reverse}[data-t8n^=shudder].transition-in{display:inline-block !important;animation:shudder-in .8s}[data-t8n^=shudder].transition-out{display:inline-block !important;animation:shudder-in .8s reverse}[data-t8n^=rumble].transition-in{display:inline-block !important;animation:rumble-in .8s}[data-t8n^=rumble].transition-out{display:inline-block !important;animation:rumble-in .8s reverse}[data-t8n^=pulse].transition-in{animation:pulse .8s;display:inline-block !important}[data-t8n^=pulse].transition-out{animation:pulse .8s reverse;display:inline-block !important}[data-t8n^=zoom].transition-in{animation:zoom-in .8s;display:inline-block !important}[data-t8n^=zoom].transition-out{animation:zoom-in .8s reverse;display:inline-block !important}[data-t8n^=blur].transition-in{animation:blur .8s;display:inline-block !important}[data-t8n^=blur].transition-out{animation:blur .8s reverse;display:inline-block !important}[data-t8n^=slideleft].transition-in{animation:slide-left .8s;display:inline-block !important}[data-t8n^=slideleft].transition-out{animation:slide-right .8s reverse;display:inline-block !important}[data-t8n^=slideright].transition-in{animation:slide-right .8s;display:inline-block !important}[data-t8n^=slideright].transition-out{animation:slide-left .8s reverse;display:inline-block !important}[data-t8n^=slideup].transition-in{animation:slide-up .8s;display:inline-block !important}[data-t8n^=slideup].transition-out{animation:slide-down .8s reverse;display:inline-block !important}[data-t8n^=slidedown].transition-in{animation:slide-down .8s;display:inline-block !important}[data-t8n^=slidedown].transition-out{animation:slide-up .8s reverse;display:inline-block !important}[data-t8n^=fadeleft].transition-in{animation:fade-left .8s;display:inline-block !important}[data-t8n^=fadeleft].transition-out{animation:fade-right .8s reverse;display:inline-block !important}[data-t8n^=faderight].transition-in{animation:fade-right .8s;display:inline-block !important}[data-t8n^=faderight].transition-out{animation:fade-left .8s reverse;display:inline-block !important}[data-t8n^=fadeup].transition-in{animation:fade-up .8s;display:inline-block !important}[data-t8n^=fadeup].transition-out{animation:fade-down .8s reverse;display:inline-block !important}[data-t8n^=fadedown].transition-in{animation:fade-down .8s;display:inline-block !important}[data-t8n^=fadedown].transition-out{animation:fade-up .8s reverse;display:inline-block !important}[data-t8n^=flicker].transition-in{animation:flicker .8s}[data-t8n^=flicker].transition-out{animation:flicker .8s reverse}
 </style>
 </head>
 <body>
-<tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play REGRAS II.</tw-noscript></noscript></tw-story>
-<tw-storydata name="REGRAS II" startnode="1" creator="Twine" creator-version="2.6.2" format="Harlowe" format-version="3.3.5" ifid="ec512dcb-54d3-49e7-8b1c-606ab4c845c0" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="REGRAS" tags="" position="2100,850" size="100,100">(size:2)+ (text-colour:green)+(b4r:&quot;double&quot;,&quot;none&quot;)+(b4r-colour:green,white)[REGRAS]
+<tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play REGRA GERAIS.</tw-noscript></noscript></tw-story>
+<tw-storydata name="REGRA GERAIS" startnode="1" creator="Twine" creator-version="2.6.2" format="Harlowe" format-version="3.3.5" ifid="ec512dcb-54d3-49e7-8b1c-606ab4c845c0" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="REGRAS" tags="" position="1975,875" size="100,100">(size:2)+ (text-colour:green)+(b4r:&quot;double&quot;,&quot;none&quot;)+(b4r-colour:green,white)[SOMENTE REGRAS]
 
 (text-colour:green)[//
-O proposito deste arquivo é para explicar as regras do manual de uma maneira mais direta e simples, como consulta - ai para aprofundar em algum ponto é só consultar o manual.
+O proposito deste arquivo é colocar as regras que estamos adotando para a campanha. Muitas não existem no manual.
+//]
+---
 
-Muitas dessas regras tambem são meio que &quot;da casa&quot;, todas as adaptações que estamos fazendo para a nossa mesa vão estar escritas aqui..//]
+(text-colour:cyan)[(t8n-depart:&quot;dissolve&quot;)+(t8n-arrive:&quot;dissolve&quot;)[[APRENDENDO COISAS NOVAS-&gt;Aprendizado]]]
+//Regras para aumentar NH de habilidades durante a campanha.//
+
+(text-colour:#cc5de8)[(t8n-depart:&quot;dissolve&quot;)+(t8n-arrive:&quot;dissolve&quot;)[[CRAFT-&gt;CRAFT]]]
+//Regras para &quot;Craftar&quot; as coisas, como poções, forja, carpintaria, civil, artesanato...//
+
+
+(text-colour:red)[[RECUPERAÇÃO DE HP-&gt;Recupereção]] 
+//Regras para recuperar o HP//
+
+(text-colour:yellow)[[PERDA DE FADIGA-&gt;FADIGA]] 
+//Perda de Fadiga//
+
+(text-colour:#38d9a9)[[BASICAS-&gt;BÁSICAS]] 
+//Regras menores para ir decorando//
 ---
 
 
 
 
-
-
-
-
-(text-colour:#fcc419)[[[MAGIAS-&gt;MAGIAS]]] - //Regras sobre magias//
-
-
-
-(text-colour:#ff6b6b)[[[GERAIS-&gt;GERAIS]]] - //Outras regras gerais como dormir, aprender, craft...//
-
-
-
-
-(text-colour:#fcc419)[[[COMBATE-&gt;COMBATE]]] - //Regras sobre porradaria//
-
-
-
-&#39;&#39;
-
-
-
-
-
-
-
 &lt;style&gt; img {
 max-width:100%;
 max-height:100%;
 }
 
 &lt;/style&gt;
-&lt;img src=https://i.pinimg.com/564x/85/d3/66/85d3663ce106401bbedd0c5ca138ca22.jpg&gt;
+&lt;img src=https://i.pinimg.com/564x/a3/62/9c/a3629c0e579483911197c2e16fecb7ec.jpg&gt;
 &lt;/div&gt;
-//Versão Novem 23//
+//Versão Dez 2023//
 
 
 
 
 
-</tw-passagedata><tw-passagedata pid="2" name="COMBATE" tags="" position="2375,900" size="100,100">(size:2)+ (text-colour:green)+(b4r:&quot;double&quot;,&quot;none&quot;)+(b4r-colour:green,white)[&#39;&#39;REGRAS DE COMBATE&#39;&#39;]
-
-//Tem muita regra de combate, vou colocar de maneira mais clara possivel tudo o que precisa saber para um combate simples - mais uma vez, para se aprofundar consulte o manual.
-
-OBS: Não estamos usando regras de Combate tático, mas sim um mesclado.//
-&lt;style&gt; img {
-max-width:100%;
-max-height:100%;
-}
-
-&lt;/style&gt;
-&lt;img src=https://i.pinimg.com/564x/bf/27/50/bf2750c2525ea4e73cbc945bc9dc43ba.jpg&gt;
-
-(text-colour:red)[[RODADOS E TURNOS-&gt;Rodadas Turnos e Tempo]] - //1 minuto tretando é 60 turnos!//
-
-(text-colour:blue)[[MANOBRAS-&gt;Manobras]] - //Manobras de batalha, algumas radicais outras não.//
-
-(text-colour:purple)[[MAGIAS-&gt;Castando Magias]] - //Como faze-las//
-
-(text-colour:#ff6b6b)[[GRID DE BATALHA-&gt;Grid de Batalha]] - //Hexagono é o melhor.//
-
-(text-colour:#cc5de8)[[DEFESAS-&gt;DEFESAS]] - //Como se Defender.//
-
-(text-colour:#fcc419)[[DANO-&gt;Dano]] - //Dano que se leva.//
-
-
-
-
-
-</tw-passagedata><tw-passagedata pid="3" name="MAGIAS" tags="" position="1825,1000" size="100,100">(size:2)+ (text-colour:green)+(b4r:&quot;double&quot;,&quot;none&quot;)+(b4r-colour:green,white)[MAGIAS]
-
-
-
-//As regras adotadas para realizar mágias serão as famosas (text-colour:cyan)[Unlimited mana! (mana sem limites) ]- para as regras completas clique aqui (text-colour:green)[[[AQUI-&gt;LINK UMANA]]]
-...ou você pode encontra essas regras no manual do Thaumatology //
-&lt;style&gt; img {
-max-width:100%;
-max-height:100%;
-}
-
-&lt;/style&gt;
-&lt;img src=https://i.pinimg.com/564x/f6/32/c4/f632c4eb9a027b64de7ad5597140f144.jpg&gt;
-&lt;/div&gt;
-
-
-&#39;&#39;(text-colour:#22b8cf)[[[HISTÓRIA DA MANA SEM LIMITES-&gt;Umana]]] - //Teoria (inventada) da UMANA//
-
-
-(text-colour:#9c36b5)[[[CLASSES DE MAGIAS-&gt;Classes de Magias]]] - //Os tipos de magias que existem//
-
-
-(text-colour:lime)[[[OBJETOS MÁGICOS-&gt;objetos magicos]]] - //Varinha que faz Pew-Pew&#39;//
-
-
-(text-colour:RED)[[[APTIDÃO MAGICA-&gt;Aptidão mágica]]] - //Tabela de limites&#39;//&#39;&#39;</tw-passagedata><tw-passagedata pid="4" name="NH IDEAL" tags="" position="3175,325" size="100,100">&#39;&#39;PROBABILIDADE DE SUCESSO (Ao rolar 3D6)&#39;&#39;
+</tw-passagedata><tw-passagedata pid="2" name="NH IDEAL" tags="" position="2150,50" size="100,100">&#39;&#39;PROBABILIDADE DE SUCESSO (Ao rolar 3D6)&#39;&#39;
 
 Nível de Habilidade x Probabilidade de Sucesso
 
@@ -155,7 +92,7 @@ Não é fácil decidir os níveis de habilidade de um personagem a fim de mantê
 em uma perícia tende a ser excessivo e inacreditável e, muitas vezes, menos útil do que um nível mais baixo combinado com uma ou mais perícias secundárias. 
 
 Exemplo: Em vez de aumentar seu NH em Caratê até 30, um Mestre do kung fu estará usando melhor seus pontos se comprar Caratê 25 e níveis razoáveis de Acrobacia, Judô, Meditação, etc.
-Um Mestre também deve pensar em usar alguns pontos em vantagens que anulam penalidades em condições adversas. Por exemplo, um Mestre do kung fu poderia comprar Treinado por um Mestre (reduzindo a penalidade de muitos ataques e bloqueios) e Reflexos em Combate (aumentando suas chances de se defender), aprimorando suas capacidades de uma forma que não seria possível com um simples valor elevado de perícia. Talvez o Mestre queira limitar os personagens a níveis de habilidade entre 20 e 25 para encorajar os jogadores a desenvolverem seus personagens gradualmente, em vez de aplicar todos os pontos em apenas uma ou duas perícias.//</tw-passagedata><tw-passagedata pid="5" name="BÁSICAS" tags="" position="2275,500" size="100,100">(size:2)+ (text-colour:green)+(b4r:&quot;double&quot;,&quot;none&quot;)+(b4r-colour:green,white) [REGRAS GERAIS]
+Um Mestre também deve pensar em usar alguns pontos em vantagens que anulam penalidades em condições adversas. Por exemplo, um Mestre do kung fu poderia comprar Treinado por um Mestre (reduzindo a penalidade de muitos ataques e bloqueios) e Reflexos em Combate (aumentando suas chances de se defender), aprimorando suas capacidades de uma forma que não seria possível com um simples valor elevado de perícia. Talvez o Mestre queira limitar os personagens a níveis de habilidade entre 20 e 25 para encorajar os jogadores a desenvolverem seus personagens gradualmente, em vez de aplicar todos os pontos em apenas uma ou duas perícias.//</tw-passagedata><tw-passagedata pid="3" name="BÁSICAS" tags="" position="2125,550" size="100,100">(size:2)+ (text-colour:green)+(b4r:&quot;double&quot;,&quot;none&quot;)+(b4r-colour:green,white) [REGRAS GERAIS]
 
 
 
@@ -214,35 +151,80 @@ Com certeza tem individualidades  (talvez um automata que goste de organicos nao
 //Bonus de defesa (DB em ingles) são adicionados para todas (e quaisquer) defesas ativas que vc realizar. Escudo da DB nao so para bloqueio, mas para aparar e esquivar também por exemplo.//
 
 
-</tw-passagedata><tw-passagedata pid="6" name="GERAIS" tags="" position="2025,650" size="100,100">(size:2)+ (text-colour:green)+(b4r:&quot;double&quot;,&quot;none&quot;)+(b4r-colour:green,white)[ REGRAS GERAIS]
-
-
-//Regras Gerais que estamos utilizando, muitas pegas de suplementos, outras ajustadas das regras originais para poder funcionar em nossa mesa e campanha.//
-
-
-(text-colour:#5c7cfa)[(t8n-depart:&quot;dissolve&quot;)+(t8n-arrive:&quot;dissolve&quot;)[[APRENDENDO COISAS NOVAS-&gt;Aprendizado]]]
-//Regras para aumentar NH de habilidades durante a campanha.//
-
----
-(text-colour:#cc5de8)[(t8n-depart:&quot;dissolve&quot;)+(t8n-arrive:&quot;dissolve&quot;)[[CRAFT-&gt;CRAFT]]]
-//Regras para &quot;Craftar&quot; as coisas, como poções, forja, carpintaria, civil, artesanato...//
-
-
-(text-colour:#38d9a9)[[RECUPERAÇÃO DE HP-&gt;Recupereção]] 
-//Regras para recuperar o HP//
-
-
-(text-colour:#38d9a9)[[BASICAS-&gt;BÁSICAS]] 
-//Regras menores e da casa para ir decorando//
----
-
-
-</tw-passagedata><tw-passagedata pid="7" name="Aprendizado" tags="" position="2025,300" size="100,100">(size:2)+ (text-colour:green)+(b4r:&quot;double&quot;,&quot;none&quot;)+(b4r-colour:green,white)[&#39;&#39;APRENDENDO E &#39;GANHANDO NIVES&#39;&#39;]
+</tw-passagedata><tw-passagedata pid="4" name="Aprendizado" tags="" position="1875,550" size="100,100">(size:2)+ (text-colour:green)+(b4r:&quot;double&quot;,&quot;none&quot;)+(b4r-colour:green,white)[&#39;&#39;NOVAS REGRAS - COMPRA DE PERÍCIAS&#39;&#39;]
 
 
 ---
-(text-colour:green)[&#39;&#39;Todas as informações estão descritas no arquivo abaixo compartilhado.&#39;&#39;]
 
+(text-colour:orange)[&#39;&#39;Se a perícia que vc quer tem pré - definido:&#39;&#39;]
+
+//Para avançar 1 nível no NH dela se deve rolar não com o seu NH - mas sim com o pré definido. Essa rolagem só conta em uma situação em que a falha acarrete em uma situação ruim.
+
+OU
+
+Acumular 48 horas de treino nessa perícia. Seja sozinho, ou em grupo, ao longo que vc pratica algo vc acumula horas nessa perícia. Ao atingir 48 vc pode comprar 1 nível na perícia.//
+
+
+
+(text-colour:orange)[&#39;&#39;Se a perícia que vc quer não tem pré - definido:&#39;&#39;]
+
+
+//&#39;&#39;É a primeira vez comprando essa perícia?:&#39;&#39;
+
+Se sim, vc precisa que alguem ou algo te ensine. Pelo menos para as primeiras horas.
+Por exemplo um professor the ensina o básico e depois vc pratica sozinho. Se por acaso for um livro vc precisa estuda-lo enquanto pratica.
+
+No final das contas, para poder comprar a pericia vc precisa acumular 48 horas de treino.
+
+1 hora com um professor equivalem a 2 horas de treino. Um sucesso no teste de pedagogia do professor adiciona + 50% das horas treinadas naquele dia.
+
+
+&#39;&#39;Voce ja sabe a perícia?:&#39;&#39;
+
+Para avançar 1 nível no NH dela se deve rolar não com o seu NH - mas sim com:  
+
+Pericia Fácil - atributo dela -4
+Perícia Média - atributo dela -5
+Perícia Dificil - atributo dela -6
+Perícia Muito Dificil - atributo dela -7
+
+Essa rolagem só conta em uma situação em que a falha acarrete em uma situação ruim.
+
+OU 
+
+Acumular 48 horas de treino nessa perícia. Seja sozinho, ou em grupo, ao longo que vc pratica algo vc acumula horas nessa perícia. Ao atingir 48 vc pode comprar 1 nível na perícia.
+//
+
+
+&#39;&#39;ATRIBUTOS:&#39;&#39;
+
+//Somente acumulando 48 horas de treino.//
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+REGRAS VELHAS
 //LINK DO ARQUIVO://
 https://pdfhost.io/v/TrFF0iHJc_Merecendo_para_aprenderxlsx
 
@@ -254,7 +236,7 @@ https://pdfhost.io/v/TrFF0iHJc_Merecendo_para_aprenderxlsx
 
 
 
-</tw-passagedata><tw-passagedata pid="8" name="CRAFT" tags="" position="1775,550" size="100,100">(size:2)+ (text-colour:green)+(b4r:&quot;double&quot;,&quot;none&quot;)+(b4r-colour:green,white)[ CRAFT]
+</tw-passagedata><tw-passagedata pid="5" name="CRAFT" tags="" position="1750,625" size="100,100">(size:2)+ (text-colour:green)+(b4r:&quot;double&quot;,&quot;none&quot;)+(b4r-colour:green,white)[ CRAFT]
 
 //Vou preencher essa parte conforme o tempo for passando...//
 
@@ -279,339 +261,7 @@ max-height:100%;
 &lt;/div&gt;
 
 
-</tw-passagedata><tw-passagedata pid="9" name="Rodadas Turnos e Tempo" tags="" position="3075,1325" size="100,100">(size:2)+ (text-colour:green)+(b4r:&quot;double&quot;,&quot;none&quot;)+(b4r-colour:green,white)[&#39;&#39;TURNOS e RODADAS&#39;&#39;]
-
-
-
-
-(text-colour:orange)[&#39;&#39;TURNO&#39;&#39;]
----
-//É a sua jogada, digamos, a sua ação dentro de uma rodada. O seu turno acontece &quot;ao mesmo tempo que o de todos&quot;, porém, quem for mais rapido sempre terá a vantagem.
-Ele dura 1 segundo.//
-
-
-(text-colour:orange)[&#39;&#39;RODADA&#39;&#39;]
----
-//Depois que todos fazem as suas jogadas de 1 segundo (todos realizam o seu prórpio turno), uma rodada se passa.//
-
-
-(text-colour:orange)[&#39;&#39;MANOBRA&#39;&#39;]
----
-//É o que você irá fazer no seu turno. Uma manobra não é um ataque, pode ser uma corrida até um alvo, pode ser pegar algo da bolsa, pode até ser fazer nada e apenas observar. //
-
-
-(text-colour:orange)[&#39;&#39;DEFESA ATIVA&#39;&#39;]
----
-//Defesa ativa é uma ação de reação, digamos, uma manobra que você realiza automaticamente sem pensar, ou com um mínimo de pensamento. Isso envolve se esquevir de um soco por exemplo. //
-
-
-
-
----
-(text-colour:orange)[&#39;&#39;ORDEM DE UMA RODADA&#39;&#39;]
-
-//Toda uma rodada dura 1 segundo, portanto, todos os envolvidos na batalha irão realizar suas proprias manobras. 
-(text-colour:red)[Note que sua manobra pode afetar a manobra dos outros, por exemplo, se você for rápido o suficiente para atirar uma bazooka nos inimigos eles certamente não conseguirão realizar as manobras deles.]//
-
-
-
-&#39;&#39;1 - Se define a Ordem do turno&#39;&#39;
-//Quem tiver mais velocidade básica começa. Uma vez estabelecida a ordem ela não muda até o final da batalha.//
-
-
-&#39;&#39;2 - Cada um escolhe uma manobra para realizar&#39;&#39;
-//Da lista de manobras realizaveis.//
-
-
-&#39;&#39;Fluxograma&#39;&#39;
-&lt;style&gt; img {
-max-width:100%;
-max-height:100%;
-}
-
-&lt;/style&gt;
-&lt;img src=https://i.ibb.co/1KDGsDS/imagem-2023-03-31-225401730.png&gt;
-
----
-
-
-
-
-</tw-passagedata><tw-passagedata pid="10" name="Manobras" tags="" position="3575,950" size="100,100">(size:2)+ (text-colour:green)+(b4r:&quot;double&quot;,&quot;none&quot;)+(b4r-colour:green,white)[&#39;&#39;MANOBRA DE COMBATE&#39;&#39;]
-
-
-CADA MANOBRA LEVA 1 SEGUNDO PARA SER REALIZADA, ou em outras palavras, 1 TURNO.
-
-(text-colour:#12b886)[[[MANOBRAS PADRÃO-&gt;Padrão]]]
-Movimento, fazer nada, aguardar...
-
-(text-colour:#be4bdb)[[[MANOBRAS DE ATAQUE-&gt;Ataque]]]
-Ataque total, ataque duplo, etc...
-
-(text-colour:#fab005)[[[MANOBRAS TÁTICAS!-&gt;Taticas]]]
-Fintar, apontar, analisar,...
-
-
-
-
-
-
-
-
-
-
-
- 
-
- 
- 
- 
- 
-
-
- 
-
-
-
-
-
-
-
-
-
- 
- 
- 
- 
- 
-
-</tw-passagedata><tw-passagedata pid="11" name="DEFESAS" tags="" position="3425,1250" size="100,100">(size:2)+ (text-colour:green)+(b4r:&quot;double&quot;,&quot;none&quot;)+(b4r-colour:green,white)[&#39;&#39;DEFESAS&#39;&#39;]
-
-//(text-colour:green)[Um sucesso na jogada de ataque ainda não indica que o personagem atingiu o alvo — exceto no caso de golpe fulminante.  O ataque foi bom o suficiente para acertar o alvo se este não conseguir se defender.]
-&lt;style&gt; img {
-max-width:100%;
-max-height:100%;
-}
-
-&lt;/style&gt;
-&lt;img src=https://i.pinimg.com/564x/2f/e4/84/2fe484a923255f88bfc8f83a6c89358f.jpg&gt;
-
-
----
-
-Se o ataque foi bem sucedido, o alvo pode escolher uma defesa ativa e tentar uma “jogada de defesa”.
-
-Uma vítima que não está ciente do ataque não pode usar suas defesas ativas. Um alvo inconsciente, imobilizado ou de alguma outra forma impossibilitado de reagir, também não pode usar suas defesas ativas.
-
-
-Existem três “defesas ativas” que um combatente pode usar para evitar um ataque: 
-
-
-
-(text-colour:#ff922b)[[[APARAR-&gt;Aparar]]]
-Quantas vezes quiser no TURNO em questão, mas tentativas alem da primeira sofrem redutor.
-
-(text-colour:#94d82d)[[[ESQUIVA-&gt;Esquiva]]]
-Quantas vezes quiser no TURNO em questão, mas apenas uma tentativa por ataque.
-
-(text-colour:#339af0)[[[BLOQUEIO-&gt;Bloqueio]]]
-Uma vez por TURNO apenas.
-
-
-
-(text-colour:red)[Lembrando que RODADA é um conjunto de TURNOS, então bloquear por exemplo pode se feito apenas 1 TENTATIVA A CADA TURNO DA RODADA.]
-
-//
----
-
-
- 
- 
- 
- 
- 
- 
-
-
-
-
-
-
- 
- 
- 
- 
- 
- 
- 
- 
- </tw-passagedata><tw-passagedata pid="12" name="Dano" tags="" position="2900,1350" size="100,100">(size:2)+ (text-colour:green)+(b4r:&quot;double&quot;,&quot;none&quot;)+(b4r-colour:green,white)[&#39;&#39;AVALIAÇÃO DE DANO&#39;&#39;]
-
-
-//DANO BÁSICO = é o dano cru sem reduções nenhuma
-DANO PENETRANTE = é o dano depois da redução de RD
-MODIFICADOR DE FERIMENTO = é o tipo de ferimento que o dano penetrante causa//
-
-
-
----
-//(text-colour:cyan)[&#39;&#39;PRIMEIRO&#39;&#39;]
-
-Rola o dado para sabermos o DANO BÁSICO.
-
-
-(text-colour:cyan)[&#39;&#39;SEGUNDO&#39;&#39;]
-
-Subtrairemos agora o DANO BÁSICO da RD do ALVO.
-
-*Divisor de armadura: é para armas especiais, não se preocupem com isso agora.
-
-
-(text-colour:cyan)[&#39;&#39;TERCEIRO&#39;&#39;]
-
-Apliquemos agora o MODIFICADOR DE FERIMENTO, que consiste apenas em ver qual o tipo de dano que sua arma esta dando e multiplicar o DANO PENETRANTE pelo NÚMERO DE MODIFICAÇÃO.//
-
-
-
-&#39;&#39;(text-colour:yellow)[Pouco perfurante (pa-)] = x0,5
-
-(text-colour:yellow)[Corte (corte) e muito perfurante (pa+)] = ×1,5
-
-(text-colour:yellow)[Perfuração (perf) e extremamente perfurante (pa++)] = ×2.
-
-(text-colour:yellow)[Por queimadura (qmd), corrosão (cor), contusão (cont), fadiga (fad), toxina (tox), e perfurante (pa)] = ×1 (o dano não é alterado)]&#39;&#39;
-
-
-Se receber um golpe que tira 1/3 da vida - vc fica com velocidade, esquiva e deslocamento pela metade
-
-
-
-
----
-&#39;&#39;(text-colour:orange)[RD DE ARMADURA FLEXIVEL]&#39;&#39;
-
-//A pele do Abbadon, Tibius e Fergus entram nesstas condições:
-
-Se vc levar um dano e a sua RD flexivel absorver tudo, isto é: Leva 2 de dano e  sua RD é 3 -&gt; Se isso acontecer a sua armadura sofre o que se chama (text-colour:red)[trauma por impacto.] (esse é o famoso Roxão na pele)
-//
-
-
-
-
-&#39;&#39;Dano por corte, perf, pa-, pa, pa+ ou pa++:&#39;&#39;
-//Para cada 10 pnts de Trauma por Impacto que sua pele absorve = vc perde 1PV (sem modificador de ferimento)//
-
-
-&#39;&#39;Dano por contusão:&#39;&#39;
-//Para cada 5 pnts de Trauma por Impacto que sua pele absorve = vc perde 1PV //
-
-
-&#39;&#39;Qualquer outro dano:&#39;&#39;
-//Não causa trauma por impacto.
-//
-
-
-
-//&#39;&#39;(text-colour:orange)[IMPORTANTE:] Se vc levar o dano e sua RD flexivel NÃO absorver tudo, vc não sofre NENHUM trauma por impacto (a sua pele ja se cortou ou se furou...)
-
-
-*Se uma segunda RD estiver sobreposta à RD flexível, somente o dano que penetrar a camada externa é capaz de provocar trauma por impacto.&#39;&#39;//
-
-
-
-
-
- 
-
-
- 
- ---
-&#39;&#39; EXEMPLO FINAL&#39;&#39;
- 
-// Exemplo: Pierre, o Sórdido, é atingido por uma machadada que causa dano por corte. A avaliação de dano básico do ataque é 7, mas Pierre está vestindo uma armadura de couro de RD 2, portanto, sofre 5 pontos de dano penetrante. Multiplicando esse valor por 1,5, por se tratar de dano por corte, Pierre perderia 7,5 PV, que é arredondado para 7 PV — um ferimento considerável!//
- 
- 
- 
- 
- 
- 
- 
- </tw-passagedata><tw-passagedata pid="13" name="Classes de Magias" tags="" position="1625,1250" size="100,100">(size:2)+ (text-colour:green)+(b4r:&quot;double&quot;,&quot;none&quot;)+(b4r-colour:green,white) [TIPOS DE MAGIAS]
-
-&lt;style&gt; img {
-max-width:100%;
-max-height:100%;
-}
-
-&lt;/style&gt;
-&lt;img src=https://i.pinimg.com/564x/3e/cd/01/3ecd0135e2ef22674373aa610742e0f7.jpg&gt;
-&lt;/div&gt;
-
-
-
-//&#39;&#39;PROJETIL:&#39;&#39;
----
-(text-colour:magenta)[Magias de jogar coisas nos outros. A regra é praticamente:
-1 - Um turno geraldo a magia na mão (uma rolagem de magia)
-2 - Um turno opcional para Buffar a magia (sem rolagem necessária)
-3 - Um turno jogando a magia no alvo (uma rolagem de arremesso)
-
-Existem regras para: ser atingido com a magia na mão, cancelar a magia ja preparada, se mover com a magia na mão, etc...]
-
-
-
-&#39;&#39;TOQUE:&#39;&#39;
----
-(text-colour:cyan)[Magias que precisam que sua mão toque no alvo para acontecer.
-É só rolar para concentrar a magia, depois rolar para tocar o alvo (o alvo pode tentar se esquivar por exemplo).
-
-Bloquear e aparar magias assim geralmente não evitam ela de acertar o alvo. Tambem vc pode se mover depois de carregar a magia. 
-
-Existem regras para: locomoção, bloqueio, ações permitidar enquanto &quot;carregado&quot;...]
-
-
-
-&#39;&#39;AREA&#39;&#39;
----
-(text-colour:#e03131)[A magia de area começa em um ponto que o mago pode tocar (penalidade em metros se nao puder tocar)- a partir dali ela se extende como um &quot;Domo&quot; de 4 metros de altura. Sempre medida em Raio (tem uma tabelinha no manual). 
-
-Geralmente tem um custo minimo de 1 de energia e area de no minimo 2 metros de diametro.
-
-Existem regras para: afetas apenas alguns na area...]
-
-
-
-&#39;&#39;COMUM&#39;&#39;
----
-(text-colour:#74b816)[Se uma magia nao se encaixa em nenhuma categoria ela é comum. Qualquer regra referente a ela geralmente ta explicada na propria magia.
-
-Existem regras para: usar a distancia, usar em alvos muito grandes, etc..]
-
-
-
-&#39;&#39;BLOQUEIO&#39;&#39;
----
-(text-colour:#f59f00)[São magias de reaçao - vc usa como se fosse um bloquear/aparar/esquivar.
-Só pode uma vez no turno.]
-
-
-
-&#39;&#39;INFORMAÇÃO&#39;&#39;
----
-(text-colour:#4c6ef5)[Sao magias bem situacionais - eu que rolo para vc, para vc nao saber o resultado. Eu vou dar a informaçao desejada em graus de sucesso - quando melhor o resultado melhor é a resposta.
-Geralmente só podem ser feitas uma vez por dia.]
-
-
-
-&#39;&#39;MAGIAS RESISTIDAS&#39;&#39;
----
-(text-colour:#dee2e6)[Sao magias que dependem de um fracaso do alvo - por que... elas podem ser resistidas =D!]
-//
-
-
-
-
-</tw-passagedata><tw-passagedata pid="14" name="Passagem Sem Nome" tags="" position="3000,325" size="100,100">FERRAMENTAS
+</tw-passagedata><tw-passagedata pid="6" name="Passagem Sem Nome" tags="" position="1975,50" size="100,100">FERRAMENTAS
 
 (b4r:&quot;double&quot;,&quot;none&quot;)+(b4r-colour:green,white)[&#39;&#39;(text-colour:green)[COMIDA E BEBIDA! e dormida...
 ]&#39;&#39;]
@@ -629,134 +279,7 @@ klkl(text-colour:#0ca678)[Your Text Here]
 
 (b4r:&quot;solid&quot;)+(b4r-size:4)[Do not read anything outside of this boxa
 
-(b4r:&quot;ridge&quot;,&quot;none&quot;,&quot;none&quot;)+(b4r-colour:white)[hgjgh]</tw-passagedata><tw-passagedata pid="15" name="Umana" tags="" position="1550,1100" size="100,100">(size:2)+ (text-colour:green)+(b4r:&quot;double&quot;,&quot;none&quot;)+(b4r-colour:green,white)[U. MANA! (Unlimited Mana - Mana sem limites)]
-
-//O SEU LIMITE PESSOAL VARIA CONFORME SUA APTIDÃO MAGICA:
-Apt 1 = Limite de 15
-Apt 2 = Limite de 25
-Apt 3 = Limite de 35
-
-A RECARGA PESSOAL DE TODOS É DE 8 E VEM SEMPRE QUE O SOL SURGE NO HORIZONTE.
-//
-&lt;style&gt; img {
-max-width:100%;
-max-height:100%;
-}
-
-&lt;/style&gt;
-&lt;img src=https://i.pinimg.com/564x/b2/38/9f/b2389f4e9f953fdefb7fa9048285af8f.jpg&gt;
-&lt;/div&gt;
-
-
-(text-colour:blue)[&#39;&#39;Existem 2 mundos: O real e o mundo da Mana.&#39;&#39;
-//Cada vez que vc faz uma magia vc tira energia não de vc ou do mundo real, mas sim de um outro mundo chamado MUNDO DA MANA (ou mundo eteral em outras culturas).
-
-Alterar o mundo real, usando a energia do mundo da mana e você como catalizador, não causa nenhum problema! até um certo limite...//]
-
----
-(text-colour:magenta)[&#39;&#39;CONCEITOS:&#39;&#39;]
-
-//&#39;&#39;MUNDO REAL&#39;&#39; - nosso mundo de agora
-
-&#39;&#39;MUNDO DA MANA&#39;&#39; - Mundo paralelo (conhecido como mundo eteral em outras culturas)
-
-&#39;&#39;CATALIZADOR&#39;&#39; - Você faz o papel de catalizar/transportar a energia do mundo da mana para o mundo real, a energia chega em forma de magias no mundo real. Catalizar nao causa nenhum efeito em vc, a não ser que vc abuse disso.
-
-&#39;&#39;ENERGIA &#39;&#39;- contada em pontos. Quantifica a quantidade de energia tirada do mundo da mana para o mundo real. Ex: Lancar um raio tira 3 pontos de energia do mundo da mana.
-
-&#39;&#39;LIMITE PESSOAL &#39;&#39;- é o limite de energia que uma pessoa consegue catalizar sem que efeitos colaterais aconteçam. Ex: 30 pnts é o limite, se canalizar mais energia depois disso pode dar ruim.
-
-&#39;&#39;RECARGA PESSOAL -&#39;&#39; é a quantidade de tempo que alguem precisa para poder regenerar a  &quot;alma&quot; após ser usado como catalizador de energia entre os dois mundos.
-Ex: Recarga de 5 pnts por dia -&gt; Ja canalizei 30 pontos hoje, em 6 dias minha alma estara como se estivesse catalizado 0 pontos de energia (novinha em folha).//
-
-
----
-(text-colour:red)[&#39;&#39;EXEMPLÃO!:&#39;&#39;]
-
-(text-colour:#0ca678)[//João o mago esta em uma grande guerra! Ele ja catalizou 15 pontos de energia hoje (vindo do mundo da mana) para salvar seus companheiros em batalhas com magias de cura!
-Mas ele ja esta cansado! quer acabar com tudo!  Ele que conjurar uma tempestade de meteoros! 
-
-Ele sabe que precisara catalizar mais 40 pontos de energia para poder fazer essa poderosa magia! Mas o limite dele é 30 - ou seja ele só pode catalizar mais 15 pontos sem que não existe nenhum efeito colateral...
-
-Mas mesmo assim, ele pretende acabar com isso, mesmo que ele morra no processo!
-Ele então se concentra e começa a catalizar 40 pontos de energia do mundo da mana!
-
-BOOOOM! Uma tempestade surge! Meteoros explodem no campo de batalha! A vitoria vem para os exercitos de João!
-
-João desmaia! Ele esta agora lutando  contra poderes misticos - ele passou 25 pontos de energia alem de seu limite! (seu limite é 30  e ele catalizou 55). 
-Ele joga contra  sorte (faz uma rolagem de dados bem dificil).... E POR MILAGRE ELE PASSA! e consegue evitar qq efeito colateral.
-
-
-No dia seguinte o limite de joão cai para 50 (ja que ele tem 5 de recarga por dia) - João sabe disso e nao faz nenhuma magia o dia inteiro - pq qq magia catalizada acima do seu limite pode trazer efeitos colaterais permanentes! (como perder a capacidade de fazer magias para sempre!)
-João então nao faz nenhuma magia por mais 5 dias! Seu limite abaixa para 25!
-Agora joão esta tranquilo, ele sabe que pode fazer magias novamente sem arriscar qq efeito colateral (desde q não passe de 30 de novo)!//]
-
-&lt;style&gt; img {
-max-width:100%;
-max-height:100%;
-}
-
-&lt;/style&gt;
-&lt;img src=https://i.pinimg.com/564x/a3/67/5b/a3675bf776bd90d059d4d7e93b10d506.jpg&gt;
-&lt;/div&gt;
-(text-style: &quot;italic&quot;, &quot;emboss&quot;)[JOÃO, o mago]</tw-passagedata><tw-passagedata pid="16" name="objetos magicos" tags="" position="1800,1275" size="100,100">(size:2)+ (text-colour:green)+(b4r:&quot;double&quot;,&quot;none&quot;)+(b4r-colour:green,white)[OBJETOS MÁGICOS]
-
-
-//
-Objetos mágicos podem ser criados atraves  de encantamentos. Geralmente todo mundo pode usar um objeto mágico e enquanto ele não ficar quebrado/desgastado ele sempre vai funcionar!//
-&lt;style&gt; img {
-max-width:100%;
-max-height:100%;
-}
-
-&lt;/style&gt;
-&lt;img src=https://i.pinimg.com/564x/2c/de/72/2cde72d35744398a0ea2c15be239570b.jpg&gt;
-&lt;/div&gt;
-
-
-&#39;&#39;REGRAS
----
-Existem várias regras para a utilização de objetos mágicos, vou lsitar as mais importantes:&#39;&#39;
-
-
-
-
-(text-colour:magenta)[1. Como usar um objeto mágico]
-//Para usar um objeto magico não tem muito segredo - é como se vc estivesse castando uma magia comum. Porém vc vai usar o poder do obejto e não o seu, ou seja, quando o mago encantou esse item ele foi encantado com um nível de poder (NH), eai que para vc usar o item vc rola contra o NH do objeto mágico.
-Ex: Anel da invisibilidade com Poder 16, vc sempre rola 3d6 contra 16 (se aplica modificadores normalmente//
-
-
-(text-colour:cyan)[2. Quanta energia/mana gasta]
-//Voce usa energia normalmente - como visto na parte de Umana, vc ainda sera um catalizador para transferir a energia do mundo da mana para o mundo real.//
-
-
-(text-colour:red)[3. Rituais magicos / Dançinha ou musiquinha pra castar a magia]
-//Não tem. So desejar e o objeto faz Pew-Pew&#39;//
-
-
-(text-colour:yellow)[4. Objetos que nao precisam ser &quot;castados&quot;]
-//Alguns objetos encantados vai ter a magia dele sempre ativada, tipo uma flecha que tem uma magia necrosante. Nesse caso vc nao precisa fazer nenhum ritual magico, apenas atirar a flecha em alguem. 
-Ou entao uma bota que te concede velocidade de movimento, existem duas versoes dela - a versao sempre ativa e a versao que voce precisa castar a magia &quot;passos leves&quot; (imbutida na propria bota).
-Vai depender muito do objeto.//
-
-
-(text-colour:orange)[5. Outras duvidas]
-//Na duvida, segue o que esta escrito nas regras da magia do objeto encantado- se for uma bola de fogo por exemplo, segue as mesmas regras: concentra a magia no objeto (1 teste), depois lança a magia e ve se acerta (outro teste).//
-
-
-
----
-&#39;&#39;(text-colour:green)[RESUMO:]
-
-
-(text-colour:green)[1 . Vc pega o objeto e deseja usa-lo
-2 . Segue todas as regras da magia encantada nele]&#39;&#39;
-
-
-
-
-
-</tw-passagedata><tw-passagedata pid="17" name="LINK UMANA" tags="" position="1550,975" size="100,100">(open-url: &quot;https://knightflyer.tripod.com/GURPS_Fantasy/UMANA2.html&quot;)</tw-passagedata><tw-passagedata pid="18" name="Recupereção" tags="" position="2125,450" size="100,100">(size:2)+ (text-colour:green)+(b4r:&quot;double&quot;,&quot;none&quot;)+(b4r-colour:green,white)[&#39;&#39;RECUPERANDO-SE&#39;&#39;]
+(b4r:&quot;ridge&quot;,&quot;none&quot;,&quot;none&quot;)+(b4r-colour:white)[hgjgh]</tw-passagedata><tw-passagedata pid="7" name="Recupereção" tags="" position="2000,550" size="100,100">(size:2)+ (text-colour:green)+(b4r:&quot;double&quot;,&quot;none&quot;)+(b4r-colour:green,white)[&#39;&#39;RECUPERANDO-SE&#39;&#39;]
 
 
 &lt;style&gt; img {
@@ -833,528 +356,7 @@ Talvez dormir de mau jeito, torcer o pé, uma planta urticante, etc... te causar
 
 
 
- </tw-passagedata><tw-passagedata pid="19" name="Grid de Batalha" tags="" position="3225,700" size="100,100">(size:2)+ (text-colour:green)+(b4r:&quot;double&quot;,&quot;none&quot;)+(b4r-colour:green,white)[&#39;&#39;GRID&#39;&#39;]
-
-
-&#39;&#39;EXPLICAÇÃO TEÓRICA&#39;&#39;
-
-Tire alguns minutos para entender essa figura abaixo:
-&lt;style&gt; img {
-max-width:100%;
-max-height:100%;
-}
-
-&lt;/style&gt;
-&lt;img src=https://i.ibb.co/rfkhNxb/imagem-2023-03-31-235217983.png&gt;
-
-Agora note que 
-
-Vc sempre vai estar no ponto 0,0 (coluna zero e diagonal zero). 
-Note que existem a coluna zero (&#39;q&#39; verde) e uma diagonal zero (&#39;r&#39; Azul).
-&lt;style&gt; img {
-max-width:100%;
-max-height:100%;
-}
-
-&lt;/style&gt;
-&lt;img src=https://i.ibb.co/2Snw91Q/imagem-2023-04-01-002118877.png&gt;
----
-
-&#39;&#39;EXPLICAÇÃO PRATICA&#39;&#39;
-
-Trasnferindo isso para o nosso grid.
-&lt;style&gt; img {
-max-width:100%;
-max-height:100%;
-}
-
-&lt;/style&gt;
-&lt;img src=https://i.ibb.co/n1X0TRQ/imagem-2023-04-01-002315585.png&gt;
-
-// A coluna sempre vem da cabeça do personagem (linha verde) - 
-Tudo que ta pra direita dela é positivo (coluna 1, 2, 3, ....) e tudo que ta pra esquerda é negativo (coluna -1, -2, -3...)
-
-A diagonal sempre vem do pé do personagem (linha azul) -
-Tudo o que ta pra baixo é positivo (diagonal 1,2,3...) e tudo que ta pra cima é negativo (diagonal -1,-2,-3...)//
-
-
-
-&#39;&#39;Então se o Abbadon quer ir pára o X roxo devemos dizer primero a coluna e depois a diagonal. neste caso ele esta duas colunas pro positivo e uma diagonal pro positivo.&#39;&#39;
-
-(text-colour:orange)[&#39;&#39;Então para o Abbadon ir para o X ele narra: Abbadon andar 2,1.&#39;&#39;]
-
-
-
- 
-
-
-
-
-
-
-
-
-
-</tw-passagedata><tw-passagedata pid="20" name="Ataque a Distancia" tags="" position="4125,825" size="100,100"> (size:2)+ (text-colour:green)+(b4r:&quot;double&quot;,&quot;none&quot;)+(b4r-colour:green,white)[&#39;&#39;ATAQUE A DISTANCIA&#39;&#39;]
-
- 
- 
-//Um “ataque à distância” é qualquer ataque com uma arma que pode ser usada a uma longa distância, desde uma pedra arremessada até um rifle laser ou uma mágica.
-
-O personagem só pode realizar um ataque à distância contra um alvo que se encontra dentro da distância de sua arma. Para calcular essa distância, consulte a tabela referente à arma usada. 
-
-A maioria dos ataques indica os parâmetros Metade do Dano (1/2D) e Distância Máxima (Max), em metros. O alvo não pode estar a uma distância maior que Distância Max; 1/2D afeta apenas o dano.
-
-Algumas armas que disparam projéteis em arco ou que apresentam um limite de detonação ou orientação também apresentam uma distância mínima.
-
-A aplicação de modificadores altera a chance de acerto do personagem e é calculada da seguinte maneira:
-
-1. Pegue o NH básico do personagem com a arma de combate à distância.
-
-2. Some a Precisão (Prec) da arma, se antes do ataque o personagem realizou a manobra Apontar.
-
-3. Aplique o Modificador de Tamanho (MT) do alvo.
-
-4. Aplique os modificadores devidos à distância e velocidade do alvo (um único modificador).
-
-5. Aplique os modificadores devidos às circunstâncias (fogo contínuo, deslocamento, escuridão, cobertura, etc.), inclusive quaisquer condições especiais determinadas pelo Mestre.
-
-O resultado é o nível de habilidade efetivo. Um resultado menor ou igual ao NH efetivo é considerado um ataque bem-sucedido (veja adiante) — indicando que o ataque acertou o alvo a menos que este obtenha um sucesso em um teste com uma defesa ativa.
- //</tw-passagedata><tw-passagedata pid="21" name="Ataque" tags="" position="3875,850" size="100,100">(size:2)+ (text-colour:green)+(b4r:&quot;double&quot;,&quot;none&quot;)+(b4r-colour:green,white)[&#39;&#39;MANOBRAS DE TRETA!&#39;&#39;]
-
-//&#39;&#39; Um ataque sempre é direcionado ao tronco a não ser que se queira acertar uma parte em especifico, neste caso se deve usar os seguintes modificadores na rolagem:
- &#39;&#39;//
- &lt;style&gt; img {
-max-width:100%;
-max-height:100%;
-}
-
-&lt;/style&gt;
- &lt;img src=https://i.ibb.co/7CZDRXF/photo-2023-03-31-15-23-24.jpg&gt;
-
----
-(text-colour:#845ef7)[&#39;&#39;ATACAR&#39;&#39;]
----
-//O personagem usa esta manobra para realizar um Ataque armado ou desarmado durante um combate corpo a corpo, ou para usar uma arma de projétil ou de arremesso num combate à distância. 
-Para usar uma arma para atacar, ela tem que estar preparada.
-
-MOVIMENTO: Pode andar 1 metro para qualquer direção, antes ou depois do ataque.
-
-DEFESAS: qualquer
-
-**Regras para ataque a distancia clique [[AQUI-&gt;Ataque a Distancia]]//
-
-
-
----
-(text-colour:#845ef7)[&#39;&#39;AVANÇAR E ATACAR&#39;&#39;]
----
-
-//O personagem se desloca como descrito na manobra Deslocamento, mas durante ou depois do movimento, ele faz um único ataque com pouca precisão — seja desarmado ou com uma arma preparada.
-
-MOVIMENTO: Normal como na manobra deslocamento
-
-PENALIDADES:
-Ataque à distância -&gt; a penalidade é de -2 ou igual à Magnitude da arma, o que for pior. 
-Ataque corpo a corpo -&gt; a penalidade é de -4 e o nível de habilidade ajustado não pode ser maior que 9.
-
-DEFESAS: Enquanto estiver executando esta manobra, o personagem só pode bloquear ou se esquivar
-//
-
-
----
-(text-colour:#845ef7)[&#39;&#39; ATAQUE TOTAL&#39;&#39;]
----
-//Consiste em atacar um oponente com uma arma preparada, sem fazer nenhum esforço para se defender de ataques inimigos. 
-
-MOVIMENTO: O personagem pode se mover metade do seu Deslocamento, mas só para a FRENTE.
-
-DEFESAS: não pode usar nenhuma defesa ativa até o próximo turno.
-
-
-(text-colour:#845ef7)[&#39;&#39;Para ataques CaC (Corpo a Corpo), escolher entre:&#39;&#39;]
-
-• DETERMINADO: Ele faz um único ataque com um bônus de +4!
-
-• FINTAR: Ele faz uma finta (v. adiante) e um Ataque contra o mesmo alvo.
-
-• DUPLO: Ele faz dois ataques contra o mesmo oponente — para isso ele precisa ter duas armas preparadas ou uma arma que não precisa ser preparada depois de ter sido usada. 
-Ataques com uma segunda arma na mão inábil sofrem uma penalidade de -4. (A menos que seja Ambidestro)
-Uma Finta dura um segundo. Mas se o personagem Fintar e, em seguida, fizer um Ataque Total (Duplo), a Finta se aplica aos dois Ataques. (O alvo faz duas jogadas de defesa ativa)
-
-• FORTE: Ele faz um único ataque com o NH habitual, mas se atingir o alvo, causa 2 pontos de dano adicionais ou +1 ponto de dano por dado, o que for maior.
-Isso se aplica apenas a ataques corpo a corpo com armas que causam dano por GdP ou GeB com base na ST — não para armas do tipo espada de energia
-
-
-(text-colour:#845ef7)[&#39;&#39;Para ataques AaD (Ataques a distancia), escolher entre:&#39;&#39;]
-
-• Determinado: Ele faz um único ataque com um bônus de +1.
-
-• Fogo de Retenção: Ele usa o turno inteiro para fazer disparos sucessivos com uma arma automática cobrindo uma área. A arma precisa de uma CdT 5+. Consulte o Mestre sobre maiores informações sobre o Fogo de Retenção (pág. 409).
-//</tw-passagedata><tw-passagedata pid="22" name="Taticas" tags="" position="3850,1125" size="100,100">(size:2)+ (text-colour:green)+(b4r:&quot;double&quot;,&quot;none&quot;)+(b4r-colour:green,white)[&#39;&#39;MANOBRAS TATICAS!&#39;&#39;]
-
-
-
----
-(text-colour:#ff6b6b)[FINTAR]
----
-
-(text-colour:#ff6b6b)[//RESUMO DO CONTO: Vc vai fintar o cara (tipo fingir q vai dar um soco no saco), vcs vao fazer uma rolagem cada um contra a sua pericia com a arma em questao (aquilo que tiver na mao), quem vencer com maior margem ganha. SE GANHAR: o oponente tem redução de defesa ativa contra vc no proximo turono. SE PERDER: nada acontece, mas vc perdeu 1 turno com isso.//]
-
-DESRIÇÃO COMPLETA:
-//O personagem pode “simular” um ataque corpo a corpo se sua arma estiver preparada e o oponente estiver dentro de seu alcance. Esta manobra não constitui um ataque e, por isso, não deixa a arma despreparada.
-
-Para Fintar, o personagem deve escolher um único oponente e fazer uma Disputa Rápida de perícias com Armas de Combate Corpo a Corpo.
-
-O oponente pode fazer o teste usando seu NH em Armas de Combate Corpo a Corpo, Capa, Escudo, qualquer perícia de combate desarmado ou DX.
-
-Se o personagem fracassar, sua Finta não deu certo. 
-
-Do mesmo modo, se ele obtiver sucesso, mas seu oponente alcançar uma margem de sucesso maior ou igual à dele, a Finta também não dá certo.
-
-Se o personagem obtiver sucesso e o oponente fracassar, a margem de sucesso do personagem é subtraída da defesa ativa do oponente durante uma eventual manobra de Ataque, Ataque Total ou Avançar e Atacar realizada no próximo turno.
-
-Se os dois obtiverem sucesso, mas a margem de sucesso do personagem for maior, então a diferença entre as margens de sucesso deve ser subtraída da defesa do oponente.
-
-O personagem pode se deslocar um passo enquanto estiver fintando e ainda pode usar suas defesas ativas.
-Os aliados do personagem não podem tirar vantagem do sucesso dele com a finta.//
-
-
-
----
-(text-colour:#ff6b6b)[APONTAR]
----
-
-(text-colour:#ff6b6b)[RESUMO DO CONTO: Vc passa sua vez mirando em alguem ou algo q vc enxergue. Ai no proximo turno vc ganha um bonus para a rolagem de acerto. Funciona tambem fora de combate.]
-
-//Esta manobra é usada para apontar uma arma de combate à distância (ou algum aparelho do tipo câmera fotográfica) e leva um turno inteiro (1 segundo). 
-
-O personagem deve especificar o alvo e a arma que está apontando. 
-Ele não pode apontar para algo que não consegue ver ou detectar de alguma forma.
-
-Se der sequência à manobra Apontar, com um Ataque ou Ataque Total com a mesma arma e contra o mesmo alvo, o personagem recebe um bônus na jogada para ver se consegue acertar o alvo. 
-
-Adicione o valor de Precisão (Prec) da arma ao NH do personagem. Se Apontar por mais que um segundo, o personagem recebe um bônus adicional de +1; três ou mais segundos resultam num bônus de +2.
-
-O personagem pode dar um passo enquanto estiver apontando.
-
-Qualquer Defesa Ativa usada pelo personagem estraga a mira automaticamente e ele perde todos os benefícios acumulados. Se for ferido enquanto estiver Apontando, ele precisa obter um sucesso num teste de Vontade, ou também perderá a mira.//
-
-
-
----
-(text-colour:#ff6b6b)[AVALIAR]
----
-
-(text-colour:#ff6b6b)[RESUMO DO CONTO: Vc passa sua vez analisando o oponente, ai vc ganha um bonus de +1 na rolagem de ataque contra ele. Da para acumular até +3. Funciona fora de combate tambem.]
-
-
-//O personagem estuda um adversário para ganhar um bônus de combate em um próximo ataque. 
-
-O personagem deve escolher um oponente que esteja visível e próximo o bastante para ser atacado ou que possa ser alcançado numa única manobra Avançar e Atacar.
-
-Esta manobra adiciona um bônus de +1 ao NH das manobras Ataque, Ataque Total, Avançar e Atacar ou Fintar feitas contra o oponente escolhido durante o próximo turno. 
-
-O personagem pode fazer três manobras Avaliar antes de investir, o que garante
- um bônus cumulativo de +1 por turno.//
- 
-
-
----
-(text-colour:#ff6b6b)[DEFESA TOTAL]
----
-
-(text-colour:#ff6b6b)[RESUMO DO CONTO: Vc se concentra em se defender, tem duas opções, e vc ganha bonus para defesas até a sua proxima vez.]
-
-
-//Esta é a manobra que um personagem deve adotar quando está cercado de oponentes. Escolha uma das opções abaixo:
-
-• Defesa Aumentada: Ele adiciona +2 a uma Defesa Ativa de sua escolha: Aparar, Esquiva ou Bloqueio. Esse bônus dura até o próximo turno.
-
-• Dupla Defesa: Ele utiliza duas defesas ativas diferentes contra o mesmo ataque. Se fracassar no teste defensivo contra o ataque, o personagem pode tentar uma segunda defesa diferente contra o mesmo ataque. 
-Se tentar Aparar (armado ou desarmado) com uma mão e fracassar, ele pode tentar Aparar com a outra mão — isso conta como uma “defesa diferente”.
-
-Se adotar uma Esquiva Aumentada, o personagem pode se mover até metade do seu Deslocamento. Caso contrário, ele só pode dar um passo.
-
-O personagem pode aplicar esses efeitos a qualquer defesa ativa válida.//
- 
- 
- </tw-passagedata><tw-passagedata pid="23" name="Padrão" tags="" position="3975,1025" size="100,100">(size:2)+ (text-colour:green)+(b4r:&quot;double&quot;,&quot;none&quot;)+(b4r-colour:green,white)[&#39;&#39;MANOBRAS BASICAS!&#39;&#39;]
-
-
-
----
-(text-colour:Yellow)[&#39;&#39;PREPARAR&#39;&#39;]
----
-
-//O personagem faz uma manobra Preparar para:
-
-• Pegar ou sacar qualquer item e prepará-lo para o uso, para recuperar o controle de uma arma de difícil manejo depois de um GeB, ou para ajustar o alcance de uma arma longa.
-
-• Completar ações físicas fora do combate: abrir ou fechar uma porta, arrombar uma fechadura, etc.
-
-• Ativar ou desativar uma vantagem, se ela não for do tipo Sempre Ativa e isso não exigir uma manobra Ataque ou Concentrar.
-
-MOVIMENTO: O personagem pode dar um passo.
-
-DEFESA: Todas.//
-
-
-
----
-(text-colour:Yellow)[&#39;&#39;AGUARDAR&#39;&#39;]
----
-
-//O personagem não faz nada a menos que algum acontecimento que ele tenha especificado de antemão ocorra antes do seu próximo turno; ex.: um oponente entra em seu raio de ação.
-Se isso acontecer, o personagem pode transformar a manobra Aguardar numa manobra Ataque, Fintar,Ataque Total (ele deve especificar o tipo antes de agir), ou Preparar. 
-
-Isso interrompe a sequência do turno, que é retomada depois que o personagem tiver agido.
-
-Quando o personagem realiza a manobra Aguardar, o jogador deve especificar a ação e o evento que irá desencadeá-la. 
-
-Desde que tenha indicado a área onde está mirando, ele pode Aguardar com uma arma de combate à distância preparada.//
-
-
-
----
-(text-colour:Yellow)[&#39;&#39;FAZER NADA&#39;&#39;]
----
-
-//Ficar parado em pé é Fazer Nada.
-Um personagem que está Fazendo Nada, ainda pode se defender normalmente, a menos que esteja atordoado.
-
-Um personagem atordoado ou surpreso é obrigado a escolher esta manobra: e se estiver atordoado, sofre uma penalidade de menos 4 nos testes de defesa.
-Para se recuperar de um atordoamento físico ou mental, o personagem deve fazer um teste de HT ou IQ. 
-No caso de um sucesso, o personagem se recupera no final de um turno.//
-
-
-
----
-(text-colour:Yellow)[&#39;&#39;DESLOCAR&#39;&#39;]
----
- 
-//O personagem pode se mover um número de metros igual ou menor que seu valor de Deslocamento, mas não pode realizar nenhuma outra ação. 
-
-A maioria das outras manobras permite  que o personagem realize algum tipo de Deslocamento no mesmo turno; use esta manobra somente se tudo o que ele deseja fazer em seu turno é se deslocar.
-
-Durante um Deslocamento, o personagem pode se defender normalmente.//
-
-
-
----
-&#39;&#39;(text-colour:Yellow)[CONCENTRAR]&#39;&#39;
----
-
-//O personagem se concentra em uma atividade mental (mesmo que ela tenha um componente físico mínimo, como operar algum controle, gesticular ou FALAR). 
-
-Alguns exemplos são uma operação mágica, o uso de uma habilidade psíquica, fazer um teste de Sentidos para localizar um guerreiro invisível, ou qualquer ação similar, inclusive a maioria das perícias que se baseiam em testes de IQ.
-
-Esta manobra dura um turno inteiro (1 segundo).
-Se for forçado a usar uma defesa ativa, for derrubado, ferido ou distraído por qualquer outra razão, antes de terminar, o personagem precisa fazer um teste de Vontade-3.
-No caso de um fracasso, ele perde a concentração e tem que recomeçar a ação.
-Pode dar 1 paço enquanto concentra//
-
-
-
----
-(text-colour:Yellow)[&#39;&#39;MUDAR DE POSICAO &#39;&#39;]
-//(Manobra em analise - talvez eu altere ela para simplificar as coisas)//
----
- 
-//O personagem pode alternar entre as seguintes posições: ajoelhado, deitado de bruços, deitado de costas, em pé, rastejando ou sentado. 
-
-Qualquer outra postura que não seja em pé diminui o Deslocamento do personagem e impõe uma penalidade nas jogadas de ataque e defesa, mas também fazem dele um alvo mais difícil de acertar com um ataque à distância.
-
-Ficar em pé a partir de uma posição deitado requer duas manobras Mudança de Posição (ou seja 2 segundos / 2 turnos): uma para ficar ajoelhado, rastejando ou sentado e outra para ficar em pé.
-
-O personagem pode mudar de ajoelhado para em pé (e só entre essas posições) como se fosse a etapa “um passo” de qualquer outra manobra.//</tw-passagedata><tw-passagedata pid="24" name="Aparar" tags="" position="3475,1400" size="100,100">(size:2)+ (text-colour:green)+(b4r:&quot;double&quot;,&quot;none&quot;)+(b4r-colour:green,white)[&#39;&#39;APARAR&#39;&#39;]
-
-Uma manobra “Aparar” é uma tentativa de desviar um golpe utilizando uma arma ou as mãos nuas. O personagem não pode aparar a não ser que sua arma esteja preparada ou, se ele estiver desarmado, com uma das mãos vazia.
-O valor de Aparar com uma determinada arma é igual a 3 + metade do nível de habilidade do personagem com aquela arma, arredondado para baixo.
-
-(text-colour:#ff6b6b)[//RESUMO DO CONTO: O normal é aparara 1 ataque por segundo - porém 2 ou + ataques é possivel (mais improvavel), para cada tentativa além da primeira vc recebe -4 na rolagem//]
-
-//(text-colour:#20c997)[Número de Tentativas: ]
-Depois de tentar aparar com uma arma em particular ou com as mãos nuas, o personagem sofre uma penalidade cumulativa de -4 para aparar novamente com a mesma arma ou mão. Diminua essa penalidade para -2 por tentativa se o personagem estiver usando uma arma de esgrima ou se ele possuir a vantagem Treinado por Um Mestre ou Mestre de Armas — ou para -1 por tentativa se ele cumprir as duas condições. Essa penalidade só se aplica às tentativas de aparar no mesmo turno; ela não se estende a outros turnos.
-
-(text-colour:#20c997)[&#39;&#39;Informações adicionais:&#39;&#39;]
-
-1. O personagem pode usar a maior parte das armas de combate corpo a corpo para aparar. Algumas armas desajeitadas (ex., Machados) são desbalanceadas: o personagem não pode usá-las para aparar se já a usou para atacar em seu turno. (Embora ele ainda possa aparar com uma arma na outra mão, se tiver uma.)
-
-2. Algumas armas longas bem balanceadas (ex., Bordão) concedem um bônus de +1 ou +2 nas tentativas de aparar devido à sua capacidade de manter o oponente à distância.
-
-
-
-
-
-
----
-(size:2)+(text-colour:#9c36b5)[&#39;&#39;OUTRAS REGRAS:&#39;&#39;]
----
-(text-colour:#9c36b5)[Aparando com a Mão Inábil: ]
-
-Um personagem normalmente apara com a mão “inábil” (sua mão esquerda ou mão “do escudo” se ele for destro; v. Destro ou Canhoto, pág. 14) ou com uma arma nessa mão, com uma penalidade de -4 no NH. Uma vez que o valor de Aparar é igual à metade do NH, isso confere uma penalidade efetiva de -2 à jogada de defesa.
-É possível ignorar essa penalidade com a vantagem Ambidestria (pág. 38).
-
-(text-colour:#ff6b6b)[RESUMO DO CONTO: Você recebe uma penalidade de -2 se tentar apara com a mão inabil, Se o seu Aparar é 10 - entao vc considera como 8. Essa penalidade se acumula com qualquer outra penalidade que possa existir (tipo -4 para a segunda tentativa de aparar) ]
----
-
-(text-colour:#9c36b5)[Aparando Armas Arremessadas: ]
-O personagem também pode aparar armas de arremesso, mas sofre uma penalidade de -1 para a maioria delas, ou de -2 para as pequenas, como facas, shuriken e outras armas que pesam 0,5 kg ou menos.
----
-
-(text-colour:#9c36b5)[Aparar com Armas Improvisadas:]
-É possível aparar com qualquer objeto de tamanho e formato adequado, usando a perícia com arma mais próxima possível.
-Uma vara ou rifle poderia ser usado para aparar como um bastão, um arco como um porrete leve. Contudo, uma única defesa com um arco o danifica como arco — ele talvez ainda sobreviva alguns segundos como um porrete! Outros objetos frágeis podem ser arruinados de forma semelhante.
-A maior parte das armas improvisadas são consideradas “baratas” para fins de rompimento; veja Aparando Armas Pesadas.
----
-
-(text-colour:#9c36b5)[Aparar Desarmado:]
-
-Se estiver lutando sem armas ou com pelo menos uma mão livre, o personagem pode tentar aparar com as mãos nuas.
-
-Criaturas que não têm mãos (como a maior parte dos animais) não podem aparar desarmados — elas só podem se esquivar. 
-Um personagem pode usar as perícias Boxe, Briga, Caratê ou Judô — ou a DX, se ela for maior — para aparar com uma  mão. 
-
-Não existem penalidades para aparar  um ataque desarmado, mas o personagem sofre uma penalidade de -3  para aparar armas, exceto no caso de um ataque em GdP ou se o personagem estiver usando Caratê ou Judô (nesses casos, utilize o valor total de aparar).
-
-Algumas perícias de combate desarmado (ex., Judô) oferecem algumas opções especiais quando o personagem consegue aparar desarmado. Veja as descrições individuais das perícias para maiores informações.
-
-Se obtiver um sucesso numa tentativa de aparar um ataque desarmado (mordida, soco, etc.) com uma arma, o personagem pode ferir seu atacante.
-Ele deve fazer imediatamente um teste com a perícia na arma que usou para aparar. Se conseguir um sucesso, ele atinge em cheio o membro do atacante — que não terá direito a uma jogada de defesa contra o ataque! Faça a avaliação de dano normalmente.//</tw-passagedata><tw-passagedata pid="25" name="Esquiva" tags="" position="3600,1375" size="100,100">(size:2)+ (text-colour:green)+(b4r:&quot;double&quot;,&quot;none&quot;)+(b4r-colour:green,white)[&#39;&#39;ESQUIVA&#39;&#39;]
-
-
-//Uma “Esquiva” é uma tentativa ativa de sair da trajetória de um ataque. Normalmente, esta é a única defesa ativa que pode ser usada contra armas de fogo.
-
-A Esquiva do personagem é igual à sua Velocidade Básica + 3 (ignore todas as frações), menos uma penalidade igual ao nível de carga.
-
-
-&#39;&#39;ADICIONAL&#39;&#39;
-
-1. O personagem pode se esquivar de qualquer ataque, exceto daqueles que ele não sabe que vão acontecer! 
-
-2. O personagem só pode fazer um único teste de Esquiva para um determinado ataque. Mas quantas esquivas quiser contra varios ataques.//
----
-
-
-(text-colour:#66d9e8)[&#39;&#39;ESQUIVA ACROBATICA &#39;&#39;]
-
-(text-colour:#adb5bd)[REGRA DO LIVRO
-
-1 vez por turno apenas.
-
-Um personagem que gastou pelo menos um ponto na perícia Acrobacia, pode tentar uma esquiva “cinematográfica” uma vez durante seu turno.
-
-Ele pode descrever a esquiva como um salto sobre a espadada, um mortal de lado ou como preferir. Para isso, ele precisa fazer um teste de Acrobacia antes do teste de Esquiva. (Se ele estiver voando, use Acrobacia Aérea.) Em caso de sucesso, ele recebe um bônus de +2 no teste de Esquiva. Em caso de fracasso, sofre uma penalidade de -2.] 
-
-(text-colour:#ff6b6b)[REGRA ADOTADA
-
-//Mesmas regras do livro com adicional de://
-
-&#39;&#39;DEVE ESTAR SEM NENHUMA CARGA NO CORPO.&#39;&#39;]
-
-
-
-
- </tw-passagedata><tw-passagedata pid="26" name="Bloqueio" tags="" position="3325,1425" size="100,100">(size:2)+ (text-colour:green)+(b4r:&quot;double&quot;,&quot;none&quot;)+(b4r-colour:green,white)[&#39;&#39;BLOQUEIO&#39;&#39;]
- 
- 
-//Um “bloqueio” requer um escudo preparado. O valor de Bloqueio de um personagem é igual a 3 + metade de seu NH em Escudo ou Capa, ignore todas as frações.
-
-Em geral, o personagem pode bloquear qualquer ataque corpo a corpo, arma arremessada, líquido projetado ou arma motora de projétil. Não é possível bloquear balas nem armas de feixe — os projéteis dessas armas são rápidos demais para serem detidos desta forma.
-
-O personagem só pode tentar bloquear um único ataque por turno.
-//
-
-
-
-
-
-
-
-
-
-
-
-</tw-passagedata><tw-passagedata pid="27" name="Castando Magias" tags="" position="3550,775" size="100,100">(size:2)+ (text-colour:green)+(b4r:&quot;double&quot;,&quot;none&quot;)+(b4r-colour:green,white)[&#39;&#39;FAZENDO MAGIAS&#39;&#39;]
-
-
-&#39;&#39;//A manobra para se fazer uma magia é a concentrar.
-
-Para mais detalhes ver as classes de magia nesse arquivo ou no manual.
-Devido ao fato de que fazer uma magia depende MUITO da magia (por que cada uma é de um jeito)... eu só vou deixar um exemplo aqui://&#39;&#39;
-
----
-&lt;style&gt; img {
-max-width:100%;
-max-height:100%;
-}
-
-&lt;/style&gt;
-&lt;img src=https://i.ibb.co/bPb1j3Z/imagem-2023-03-31-230704379.png&gt;
-
-//As magias podem ser usadas tanto em combate quanto fora de combate - as regras sempre serão as mesmas para ambos os casos.
-
-(text-colour:orange)[Vou enrijecer uma pizza de 1 kilo (pra usar como um frisbiee)]//
-
----
-(text-colour:cyan)[&#39;&#39;1ª Usar a manobra concentrar pelo tempo necessario:&#39;&#39;]
-//ta escrito que o tempo de operação é 2 segundo para cada meio quilo, entao vou precisar de 4 segundos por que a pizza tem 1 Kg.//
-
-(text-colour:cyan)[&#39;&#39;2ª Depois de 4 segundos consome o custo de mana (no caso adiciona ao seu limite pessoal de mana)&#39;&#39;]
-//o custo é de 2 pontos de energia por Kg, então o custo é 2.//
-
-(text-colour:cyan)[&#39;&#39;3ª Pronto, a magia ta feita.&#39;&#39;]
-//Da pra jogar frisbie com a pizza. Por 10 minutos...//
----
-
-(text-colour:red)[&#39;&#39;Observações: Existem regras para caso vc seja interrompido durante esses 4 segundos de concentração. Existem regras para caso vc esteja longe do objeto (no caso a pizza). Existem regras para caso vc queira que a magia dure mais do que 10 minutos. Se o alvo for um inimigo ele pode tentar resistir. etc...&#39;&#39;]
-
-
-
-
-
-
-
-
-</tw-passagedata><tw-passagedata pid="28" name="Aptidão mágica" tags="" position="1950,1250" size="100,100">(size:2)+ (text-colour:green)+(b4r:&quot;double&quot;,&quot;none&quot;)+(b4r-colour:green,white)[LIMITES POR ESCOLAS DE MAGIAS]
-
-
-//&#39;&#39;APTIDÃO MÁGICA PARA ESCOLAS LIMITADAS!&#39;&#39;
-
-
-Como vocês sabem é possível comprar aptidão mágica se vc se limitar a apenas algumas escolas.
-O manual diz (pag 40):
-
-Ao se limitar em algumas escolas: 
-&quot;O personagem aprende as mágicas de outras escolas como se não fosse um mago e consegue fazê-las apenas em áreas de alta intensidade de mana — mas ele pode considerá-las como pré-requisitos para as mágicas de sua própria escola. O personagem não é capaz de detectar objetos encantados, a menos que eles contenham pelo menos uma mágica da escola dele — nesses casos, quando ver e tocar o objeto pela primeira vez, ele faz o teste normal de detecção&quot; 
-
-Ou seja:
-- Demora mais para aprende-las
-- Só pode usa-las em locais com muita mana (mas ainda contam para serem pré-requisitos de outras magias)
-- Não detecta objetos encantados com magias de outras escolas
-
-
-
-O livro ele da um exemplo de quanto seria os descontos para o limite de apenas 1 escola.
-Outras fontes dão exemplos de limitação em outras escolas.
-Juntando todos os exemplos cheguei a esta tabela://
-
-
-• AM1: 15 Mana Pool
-• AM2: 25 Mana Pool
-• AM3: 35 Mana Pool
-
-• Regen de Mana: 8/Dia
-
-&lt;style&gt; img {
-max-width:100%;
-max-height:100%;
-}
-
-&lt;/style&gt;
-&lt;img src=https://i.ibb.co/TLfG7Qz/escokla.jpg&gt;
-//Ela da um desconto maior que o sugerido no livro para quem se limita mais, e da um desconto menor que o sugerido para quem se limita menos.//</tw-passagedata><tw-passagedata pid="29" name="TOOLS" tags="" position="2600,350" size="100,100">
+ </tw-passagedata><tw-passagedata pid="8" name="TOOLS" tags="" position="1575,75" size="100,100">
 &lt;style&gt; img {
 max-width:100%;
 max-height:100%;
@@ -1367,7 +369,7 @@ max-height:100%;
 
 Regras Versão Abril/2023
 
-&lt;img src=https://i.pinimg.com/564x/85/d3/66/85d3663ce106401bbedd0c5ca138ca22.jpg width=00px height=300px&gt;</tw-passagedata><tw-passagedata pid="30" name="Teste de Influencia" tags="" position="2750,300" size="100,100">(size:2)+ (text-colour:green)+(b4r:&quot;double&quot;,&quot;none&quot;)+(b4r-colour:green,white)[&#39;&#39;TESTE DE INFLUÊNCIA&#39;&#39;]
+&lt;img src=https://i.pinimg.com/564x/85/d3/66/85d3663ce106401bbedd0c5ca138ca22.jpg width=00px height=300px&gt;</tw-passagedata><tw-passagedata pid="9" name="Teste de Influencia" tags="" position="1725,25" size="100,100">(size:2)+ (text-colour:green)+(b4r:&quot;double&quot;,&quot;none&quot;)+(b4r-colour:green,white)[&#39;&#39;TESTE DE INFLUÊNCIA&#39;&#39;]
 
 EM EDIÇÃO
 
@@ -1424,34 +426,7 @@ Influência. Aplique os modificadores
 de reação da causa em vez de seus pró-
 prios modificadores e use a média das
 Vontades de um grupo alvo na Disputa
-Rápida.</tw-passagedata><tw-passagedata pid="31" name="Status COnditions" tags="" position="3225,1225" size="100,100">STATUS CONDITION
-
-ATORDOAMENTO
-
-Quando o personagem fica atordoado, suas defesas ativas sofrem uma penalidade de -4 e ele é obrigado a realizar a manobra Fazer Nada em seu próximo turno. No final desse turno, ele pode fazer um teste de HT para tentar se recuperar. 
-
-No caso de um fracasso, o personagem continua atordoado e novamente é obrigado a realizar a manobra
- &quot;Fazer Nada&quot; em seu próximo turno — quando novamente ele pode tentar se livrar do efeito e assim por diante.
- 
- 
- 
- CHOQUE
- 
-  Qualquer lesão que cause a perda de PV também causa “choque”. O choque se traduz como uma penalidade aplicada sobre a DX, IQ e as perícias baseadas nesses atributos no próximo turno (apenas). Esta penalidade é de -1 para cada PV
- perdido, a menos que o personagem tenha
- 20 PV ou mais — a partir daí, a penalidade é de -1 para cada PVInicial/10 perdidos, arredondado para baixo. 
-
-A penalidade devido
- ao choque não pode exceder -4, independente da quantidade de dano sofrido
- 
- 
- 
-  
- FERIMENTOS GRAVES
- 
- Ferimentos Graves: Um ferimento grave é qualquer lesão que provoca uma perda de PV maior que o 1/2 do PVInicial do personagem. 
-Se sofrer um ferimento grave no tronco, o personagem precisa fazer um teste de HT. Se fracassar, ele fica atordoado ou derrubado; no caso de uma margem de fracasso maior ou igual a 5, ele perde a consciência
-</tw-passagedata><tw-passagedata pid="32" name="ALQUIMIA" tags="" position="1525,425" size="100,100">(size:2)+ (text-colour:green)+(b4r:&quot;double&quot;,&quot;none&quot;)+(b4r-colour:green,white)[&#39;&#39;ALQUIMIA - CRIANDO POÇÕES&#39;&#39;]
+Rápida.</tw-passagedata><tw-passagedata pid="10" name="ALQUIMIA" tags="" position="1625,475" size="100,100">(size:2)+ (text-colour:green)+(b4r:&quot;double&quot;,&quot;none&quot;)+(b4r-colour:green,white)[&#39;&#39;ALQUIMIA - CRIANDO POÇÕES&#39;&#39;]
 
 //
 &#39;&#39;GUIA DE ENCONTRAR MATERIAIS -&gt;(text-colour:#c2255c)[ [[ALQUIMIA - MATERIAIS-&gt;ALQUIMIA - MATERIAIS]]]
@@ -1617,7 +592,7 @@ Então temos que para fazer uma poção dessas é necessário ter un NH de 9 ou 
 //
 &#39;&#39;GUIA DE ENCONTRAR MATERIAIS -&gt;(text-colour:#c2255c)[ [[ALQUIMIA - MATERIAIS-&gt;ALQUIMIA - MATERIAIS]]]
 &#39;&#39;//
-</tw-passagedata><tw-passagedata pid="33" name="FORJA" tags="" position="1550,625" size="100,100">&#39;&#39;(size:2)+ (text-colour:green)+(b4r:&quot;double&quot;,&quot;none&quot;)+(b4r-colour:green,white)[ FORJA]&#39;&#39;
+</tw-passagedata><tw-passagedata pid="11" name="FORJA" tags="" position="1525,675" size="100,100">&#39;&#39;(size:2)+ (text-colour:green)+(b4r:&quot;double&quot;,&quot;none&quot;)+(b4r-colour:green,white)[ FORJA]&#39;&#39;
 
 
 (text-colour:green)[&#39;&#39;PERÍCIAS&#39;&#39;]
@@ -1705,7 +680,7 @@ O MAXIMO DE ADIÇÃO/REDUÇÃO DE TEMPO É DE 10 - ou seja, adição de 10x o te
 
 
 
-</tw-passagedata><tw-passagedata pid="34" name="ALQUIMIA - MATERIAIS" tags="" position="1675,350" size="100,100">(size:2)+ (text-colour:green)+(b4r:&quot;double&quot;,&quot;none&quot;)+(b4r-colour:green,white)[&#39;&#39;ALQUIMIA - MATERIAIS&#39;&#39;]
+</tw-passagedata><tw-passagedata pid="12" name="ALQUIMIA - MATERIAIS" tags="" position="1675,350" size="100,100">(size:2)+ (text-colour:green)+(b4r:&quot;double&quot;,&quot;none&quot;)+(b4r-colour:green,white)[&#39;&#39;ALQUIMIA - MATERIAIS&#39;&#39;]
 
 //&#39;&#39;
 Para definir o MATERIAL vc deve multiplicar o custo da vantagem por cada 50 g de material. 
@@ -1791,7 +766,7 @@ E então ele começa a fazer um desenho da erva no livro...&#39;&#39;
 
 
 
-</tw-passagedata><tw-passagedata pid="35" name="Iluminação" tags="" position="2250,325" size="100,100">Level  Lmin  Lmax  Examples
+</tw-passagedata><tw-passagedata pid="13" name="Iluminação" tags="" position="1450,250" size="100,100">Level  Lmin  Lmax  Examples
 +3  50,000  200,000  Moderate Glare, Sunlight, or Hazy Sunlight 
 +2  10,000  50,000  Moderate Overcast 
 +1  2,000  10,000  Heavy Overcast, Open Shade 
@@ -1815,7 +790,40 @@ E então ele começa a fazer um desenho da erva no livro...&#39;&#39;
 -5 Uma noite nublada.
 -6 Um quarto totalmente escuro.
 
-</tw-passagedata><tw-passagedata pid="36" name="Passagem Sem Nome 2" tags="" position="2875,300" size="100,100"></tw-passagedata></tw-storydata>
+</tw-passagedata><tw-passagedata pid="14" name="Passagem Sem Nome 2" tags="" position="1850,25" size="100,100"></tw-passagedata><tw-passagedata pid="15" name="FADIGA" tags="" position="2225,675" size="100,100">(size:2)+ (text-colour:green)+(b4r:&quot;double&quot;,&quot;none&quot;)+(b4r-colour:green,white)[&#39;&#39;FADIGA&#39;&#39;]
+//Você recupera 1 PF a cada 10 minutos descansando: dormir, comer, conversar, caminhadas simples, etc...//
+
+
+
+(text-colour:orange)[&#39;&#39;COMBATE&#39;&#39;]
+//Um combate de pelo menos 10 segundos, ocasiona em uma perda de 1 PF.//
+
+(text-colour:orange)[&#39;&#39;CAMINHADA&#39;&#39;]
+//1 PF para cada ora de caminhada longa - tipo de viagem//
+
+(text-colour:orange)[&#39;&#39;CORRIDA&#39;&#39;]
+//1 de PF a cada 15 Segundos.
+Um teste de HT pode evitar essa perda.//
+
+
+(text-colour:orange)[&#39;&#39;Modificadores:&#39;&#39;]
+//+1 para cada carga acima da sem carga (Ex. +1 Leve, +2 Media, etc..)
++1 para o ambiente (Ex. Quente)
++1 para outros (Ex. quente e de armadura)//
+
+---
+
+(text-colour:orange)[&#39;&#39;EFEITOS DA PERDA DE FADIGA&#39;&#39;]
+
+&#39;&#39;SE TIVER 33% DA SUA FADIGA INICIAL&#39;&#39;
+//Deslocamento, Esquiva e ST pela metade. (nao modifica o PV ou Dano)//
+
+&#39;&#39;SE TIVER 0 PF&#39;&#39;
+//Você perde 1PV para cada PF que perderia daqui pra frente.
+Teste de vontade para realizar ações.//
+
+&#39;&#39;SE TIVE PF NEGATIVO&#39;&#39;
+//Desmaia até recuperar o PF para um número positivo.//</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
