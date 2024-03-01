@@ -10,13 +10,13 @@ const { bold, fmt, hydrateReply, italic, link, parseMode } = require(
 );
 
 
-const {
-    BOT_API_TOKEN: token = '',
-} = process.env;
+// const {
+//     BOT_API_TOKEN: token = '',
+// } = process.env;
 
-// require("dotenv").config();
+require("dotenv").config();
 
-// const token = process.env.BOT_API_TOKEN || "";
+const token = process.env.BOT_API_TOKEN || "";
 // Defina seu token nas variáveis de ambiente do Vercel
 const bot = new Bot(token);
 
@@ -133,6 +133,65 @@ bot.command("tipo", async (ctx) =>{
   }
   
 });
+// bot.command("teste", async (ctx) => {
+//   await deleteP(9);
+//   if(ctx.match !== ""){
+//   // Inicializar a lista de divisão
+//   const str = ctx.match;
+//   let divisao = [];
+//   // Inicializar o valor e o sinal atuais
+//   let valor = [];
+//   let sinal = "";
+//   // Percorrer a string da esquerda para a direita
+//   for (let i = 0; i < str.length-1; i++){
+//     // Se o caractere for d, ignorar
+//     let c = str[i];
+  
+//     if (c == "d") {
+//       if(!/^\d$/.test(str[i-1])){
+//         valor.push(1);
+//       }
+//       if(!/^\d$/.test(str[i+1])){
+//         valor.push(0);
+//       }
+//       continue;
+//     }else{
+//       for(let u = i+1; u < str.length; u++){
+//         if(str[u] !== "d" && /^\d$/.test(str[u]) && /^\d$/.test(str[i])){
+//           c +=str[u];
+//         }else{
+//           i = u-1;
+//           break;
+//         }
+//         // console.log(c);
+//       }
+//     }
+//     // Se o caractere for uma letra maiúscula, adicionar ao valor atual
+//     console.log(c);
+//     if (!isNaN(c)) {
+//       valor.push(parseInt(c));
+//     }
+//     // Se o caractere for um sinal de + ou -, adicionar o valor e o sinal atuais à divisão e atualizar o valor e o sinal
+//     if (c === "+" || c === "-") {
+//       if (valor.length == 0) {
+//         valor.push(1);
+//       }
+//       divisao.push({valor: valor, sinal: sinal});
+//       valor = [];
+//       sinal = c;
+//     }
+//     }
+  
+//   // Adicionar o último valor e sinal à divisão
+//   // Se o valor atual estiver vazio, significa que não havia letra antes do d, então adicionar 1 ao valor
+//   if (valor.length == 0) {
+//     valor.push(1);
+//   }
+//   divisao.push({valor: valor, sinal: sinal});
+
+//     console.log(divisao);
+//   }
+// });
 
 bot.api.setMyCommands([
   { command: "roll", description: "Use o formato XdY[+/-Z][*W] [texto]" },
@@ -145,5 +204,5 @@ bot.api.setMyCommands([
   { command: "ficha", description: "Dispõe a ficha do seu personagem" },
   { command: "help", description: "Lista de comandos explicados" }
 ]);
-// bot.start();
+bot.start();
 module.exports = { bot };
