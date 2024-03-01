@@ -667,11 +667,21 @@ MOV: 1 passo no máximo&#39;&#39;
 ---
 &#39;&#39;(text-colour:magenta)[[[DEFESAS-&gt;Manobras de Defesa]]]&#39;&#39;
 
+
+&#39;&#39;(text-colour:orange)[[[BLOQUEIO TOTAL (Defesa adicional)-&gt;BLOQUEIO T Def]]]&#39;&#39;
+&#39;&#39;QUANTIDADE: É uma manobra - Não é defesa ativa
+EFEITO: Pode fazer 2 defesas ativas Diferentes contra o mesmo ataque
+MOV: 1 Passo&#39;&#39; 
+
+&#39;&#39;(text-colour:orange)[[[BLOQUEIO TOTAL (Defesa Aumentadal)-&gt;BLOQUEIO T Aum]]]&#39;&#39;
+&#39;&#39;QUANTIDADE: É uma manobra - Não é defesa ativa
+EFEITO: Concede +2 para UMA defesa qualquer até o proximo turno (bloqueio, aparar, esquivar)&#39;&#39; 
+&#39;&#39;MOV: Caso vc tenha escolhido esquivar, pode mover até metade do seu moviment - caso contrario = 1 Passo.&#39;&#39;
+
 &#39;&#39;(text-colour:orange)[[[BLOQUEIO-&gt;BLOQUEIO]]]&#39;&#39;
 &#39;&#39;QUANTIDADE: 1 Vez por turno
 REQUER: Capa ou escudo
 VALOR: 3 +metade do NH da pericia em questão&#39;&#39; 
-
 
 &#39;&#39;(text-colour:orange)[[[APARAR-&gt;APARAR]]]&#39;&#39;
 &#39;&#39;QUANTIDADE: Quantas quiser, porém -4 para cada tentativa alem da primeira
@@ -732,7 +742,11 @@ MOV: 1 passo&#39;&#39;
 
 &#39;&#39;(text-colour:orange)[[[FINTAR-&gt;FINTAR]]]&#39;&#39;
 &#39;&#39;DEFESA: Qualquer
-MOV: 1 passo&#39;&#39; </tw-passagedata><tw-passagedata pid="15" name="APONTAR" tags="" position="3025,1650" size="100,100">//&#39;&#39;(text-colour:orange)[APONTAR]&#39;&#39;
+MOV: 1 passo&#39;&#39; 
+
+
+Chamar atenção (DF ex 58)
+</tw-passagedata><tw-passagedata pid="15" name="APONTAR" tags="" position="3025,1650" size="100,100">//&#39;&#39;(text-colour:orange)[APONTAR]&#39;&#39;
 
 &#39;&#39;DEFESA: Qualquer - porem uma defesa ativa perde a mira
 MOV: 1 passo&#39;&#39;
@@ -1437,6 +1451,16 @@ max-height:100%;
 &lt;img src=https://i.giphy.com/Tim0q7zolF3fa.webp&gt;
 &lt;/div&gt;
 
+</tw-passagedata><tw-passagedata pid="53" name="BLOQUEIO T Def" tags="" position="3825,500" size="100,100">Você pode fazer duas defesas contra um mesmo ataque.
+Caso a primeira defesa falhe, vc pode fazer uma segundo.
+
+Tipo Aparar e Esquivar.
+
+OU Bloquear e aparar
+
+etc...</tw-passagedata><tw-passagedata pid="54" name="BLOQUEIO T Aum" tags="" position="3975,500" size="100,100">Você recebe um bonus de +2 parar todas e qualquer defesa até o seu proximo turno.
+Caso vc faça uma esquiva, vc pode se movimentar metade do seu deslocamento normal.
+Caso seja um bloqueio ou aparar, vc pode dar apenas 1 passo.
 </tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
