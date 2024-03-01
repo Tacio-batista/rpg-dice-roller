@@ -10,13 +10,13 @@ const { bold, fmt, hydrateReply, italic, link, parseMode } = require(
 );
 
 
-// const {
-//     BOT_API_TOKEN: token = '',
-// } = process.env;
+const {
+    BOT_API_TOKEN: token = '',
+} = process.env;
 
-require("dotenv").config();
+// require("dotenv").config();
 
-const token = process.env.BOT_API_TOKEN || "";
+// const token = process.env.BOT_API_TOKEN || "";
 // Defina seu token nas variáveis de ambiente do Vercel
 const bot = new Bot(token);
 
@@ -204,5 +204,5 @@ bot.api.setMyCommands([
   { command: "ficha", description: "Dispõe a ficha do seu personagem" },
   { command: "help", description: "Lista de comandos explicados" }
 ]);
-bot.start();
+// bot.start();
 module.exports = { bot };
