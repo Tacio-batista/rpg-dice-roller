@@ -170,9 +170,7 @@ bot.command("tipo", async (ctx) =>{
 //     console.log(c);
 //     if (!isNaN(c)) {
 //       valor.push(parseInt(c));
-//     }
-//     // Se o caractere for um sinal de + ou -, adicionar o valor e o sinal atuais à divisão e atualizar o valor e o sinal
-//     if (c === "+" || c === "-") {
+//     }else if (c === "+" || c === "-" || c === "*") {
 //       if (valor.length == 0) {
 //         valor.push(1);
 //       }
