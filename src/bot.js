@@ -143,10 +143,9 @@ bot.command("tipo", async (ctx) =>{
 //   let valor = [];
 //   let sinal = "";
 //   // Percorrer a string da esquerda para a direita
-//   for (let i = 0; i < str.length-1; i++){
+//   for (let i = 0; i < str.length; i++){
 //     // Se o caractere for d, ignorar
 //     let c = str[i];
-  
 //     if (c == "d") {
 //       if(!/^\d$/.test(str[i-1])){
 //         valor.push(1);
@@ -157,22 +156,25 @@ bot.command("tipo", async (ctx) =>{
 //       continue;
 //     }else{
 //       for(let u = i+1; u < str.length; u++){
-//         if(str[u] !== "d" && /^\d$/.test(str[u]) && /^\d$/.test(str[i])){
-//           c +=str[u];
+//         if(str[u] !== "d" && /^\d$/.test(str[u]) && /^\d$/.test(str[u-1])){
+//           c +=str[u]; 
 //         }else{
 //           i = u-1;
 //           break;
 //         }
-//         // console.log(c);
+//         if(u === str.length - 1){
+//           i = u;
+//         }
 //       }
 //     }
 //     // Se o caractere for uma letra maiúscula, adicionar ao valor atual
-//     console.log(c);
+
 //     if (!isNaN(c)) {
 //       valor.push(parseInt(c));
 //     }else if (c === "+" || c === "-" || c === "*") {
-//       if (valor.length == 0) {
-//         valor.push(1);
+//       console.log(valor);
+//       if (valor.length === 0 ) {
+//         valor.push(0);
 //       }
 //       divisao.push({valor: valor, sinal: sinal});
 //       valor = [];
@@ -180,13 +182,9 @@ bot.command("tipo", async (ctx) =>{
 //     }
 //     }
   
-//   // Adicionar o último valor e sinal à divisão
-//   // Se o valor atual estiver vazio, significa que não havia letra antes do d, então adicionar 1 ao valor
-//   if (valor.length == 0) {
-//     valor.push(1);
-//   }
 //   divisao.push({valor: valor, sinal: sinal});
-
+//   divisao[0].sinal = "+";
+//   divisao = divisao.filter(objeto => !objeto.valor.includes(0));
 //     console.log(divisao);
 //   }
 // });
