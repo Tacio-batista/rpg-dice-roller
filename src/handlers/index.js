@@ -213,7 +213,7 @@ function rollTableDefine(match){
   for (let i = 0; i < str.length; i++){
     // Se o caractere for d, ignorar
     let c = str[i];
-    if (c == "d") {
+    if (c == "d" || c == "D") {
       if(!/^\d$/.test(str[i-1])){
         valor.push(1);
       }
@@ -223,7 +223,7 @@ function rollTableDefine(match){
       continue;
     }else{
       for(let u = i+1; u < str.length; u++){
-        if(str[u] !== "d" && /^\d$/.test(str[u]) && /^\d$/.test(str[u-1])){
+        if((str[u] !== "d" || str[u] !== "D") && /^\d$/.test(str[u]) && /^\d$/.test(str[u-1])){
           c +=str[u]; 
         }else {
           i = u-1;
