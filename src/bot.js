@@ -156,7 +156,7 @@ bot.api.setMyCommands([
   { command: "tipo", description: "Dispõe a lista de tipos de corpos" },
   { command: "ponto", description: "Dispõe as descrições dos pontos de impacto" },
   { command: "regras", description: "Dispõe a lista de regras" },
-  { command: ["hist", "historia", "lore"], description: "Dispõe a lista das histórias" },
+  { command: "lore", description: "Dispõe a lista das histórias" },
   { command: "ficha", description: "Dispõe a ficha do seu personagem" },
   { command: "help", description: "Lista de comandos explicados" }
 ]);
