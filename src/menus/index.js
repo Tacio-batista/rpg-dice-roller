@@ -14,6 +14,10 @@ const rulesMenu = new Menu("rules-menu")
   .row()
   .url("Magias!", links.rules.spells)
   .dynamic( async () => rodape);
+
+const historyMenu = new Menu("history-menu")
+  .url("Mons Ignus!", links.history.ignus)
+  .dynamic( async () => rodape);
   
 const abbadonMenu = new Menu("abbadon-menu")
   .url("Abrir!", links.sheets.Abbadon)
@@ -127,5 +131,6 @@ module.exports = {
   fergusMenu,
   helpMenu,
   deleteP,
-  pointMenu
+  pointMenu,
+  historyMenu
 };

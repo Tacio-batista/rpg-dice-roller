@@ -17,6 +17,9 @@ const links = {
     Tibius: "http://t.me/SquareDice_bot/fichaTibius",
     Fergus: "http://t.me/SquareDice_bot/fichaFergus",
     Abbadon: "http://t.me/SquareDice_bot/fichaAbbadon",
+  },
+  history:{
+    ignus: "http://t.me/SquareDice_bot/monsIgnus",
   }
 }
 const obs = [
