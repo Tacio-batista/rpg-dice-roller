@@ -52,7 +52,7 @@ bot.command(["hist", "historia", "lore"], async (ctx) => {
     await deleteP(9);
     const ID = String(ctx.from.id);
     if(await handleChatTypeResponse(ID, ctx)){
-      await ctx.reply("Lore!", { reply_markup: historyMenu});
+      await ctx.reply("História!", { reply_markup: historyMenu});
     }
   });
 
@@ -156,7 +156,7 @@ bot.api.setMyCommands([
   { command: "tipo", description: "Dispõe a lista de tipos de corpos" },
   { command: "ponto", description: "Dispõe as descrições dos pontos de impacto" },
   { command: "regras", description: "Dispõe a lista de regras" },
-  { command: "lore", description: "Dispõe a lista das histórias" },
+  { command: "historia", description: "Dispõe a lista das histórias" },
   { command: "ficha", description: "Dispõe a ficha do seu personagem" },
   { command: "help", description: "Lista de comandos explicados" }
 ]);
