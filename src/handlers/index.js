@@ -302,7 +302,7 @@ function rollDice(match, flag, markdown, stringType) {
     for (let j = 0; j < divisor; j++) {
       total = 0;
       let rolls = [];
-      const stringType = match[5] === undefined ? " " : stringType; // Defina o texto como uma string vazia se não for fornecido
+      stringType = match[5] === undefined ? " " : stringType; // Defina o texto como uma string vazia se não for fornecido
 
       if (j === 0) {
         text = `:\n`;
