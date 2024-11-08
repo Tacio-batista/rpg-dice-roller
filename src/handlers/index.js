@@ -8,7 +8,6 @@ function getResultForType(type, result) {
   let typeResult;
   let typeDesc;
   // Object.keys(body.desc).map(desc => desc === type.toLowerCase());
-  try{
   if (body.types[type.toLowerCase()]) {
     typeResult = body.types[type.toLowerCase()][result];
     typeDesc = getDescForType(typeResult, type);
@@ -16,7 +15,7 @@ function getResultForType(type, result) {
   } else {
     typeResult = "Tipo desconhecido.\nUtilize o formato \[[tipo\]]\[[*W\]] com o /tipo adequado.";
     typeDesc = false;
-  }}catch(err){}
+  }
   return { typeDesc, typeResult };
 }
 
@@ -338,11 +337,12 @@ function rollDice(match, flag, markdown, stringType) {
       console.log(rolls);
       console.log(total);
 
-
+      
+      if(stringType){
       bodyPoint = getResultForType(stringType, total);
       impFlag = bodyPoint.typeDesc;
       tempText = bodyPoint.typeResult;
-
+}
       if (divisor !== 1) {
 
         if (markdown === "V2") {
