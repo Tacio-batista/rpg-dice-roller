@@ -338,7 +338,7 @@ function rollDice(match, flag, markdown, stringType) {
       console.log(total);
 
       
-      if(stringType){
+      if(flag){
       bodyPoint = getResultForType(stringType, total);
       impFlag = bodyPoint.typeDesc;
       tempText = bodyPoint.typeResult;
