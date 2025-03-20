@@ -9,9 +9,10 @@ const playersID = {
 
 const links = { 
   rules: {
-    general: "http://t.me/SquareDice_bot/regrasGerais",
-    combat: "http://t.me/SquareDice_bot/regrasCombate",
-    spells: "http://t.me/SquareDice_bot/regrasMagias",
+    general:  "http://t.me/SquareDice_bot/regrasGerais",
+    combat:   "http://t.me/SquareDice_bot/regrasCombate",
+    spells:   "http://t.me/SquareDice_bot/regrasMagias",
+    manobras: "http://t.me/SquareDice_bot/MANOBRAS"
   },
   sheets:{
     Tibius: "http://t.me/SquareDice_bot/fichaTibius",

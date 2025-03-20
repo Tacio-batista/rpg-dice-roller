@@ -1,7 +1,7 @@
 const { Bot, session } = require('grammy');
 const { conversations, createConversation } = require("@grammyjs/conversations");
 const { golpeFulminante, erroCritico, rollDice, playersID, selectName, handleChatTypeResponse, getResultForType, rollTableDefine } = require("./handlers");
-const { rulesMenu, dgSheetsMenu, tibiusMenu, fergusMenu, abbadonMenu, helpMenu, deleteP, pointMenu, historyMenu} = require("./menus");
+const { rulesMenu, manobrasMenu, dgSheetsMenu, tibiusMenu, fergusMenu, abbadonMenu, helpMenu, deleteP, pointMenu, historyMenu} = require("./menus");
 const { getFormattedCharacters } = require("./utils");
 const { links, body } = require("./constants/characters");
 const { InlineKeyboard } = require("grammy");
@@ -35,6 +35,7 @@ bot.use(abbadonMenu);
 bot.use(helpMenu);
 bot.use(pointMenu);
 bot.use(historyMenu);
+bot.use(manobrasMenu);
 
 bot.command(["r", "roll", "rolar"], async (ctx) => {
   await deleteP(9);
@@ -47,6 +48,14 @@ bot.command(["r", "roll", "rolar"], async (ctx) => {
   
   }
 });
+
+bot.command("manobras", async (ctx) => {
+  await deleteP(9);
+  const ID = String(ctx.from.id);
+    if(await handleChatTypeResponse(ID, ctx)){
+      await ctx.reply("Manobras!", { reply_markup: historyMenu});
+    }
+  });
 
 bot.command(["hist", "historia", "lore"], async (ctx) => {
     await deleteP(9);

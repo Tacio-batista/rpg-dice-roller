@@ -13,6 +13,12 @@ const rulesMenu = new Menu("rules-menu")
   .url("Combate!", links.rules.combat)
   .row()
   .url("Magias!", links.rules.spells)
+  .row()
+  .url("Manobras!", links.rules.manobras)
+  .dynamic( async () => rodape);
+
+const manobrasMenu = new Menu("manobras-menu")
+  .url("Manobras!", links.rules.manobras)
   .dynamic( async () => rodape);
 
 const historyMenu = new Menu("history-menu")
@@ -132,5 +138,6 @@ module.exports = {
   helpMenu,
   deleteP,
   pointMenu,
-  historyMenu
+  historyMenu,
+  manobrasMenu,
 };
