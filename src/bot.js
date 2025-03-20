@@ -53,7 +53,7 @@ bot.command("manobras", async (ctx) => {
   await deleteP(9);
   const ID = String(ctx.from.id);
     if(await handleChatTypeResponse(ID, ctx)){
-      await ctx.reply("Manobras!", { reply_markup: historyMenu});
+      await ctx.reply("Manobras!", { reply_markup: manobrasMenu});
     }
   });
 
